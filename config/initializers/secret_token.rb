@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Musteri::Application.config.secret_token = 'b116693598f084d66c6d359251be7b927b3e9e1a8bf33cbc207bcb9a83631dde19c7637ae62faff77bea19442dc407bfca9b269e84a891c986459aec846a8dd1'
+Temple::Application.config.secret_token = 'bf1613ee0ff0e158125985edc2cbc2c506e590c978da28ff8faa333735d6df699ba7f35a0338b526efdaa58724abd10362bc2ed7039da0daac653645dcf60678'

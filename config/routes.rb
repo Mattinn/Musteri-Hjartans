@@ -1,4 +1,17 @@
-Musteri::Application.routes.draw do
+Temple::Application.routes.draw do
+  resources :treatments
+
+  resources :specialists
+
+  get "public/index"
+
+  get "public/about"
+    
+  match "/specs/:id" => "public#specs"
+  
+  root :to => 'public#index'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

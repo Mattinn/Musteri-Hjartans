@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nafn:</b>
+  <%= @specialist.name %>
+</p>
+
+<p>
+  <b>Cms name:</b>
+  <%= @specialist.cms_name %>
+</p>
+
+<p>
+  <b>Titill:</b>
+  <%= @specialist.title %>
+</p>
+
+<p>
+  <b>Tölvupóstur:</b>
+  <%= @specialist.email %>
+</p>
+
+<p>
+  <b>Sími:</b>
+  <%= @specialist.phone %>
+</p>
+
+<p>
+  <b>Póstnúmer:</b>
+  <%= @specialist.pnr %>
+</p>
+
+
+<%= link_to 'Edit', edit_specialist_path(@specialist) %> |
+<%= link_to 'Back', specialists_path %>
