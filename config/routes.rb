@@ -2,6 +2,8 @@ Temple::Application.routes.draw do
   resources :treatments
 
   resources :specialists
+  
+  root :to => 'public#index'
 
   get "public/index"
 
@@ -9,7 +11,6 @@ Temple::Application.routes.draw do
     
   match "/specs/:id" => "public#specs"
   
-  root :to => 'public#index'
 
 
   # The priority is based upon order of creation:
