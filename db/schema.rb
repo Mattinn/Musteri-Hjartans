@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918145529) do
+ActiveRecord::Schema.define(:version => 20120925191312) do
 
   create_table "cms_attachment_versions", :force => true do |t|
     t.integer  "original_record_id"
@@ -499,6 +499,39 @@ ActiveRecord::Schema.define(:version => 20120918145529) do
 
   add_index "cms_users", ["expires_at"], :name => "index_cms_users_on_expires_at"
   add_index "cms_users", ["login"], :name => "index_cms_users_on_login", :unique => true
+
+  create_table "news", :force => true do |t|
+    t.integer  "version"
+    t.integer  "lock_version",  :default => 0
+    t.string   "name"
+    t.text     "content"
+    t.text     "description"
+    t.integer  "category_id"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "published",     :default => false
+    t.boolean  "deleted",       :default => false
+    t.boolean  "archived",      :default => false
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
+  end
+
+  create_table "news_versions", :force => true do |t|
+    t.integer  "original_record_id"
+    t.integer  "version"
+    t.string   "name"
+    t.text     "content"
+    t.text     "description"
+    t.integer  "category_id"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.boolean  "published",          :default => false
+    t.boolean  "deleted",            :default => false
+    t.boolean  "archived",           :default => false
+    t.string   "version_comment"
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
+  end
 
   create_table "specialists", :force => true do |t|
     t.string   "name"

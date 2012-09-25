@@ -1,4 +1,6 @@
 Temple::Application.routes.draw do
+  namespace :cms  do content_blocks :news end
+
   resources :treatments
 
   resources :specialists
