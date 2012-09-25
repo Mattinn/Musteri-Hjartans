@@ -14,7 +14,7 @@ Temple::Application.routes.draw do
   match 'new' => 'apply#new', :as => 'apply', :via => :get
   match 'apply' => 'apply#create', :as => 'apply', :via => :post
   match 'medferdir' => 'treatments#edit'
-
+  match 'specialists/:action/:id', :controller => 'specialists_controller'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
