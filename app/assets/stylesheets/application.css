@@ -35,75 +35,95 @@
     color: #000;
   }
   
+  div 
+  {
+    text-align:center;
+  }
+  
   #container
   {
-  	width:1424px;
+    border:1px solid purple;
+    width:755px;
+    margin:0 auto;
+    padding:5px;
+    text-align:left;
+    position:relative
   }
   
   #header 
   {
-    background-color: white;
-    border-style:solid;
-    border-width:3px;
-    border-color: black;
-    width: 1415px;
-    height: 200px;
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0;
+    border:2px solid red;
+    width:750px;
+    height:94px;
   }
   
   #content
   {
-    float: left;
-    height: 451px;
-    background-color: white;
-    border: 3px solid #aaa;
-    border-color: black;
-    border-top: none;
-    padding: 25px;
-    width: 860px;
+    border:2px solid blue;
+    width:400px;
+    margin:10px 0 10px 175px;
+    min-height:500px;
+    _height:500px
   }
   
   #menu-left
   {
-    float: left;
-    height: 500px;
-    width: 250px;
-    color: red;
-    border-style:solid;
-    border-width:2px;
-    border-color: black;
+    border:2px solid green;
+    width:150px;
+    float:left;
+    margin:10px 0 10px 5px;
+    height:500px;
   }
 
   #menu-right
   {
-    float: right;
-    height: 500px;
-    width: 250px;
-    color: yellow;
-    border-style:solid;
-    border-width:2px;
-    border-color: black;
+    position:absolute;
+    top:109px;
+    right:10px;
+    border:2px solid green;
+    width:150px;
+    margin:0;
+    height:500px;
   }
 
   #footer 
   {
-    clear: both;
-    height: 100px;
-    width: 1415px
-    border-top none;
-    border-style:solid;
-    border-width:2px;
-    border-color: black;
-    
+    border:2px solid red;
+    width:750px;
+    height:30px;
   }
 
-  a  {color: #03c}
-  a:hover 
+  ul#button-menu 
   {
-    background-color: #03c;
-    color: white;
-    text-decoration: none;
+	margin: 35px 0;
+	padding: 0;
+	font: 12px Verdana;
+	list-style-type: none;
   }
+  
+  ul#button-menu li 
+  {
+	display: inline;
+  }
+  
+  ul#button-menu li a 
+  {
+	padding: 5px 10px;
+	border: 1px solid #aaa;
+	background-color: #eee;
+	color: #47a;
+	text-decoration: none;
+  }
+  
+  ul#button-menu a:hover 
+  {
+	background: #fff;
+	color: #222;
+  }
+  
+  ul#button-menu li.current a 
+  {
+	border:1px solid #777;
+  }
+
+

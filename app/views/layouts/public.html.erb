@@ -10,24 +10,36 @@
 	<div id="container">
     	<div id="header">
     		<h1>Velkomin í Musteri kærleikans!</h1>
+    		<div id="button-div">
+    			<ul id="button-menu">
+				  <li class="current"><a href="index.html">Heim</a></li>
+				  <li><a href="news.html">Fréttir</a></li>
+				  <li><a href="specs">Óhefðbundnar lækningar</a></li>
+				  <li><a href="422.html">Meðferðaraðilar</a></li>
+				  <li><a href="404.html">Persónupróf</a></li>
+				</ul>
+    		</div>
     	</div>
 		<div id="menu-left">
-      		<a href="/">Index</a> ..
-      		<a href="/public/about">About</a>
+			<ul>
+      		  <li><a href="/">Index</a></li>
+      		  <li><a href="/public/about">About</a></li>
+      		  <li><a href="/specs/1">Matti</a></li>
+      	    </ul>
     	</div>
     	<div id="content">
     		<p>Content goes here !</p> 
+    		<%= yield %>
     	</div>
     	<div id="menu-right">
-    		<p>login og edit user</p>
-    		
+    		<ul>
+    			<li><a href="/new">Sækja um aðgang</a></li>
+    		    <li><%= link_to "Innskráning", cms.sitemap_path %></li>
+ 		    </ul>   		
     	</div>
     	<div id="footer">
     		<p>Footer<p> 
     	</div>
     </div>
-
-<%= yield %>
-
 </body>
 </html>

@@ -11,8 +11,9 @@ Temple::Application.routes.draw do
     
   match "/specs/:id" => "public#specs"
   
-  match 'apply' => 'apply#new', :as => 'apply', :via => :get
+  match 'new' => 'apply#new', :as => 'apply', :via => :get
   match 'apply' => 'apply#create', :as => 'apply', :via => :post
+  match 'medferdir' => 'treatments#edit'
 
 
   # The priority is based upon order of creation:
