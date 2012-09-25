@@ -1,4 +1,4 @@
-class SpecialistsController < Cms::ContentBlockController
+class SpecialistsController < CustomController
   # GET /specialists
   # GET /specialists.json
   include Cms::TemplateSupport

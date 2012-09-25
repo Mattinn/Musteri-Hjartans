@@ -1,33 +1,35 @@
 <h1>Listing specialists</h1>
+<%- content_for(:main) do -%>
+	<table>
+	  <tr>
+	    <th>Nafn</th>
+	    <th>Notandanafn</th>
+	    <th>Title</th>
+	    <th>Email</th>
+	    <th>Phone</th>
+	    <th>Pnr</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+	
+	<% @specialists.each do |specialist| %>
+	  <tr>
+	    <td><%= specialist.name %></td>
+	    <td><%= specialist.cms_name %></td>
+	    <td><%= specialist.title %></td>
+	    <td><%= specialist.email %></td>
+	    <td><%= specialist.phone %></td>
+	    <td><%= specialist.pnr %></td>
+	    <td><%= link_to 'Show', specialist %></td>
+	    <td><%= link_to 'Edit', edit_specialist_path(specialist) %></td>
+	    <td><%= link_to 'Destroy', specialist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	<% end %>
+	</table>
+	
+	<br />
+	
+	<%= link_to 'New Specialist', new_specialist_path %>
 
-<table>
-  <tr>
-    <th>Nafn</th>
-    <th>Notandanafn</th>
-    <th>Title</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Pnr</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @specialists.each do |specialist| %>
-  <tr>
-    <td><%= specialist.name %></td>
-    <td><%= specialist.cms_name %></td>
-    <td><%= specialist.title %></td>
-    <td><%= specialist.email %></td>
-    <td><%= specialist.phone %></td>
-    <td><%= specialist.pnr %></td>
-    <td><%= link_to 'Show', specialist %></td>
-    <td><%= link_to 'Edit', edit_specialist_path(specialist) %></td>
-    <td><%= link_to 'Destroy', specialist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Specialist', new_specialist_path %>
+<%- end -%>
