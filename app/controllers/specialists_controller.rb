@@ -1,6 +1,12 @@
-class SpecialistsController < ApplicationController
+class SpecialistsController < Cms::ContentBlockController
   # GET /specialists
   # GET /specialists.json
+  include Cms::TemplateSupport
+  
+  before_filter :index
+  
+  layout 'templates/default'
+  
   def index
     @specialists = Specialist.all
 
