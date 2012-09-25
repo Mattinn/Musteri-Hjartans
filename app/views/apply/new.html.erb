@@ -10,6 +10,10 @@
   <body>
   <%= yield %>
   
+  <div id="headline">
+  	Hér getur þú sótt um aðgang að síðunni
+  </div>
+  
   <%= form_for @message, :url => apply_path do |form| %>
   <fieldset class="fields">
     <div class="field">
