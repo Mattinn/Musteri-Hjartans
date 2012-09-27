@@ -533,25 +533,4 @@ ActiveRecord::Schema.define(:version => 20120925191312) do
     t.integer  "updated_by_id"
   end
 
-  create_table "specialists", :force => true do |t|
-    t.string   "name"
-    t.string   "cms_name"
-    t.string   "title"
-    t.string   "email"
-    t.string   "phone"
-    t.integer  "pnr"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "treatments", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "specialists_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
-  add_index "treatments", ["specialists_id"], :name => "index_treatments_on_specialists_id"
-
 end
