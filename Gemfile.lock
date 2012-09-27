@@ -31,6 +31,9 @@ GEM
     ancestry (1.2.5)
       activerecord (>= 2.2.2)
     arel (3.0.2)
+    bootstrap-sass-rails (2.1.1.1)
+      railties (~> 3.1)
+      sass-rails (~> 3.1)
     browsercms (3.5.4)
       ancestry (~> 1.2.4)
       ckeditor_rails (~> 3.6.4)
@@ -126,6 +129,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bootstrap-sass-rails
   browsercms (= 3.5.4)
   coffee-rails (~> 3.2.1)
   jquery-rails
