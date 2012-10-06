@@ -1,2 +1,0 @@
-
-<%= f.cms_text_field :name %><%= f.cms_text_editor :content %><%= f.cms_text_editor :description %><%= f.cms_file_field :attachment, :label => "Attachment" %><%= f.cms_drop_down :category_id, categories_for('News').map{|c| [c.path, c.id]} %>
