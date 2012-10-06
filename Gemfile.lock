@@ -29,7 +29,13 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
+<<<<<<< HEAD
     bcrypt-ruby (3.0.1-x86-mingw32)
+=======
+    bootstrap-sass-rails (2.1.1.1)
+      railties (~> 3.1)
+      sass-rails (~> 3.1)
+>>>>>>> 26fc84013b5865eafbdb86d50f90885a2c17e71e
     builder (3.0.3)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -106,7 +112,11 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+<<<<<<< HEAD
   bcrypt-ruby (~> 3.0.0)
+=======
+  bootstrap-sass-rails
+>>>>>>> 26fc84013b5865eafbdb86d50f90885a2c17e71e
   coffee-rails (~> 3.2.1)
   jquery-rails
   rails (= 3.2.8)
