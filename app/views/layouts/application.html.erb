@@ -7,28 +7,51 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	
-<div class="navbar navbar-fixed-top">  
-  <div class="navbar-inner">  
-    <div class="container">  
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".collapse">  
-        <span class="icon-bar"></span>  
-        <span class="icon-bar"></span>  
-        <span class="icon-bar"></span>  
-      </a>  
-      <a class="brand">Musteri Kærleikans</a>  
-      <div class="nav-collapse">  
-        <ul class="nav">  
-          <li><%= link_to "Browse Products"%></li>  
-          <li><%= link_to "Price List" %></li>  
-          <li><%= link_to "Contact Us" %></li>  
-          <li><%= link_to "Cart" %></li>  
-        </ul>  
-      </div>  
-    </div>  
-  </div>  
-</div>  
-<div id="user_nav">
+<!-- Navbar -->
+ <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#">Musteri Kærleikans</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="active"><a href="/"><i class="icon-home icon-white"></i> Heim</a></li>
+          <li><a href="#about">Um okkur</a></li>
+          <li><a href="#contact">Hafðu samband</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Valmöguleikar <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Fróðleikur</a></li>
+              <li><a href="users#show">Meðferðaraðilar</a></li>
+              <li><a href="#">Persónupróf</a></li>
+              <li class="divider"></li>
+              <li class="nav-header">Nav header</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form pull-right">
+          <input class="span2" type="text" placeholder="Email">
+          <input class="span2" type="password" placeholder="Password">
+          <button type="submit" class="btn">Sign in</button>
+        </form>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div> 
+<!-- end of navbar-->
+
+<!-- Flash messages-->
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+
+<div id="user_nav" float="right">
   <% if current_user %>
     Logged in as <%= current_user.email %>.
     <%= link_to "Log out", log_out_path %>
@@ -37,11 +60,44 @@
     <%= link_to "log in", log_in_path %>
   <% end %>
 </div>
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
+    <div class="container">
 
-<%= yield %>
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+      	<!-- page speccific content is loaded here -->
+		<%= yield %>
+        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+       </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Musteri Kærleikans 2012, Menntavegi 1, 101 Reykjavík,  Sími: xxx-xxxx, Netfang: musterikaerleikans@gmail.com</p>
+      </footer>
+
+    </div> 
+
+
+
 
 </body>
 </html>
