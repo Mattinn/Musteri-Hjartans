@@ -1,0 +1,22 @@
+<h1>Fréttir</h1>
+
+<% @news.each do |news| %>
+  <ul id="showNews">
+    <li><h2><%= news.title %></h2></li>
+    <li><%= news.created_at.strftime("%Y-%m-%d %H:%M") %></li>
+	 <li><%=h truncate(news.body, :length => 450) %><%= link_to ' meira', news %></li>
+    <li><br /></li>
+    <li><%= news.author %></li>
+ 	<!-- if current_user == admin -->
+ 	<table>
+ 		<li>
+		    <tr><%= link_to 'Breyta ', edit_news_path(news) %></tr>
+		    <tr><%= link_to 'Eyða', news, method: :delete, data: { confirm: 'Are you sure?' } %></tr>
+		</li>
+    </table>
+  </ul>
+<% end %>
+
+<br />
+
+<%= link_to 'New News', new_news_path %>
