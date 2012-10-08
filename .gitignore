@@ -16,3 +16,8 @@
 
 # Ignore Aptana project files
 .project
+
+# Ignore Emacs and Vim tempfiles
+*~
+*#
+#*
