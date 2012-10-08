@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "musterikaerleikans@gmail.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -7,9 +7,7 @@ class UserMailer < ActionMailer::Base
   #   en.user_mailer.new_user.subject
   #
   def new_user
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    mail to: "musterikaerleikans@gmail.com", subject: 'New user awaiting confirmation'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -17,9 +15,8 @@ class UserMailer < ActionMailer::Base
   #
   #   en.user_mailer.confirmation.subject
   #
-  def confirmation
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def confirmation(user)
+    @name = user.username
+    mail to: user.email, subject: 'Thanks for registering'
   end
 end

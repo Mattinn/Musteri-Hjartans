@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   
   attr_accessor :password
   before_save :encrypt_password
-  
+  after_save :send_notification_emails
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates_presence_of :email
@@ -25,4 +25,10 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+end
+
+def send_notification_emails
+  #Notifies both admin and user of the registration
+  UserMailer.confirmation(self).deliver
+  UserMailer.new_user.deliver
 end
