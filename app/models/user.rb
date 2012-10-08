@@ -30,5 +30,5 @@ end
 def send_notification_emails
   #Notifies both admin and user of the registration
   UserMailer.confirmation(self).deliver
-  UserMailer.new_user.deliver
+  UserMailer.new_user(self).deliver
 end
