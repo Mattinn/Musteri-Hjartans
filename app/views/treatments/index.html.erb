@@ -1,0 +1,24 @@
+<h1>Meðferðir</h1>
+
+<table class="table table-striped"> 
+  <thead> 
+    <tr> 
+	  <th>ID</th> 
+	  <th>Name</th> 
+      <th>Created at</th> 
+	  <th>Actions</th> 
+	</tr> 
+  </thead> 
+  <tbody> 
+  <% @treatments.each do |treatment| %> 
+    <tr> 
+      <td><%= treatment.id %></td> 
+      <td><%= link_to treatment.name, treatment_path(treatment) %></td> 
+	  <td><%= treatment.created_at %></td> 
+  	  <td> <%= link_to 'Edit', edit_treatment_path(treatment), :class => 'btn btn-mini' %> <%= link_to 'Destroy', treatment_path(treatment), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %> </td> 
+	</tr> <% end %> 
+   </tbody> 
+</table> 
+<%= link_to 'New', new_treatment_path, :class => 'btn btn-primary' %>
+
+<br />

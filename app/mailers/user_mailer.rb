@@ -6,7 +6,7 @@ class UserMailer < ActionMailer::Base
   #
   #   en.user_mailer.new_user.subject
   #
-  def new_user
+  def new_user(user)
     mail to: "musterikaerleikans@gmail.com", subject: 'New user awaiting confirmation'
   end
 
