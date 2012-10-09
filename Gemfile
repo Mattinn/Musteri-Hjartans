@@ -26,10 +26,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'bootstrap-sass'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', :require => "bcrypt"
-gem 'bootstrap-sass-rails'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

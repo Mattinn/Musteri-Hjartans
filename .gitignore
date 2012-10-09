@@ -17,6 +17,13 @@
 # Ignore Aptana project files
 .project
 
+# Ignore Sass-rails files
+*.gem
+.sass-cache
+bootstrap.css
+bootstrap-responsive.css
+Gemfile.lock
+
 # Ignore Emacs and Vim tempfiles
 *~
 *#
