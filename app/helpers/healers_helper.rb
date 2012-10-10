@@ -1,0 +1,2 @@
+module HealersHelper
+end

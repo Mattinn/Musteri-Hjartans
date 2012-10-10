@@ -1,5 +1,7 @@
 Musteri::Application.routes.draw do
   
+  resources :healers
+
   resources :treatments
 
   resources :news

@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007191945) do
+ActiveRecord::Schema.define(:version => 20121010030216) do
+
+  create_table "healers", :force => true do |t|
+    t.string   "name"
+    t.integer  "postal_code"
+    t.integer  "user_id"
+    t.integer  "treatments_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "healers", ["treatments_id"], :name => "index_healers_on_treatments_id"
+  add_index "healers", ["user_id"], :name => "index_healers_on_user_id"
 
   create_table "news", :force => true do |t|
     t.string   "title"
@@ -35,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20121007191945) do
     t.string   "password_salt"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.boolean  "active"
   end
 
 end

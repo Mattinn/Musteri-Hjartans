@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  postal_code: 1
+  user: 
+  treatments: 
+
+two:
+  name: MyString
+  postal_code: 1
+  user: 
+  treatments: 
