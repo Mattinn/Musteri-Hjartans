@@ -43,12 +43,9 @@ ActiveRecord::Schema.define(:version => 20121010111304) do
   create_table "treatments", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "healers_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
-
-  add_index "treatments", ["healers_id"], :name => "index_treatments_on_healers_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"
