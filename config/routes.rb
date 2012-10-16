@@ -1,12 +1,14 @@
 Musteri::Application.routes.draw do
   
-  resources :healers
-
-  resources :treatments
-
-  resources :news
-  resources :users
+  
   resources :sessions
+  resources :treatments
+  resources :news
+  
+  resources :users do
+    resources :healers
+  end
+  
 
   root :to => 'news#index'
   

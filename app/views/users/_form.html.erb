@@ -26,6 +26,20 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  
+  <%= f.fields_for :healer do |builder| %>
+  <div class="field">
+  	<%= builder.label :name %><br />
+  	<%= builder.text_field :name %>
+  </div>
+  
+    <div class="field">
+  	<%= builder.label :postal_code %><br />
+  	<%= builder.number_field :postal_code %>
+  </div>
+  <% end %>
+  
+  
   <div class="actions">
     <%= f.submit %>
   </div>
