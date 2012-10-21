@@ -6,7 +6,7 @@ Musteri::Application.routes.draw do
   resources :news
   
   resources :users do
-    resources :healers
+    resources :healer
   end
   
 

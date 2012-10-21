@@ -1,3 +1,4 @@
+<%= @user.build_healer %>
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -11,10 +12,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
+  <h2>Aðgangs upplýsingar</h2>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
@@ -27,20 +25,12 @@
     <%= f.password_field :password_confirmation %>
   </div>
   
-  <%= f.fields_for :healer do |builder| %>
-  <div class="field">
-  	<%= builder.label :name %><br />
-  	<%= builder.text_field :name %>
-  </div>
-  
-    <div class="field">
-  	<%= builder.label :postal_code %><br />
-  	<%= builder.number_field :postal_code %>
-  </div>
-  <% end %>
-  
+  <h2>Persónu upplýsingar</h2>
+  <%= render :partial => 'healers/form',
+             :locals => {:form => f} %> 
   
   <div class="actions">
     <%= f.submit %>
   </div>
+  
 <% end %>

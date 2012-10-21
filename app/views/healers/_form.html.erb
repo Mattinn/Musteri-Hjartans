@@ -1,33 +1,10 @@
-<%= form_for(@healer) do |f| %>
-  <% if @healer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@healer.errors.count, "error") %> prohibited this healer from being saved:</h2>
-
-      <ul>
-      <% @healer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form.fields_for :healer do |f| %>
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, 'Nafn' %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :postal_code %><br />
+    <%= f.label :postal_code, 'Póstnúmer' %><br />
     <%= f.number_field :postal_code %>
-  </div>
-  <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </div>
-  <div class="field">
-    <%= f.label :treatments %><br />
-    <%= f.text_field :treatments %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>

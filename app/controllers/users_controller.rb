@@ -25,10 +25,8 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-    @healer = @user.create_healer
-
-    
-      respond_to do |format|
+   
+    respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
     end
@@ -43,7 +41,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-    @user.create_healer.(params[:healer])
+  #  @healer = Healer.new(params[:healer]) 
 
     respond_to do |format|
       if @user.save

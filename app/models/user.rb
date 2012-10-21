@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_one :healer, :dependent => :destroy
-  accepts_nested_attributes_for :healer
+  
+  accepts_nested_attributes_for :healer, :allow_destroy => :true,
+    :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
   
   attr_accessible :email, :password, :password_confirmation, :username, :active, :is_admin, :healer_attributes
   
