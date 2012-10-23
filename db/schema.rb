@@ -11,11 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121023160818) do
+ActiveRecord::Schema.define(:version => 20121023192645) do
 
   create_table "accounts", :force => true do |t|
     t.string   "user_id"
     t.string   "healer_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "books", :force => true do |t|
+    t.string   "name"
+    t.string   "author"
+    t.string   "tag"
+    t.string   "link"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -40,25 +49,39 @@ ActiveRecord::Schema.define(:version => 20121023160818) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "treatments", :force => true do |t|
+  create_table "questions", :force => true do |t|
+    t.string   "question"
+    t.string   "tag"
+    t.integer  "test_creator_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "questions", ["test_creator_id"], :name => "index_questions_on_test_creator_id"
+
+  create_table "test_creators", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "healers_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "treatments", ["healers_id"], :name => "index_treatments_on_healers_id"
+  create_table "treatments", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"
+    t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.boolean  "active",                 :default => false
     t.boolean  "is_admin",               :default => false
-    t.string   "email",                  :default => "",    :null => false
     t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

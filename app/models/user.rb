@@ -7,12 +7,14 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :username, :active, :is_admin, :healer_attributes
+  
   has_one :healer, :dependent => :destroy
   
   accepts_nested_attributes_for :healer, :allow_destroy => :true,
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
   
-  attr_accessible :email, :password, :password_confirmation, :username, :active, :is_admin, :healer_attributes
+  
   
   attr_accessor :password
   before_save :encrypt_password

@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-  #  @healer = Healer.new(params[:healer]) 
+    @user.healer = Healer.new(params[:healer]) 
 
     respond_to do |format|
       if @user.save

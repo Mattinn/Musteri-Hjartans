@@ -1,6 +1,12 @@
 Musteri::Application.routes.draw do
   
   
+  resources :books
+
+  resources :questions
+
+  resources :test_creators
+
   devise_for :users
 
   resources :sessions
