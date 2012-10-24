@@ -4,8 +4,6 @@
   <thead> 
     <tr> 
 	  <th>ID</th> 
-	  <th>Nafn</th>  
-      <th>Póstnúmer</th>
       <th>Tölvupóstfang</th>
       <th>Stofnaður</th>
 	  <th>Aðgerðir</th> 
@@ -14,12 +12,9 @@
   <tbody>  
   	  	
   <% @users.each do |user| %> 
-  <%= user.build_healer %>
     <tr> 
       <td><%= user.id %></td> 
-	  <td><%= user.healer.name %></td> 
-      <td><%= user.healer.postal_code %></td> 
-      <td><%= user.email %></td>
+      <td><%= user.email %>/td>
 	  <td><%= user.created_at %></td> 
   	  <td> <%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %> <%= link_to 'Destroy', user_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %> </td> 
 	</tr> <% end %> 
