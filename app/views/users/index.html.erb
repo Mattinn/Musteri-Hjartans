@@ -1,25 +1,31 @@
-<h1>Listing users</h1>
+<h3>Meðferðaraðilar</h3>
 
-<table>
-  <tr>
-    <th>Username</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="table table-striped"> 
+  <thead> 
+    <tr> 
+	  <th>ID</th> 
+	  <th>Nafn</th>  
+      <th>Póstnúmer</th>
+      <th>Tölvupóstfang</th>
+      <th>Stofnaður</th>
+	  <th>Aðgerðir</th> 
+	</tr> 
+  </thead> 
+  <tbody>  
+  	  	
+  <% @users.each do |user| %> 
+  <%= user.build_healer %>
+    <tr> 
+      <td><%= user.id %></td> 
+	  <td><%= user.healer.name %></td> 
+      <td><%= user.healer.postal_code %></td> 
+      <td><%= user.email %></td>
+	  <td><%= user.created_at %></td> 
+  	  <td> <%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %> <%= link_to 'Destroy', user_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %> </td> 
+	</tr> <% end %> 
+   </tbody> 
+</table> 
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.username %></td>
-    <td><%= user.email %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<%= link_to 'New', new_user_path, :class => 'btn btn-primary' %>
 
 <br />
-
-<%= link_to 'New User', new_user_path %>

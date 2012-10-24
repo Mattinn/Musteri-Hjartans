@@ -11,11 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010111304) do
+ActiveRecord::Schema.define(:version => 20121023192645) do
 
   create_table "accounts", :force => true do |t|
     t.string   "user_id"
     t.string   "healer_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "books", :force => true do |t|
+    t.string   "name"
+    t.string   "author"
+    t.string   "tag"
+    t.string   "link"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -40,6 +49,23 @@ ActiveRecord::Schema.define(:version => 20121010111304) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "questions", :force => true do |t|
+    t.string   "question"
+    t.string   "tag"
+    t.integer  "test_creator_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "questions", ["test_creator_id"], :name => "index_questions_on_test_creator_id"
+
+  create_table "test_creators", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "treatments", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -52,10 +78,22 @@ ActiveRecord::Schema.define(:version => 20121010111304) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
-    t.boolean  "active",        :default => false
-    t.boolean  "is_admin",      :default => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.boolean  "active",                 :default => false
+    t.boolean  "is_admin",               :default => false
+    t.string   "encrypted_password",     :default => "",    :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

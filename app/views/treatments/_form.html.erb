@@ -14,9 +14,6 @@
 
 <%= form_for @treatment, :html => { :class => 'form-horizontal' } do |f| %>
 <fieldset>
-	<legend>
-		<%= controller.action_name.capitalize %> Meðferð
-	</legend>
 	<div class="control-group">
 		<%= f.label :Nafn, :class => 'control-label' %>
 		<div class="controls">
@@ -26,7 +23,7 @@
 	<div class="control-group">
 		<%= f.label :Lýsing, :class => 'control-label' %>
 		<div class="controls">
-			<%= f.text_field :description, :class => 'text_field' %>
+			<%= f.text_area :description, :class => 'text_field' %>
 		</div>
 	</div>
 	<div class="form-actions">

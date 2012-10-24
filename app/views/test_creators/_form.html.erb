@@ -1,0 +1,36 @@
+<%= form_for(@test_creator) do |f| %>
+<% if @test_creator.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@test_creator.errors.count, "error") %> hindraði að þetta próf væri vistað:</h2>
+	<ul>
+		<% @test_creator.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<%= form_for @test_creator, :html => { :class => 'form-horizontal' } do |f| %>
+<fieldset>
+	<div class="control-group">
+		<%= f.label :Nafn, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.text_field :name, :class => 'text_field' %>
+		</div>
+	</div>
+	<div class="control-group">
+		<%= f.label :Lýsing, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.text_area :description, :class => 'text_field' %>
+		</div>
+	</div>
+	<div class="form-actions">
+		<%= f.submit nil, :class => 'btn btn-primary' %>
+		<%= link_to 'Cancel', @test_creators_path, :class => 'btn' %>
+	</div>
+</fieldset>
+<% end %>
+
+<% end %>

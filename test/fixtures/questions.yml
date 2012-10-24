@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  string: 
+  string: 
+  test_creator: 
+
+two:
+  string: 
+  string: 
+  test_creator: 
