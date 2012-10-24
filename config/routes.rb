@@ -1,13 +1,12 @@
 Musteri::Application.routes.draw do
   
-  
   resources :books
 
   resources :questions
 
   resources :test_creators
 
-  devise_for :users
+  devise_for :users, :controllers => {:sessions => "sessions"}
 
   resources :sessions
   resources :treatments
@@ -19,9 +18,10 @@ Musteri::Application.routes.draw do
   
 
   root :to => 'news#index'
-  devise_scope :user do
+ 
+  as :user do
     get "log_out" => "devise/sessions#destroy", :as => "log_out"
-    post "log_in" => "devise/sessions#new", :as => "log_in"
+    get "log_in" => "devise/sessions#new", :as => "log_in"
     get "sign_up" => "devise/users#new", :as => "sign_up"
   end
   # get "sessions/new"

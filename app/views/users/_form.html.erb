@@ -1,3 +1,4 @@
+<%= @user.build_healer %>
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -25,17 +26,11 @@
   </div>
   
   <h2>Persónu upplýsingar</h2>
-<%= f.fields_for :healer do |address_fields| %>
- <div class="field">
-    <%= address_fields.label :name %><br />
-    <%= address_fields.text_field :name %>
-  </div>
-<div class="field">
-    <%= address_fields.label :postal_code %><br />
-    <%= address_fields.number_field :postal_code %>
-  </div>
-<% end %>
+  <%= render :partial => 'healers/form',
+             :locals => {:form => f} %> 
+  
   <div class="actions">
     <%= f.submit %>
   </div>
+  
 <% end %>
