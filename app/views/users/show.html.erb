@@ -10,16 +10,6 @@
   <%= @user.email %>
 </p>
 
-<p>
-  <b>Nafn:</b>
-  <%= @user.healer.name %>
-</p>
-
-<p>
-  <b>Póstnúmer:</b>
-  <%= @user.healer.postal_code %>
-</p>
-
 
 <%= link_to ' Edit', edit_user_path(@user) %> |
 <%= link_to ' Back', users_path %>
