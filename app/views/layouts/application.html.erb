@@ -60,15 +60,15 @@
 						<form class="navbar-form pull-right">
 							<% if current_user %>
 								Logged in as <%= current_user.email %>.
-								<button><%= link_to "Skrá út", log_out_path %></button>
+								<button><%= link_to "Skrá út", destroy_user_session_path, :method => :delete %></button>
 							<% else %>	
 							<input class="span2" type="text" placeholder="Tölvupóstur">
 							<input class="span2" type="password" placeholder="Lykilorð">
 							<button type="submit" class="btn">
-								<%= link_to "Skrá inn", log_in_path %>
+								<%= link_to "Skrá inn", new_user_session_path %>
 							</button>
 							<button type="submit" class="btn">
-								<%= link_to "Sækja um", sign_up_path %>
+								<%= link_to "Sækja um", new_user_registration_path %>
 							</button>
 							<% end %>
 						</form>
@@ -78,13 +78,14 @@
 		</div>
 		<!-- end of navbar-->
 <div class="container">
-				<% if current_user %>
-				Logged in as <%= current_user.email %>
-				<%= link_to "Skrá út", sign_out_path %>
-			<% else %>
-				<%= link_to "Sækja um", sign_up_path %> eða
-				<%= link_to "Skrá inn", sign_in_path %>
-			<% end %>
+	
+	<% if user_signed_in? %>
+		Logged in as <%= current_user.email %>
+		<%= link_to "Skrá út", destroy_user_session_path, :method => :delete %>
+	<% else %>
+		<%= link_to "Sækja um", new_user_registration_path %> eða
+		<%= link_to "Skrá inn", new_user_session_path %>
+	<% end %>
 
 		<div id="user_nav" float="middle">
 			<!-- Flash messages-->
