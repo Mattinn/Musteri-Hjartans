@@ -6,24 +6,15 @@ Musteri::Application.routes.draw do
 
   resources :test_creators
 
-  devise_for :users, :controllers => {:sessions => "sessions"}
+  devise_for :users
 
-  resources :sessions
   resources :treatments
   resources :news
   
-  resources :users do
-    resources :healer
-  end
+  resources :users 
   
 
   root :to => 'news#index'
-    
-  devise_scope :user do
-   get "sign_in", :to => "devise/sessions#new"
-   get "sign_out" => "devise/sessions#destroy", :as => "log_out"
-   get "sign_up" => "devise/users#new", :as => "sign_up"
-  end
 
 
   # get "sessions/new"
