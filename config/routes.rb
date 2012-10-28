@@ -7,8 +7,6 @@ Musteri::Application.routes.draw do
   resources :test_creators
 
   devise_for :users
-
-  resources :treatments
   resources :news
   
   resources :users 
