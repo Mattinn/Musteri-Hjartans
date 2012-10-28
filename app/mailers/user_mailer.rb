@@ -1,4 +1,4 @@
-class UserMailer < ActionMailer::Base
+class UserMailer < Devise::Mailer
   default from: "musterikaerleikans@gmail.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
