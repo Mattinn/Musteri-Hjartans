@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121023192645) do
-
-  create_table "accounts", :force => true do |t|
-    t.string   "user_id"
-    t.string   "healer_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121028155552) do
 
   create_table "books", :force => true do |t|
     t.string   "name"
@@ -28,18 +21,6 @@ ActiveRecord::Schema.define(:version => 20121023192645) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "healers", :force => true do |t|
-    t.string   "name"
-    t.integer  "postal_code"
-    t.integer  "user_id"
-    t.integer  "treatments_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "healers", ["treatments_id"], :name => "index_healers_on_treatments_id"
-  add_index "healers", ["user_id"], :name => "index_healers_on_user_id"
 
   create_table "news", :force => true do |t|
     t.string   "title"
@@ -66,16 +47,8 @@ ActiveRecord::Schema.define(:version => 20121023192645) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "treatments", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "users", :force => true do |t|
     t.string   "username"
-    t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
     t.datetime "created_at",                                :null => false
@@ -83,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20121023192645) do
     t.boolean  "active",                 :default => false
     t.boolean  "is_admin",               :default => false
     t.string   "encrypted_password",     :default => "",    :null => false
+    t.string   "email",                  :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -91,6 +65,10 @@ ActiveRecord::Schema.define(:version => 20121023192645) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "name"
+    t.string   "address"
+    t.integer  "phone"
+    t.integer  "postal"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
