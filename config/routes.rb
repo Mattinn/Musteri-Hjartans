@@ -1,5 +1,9 @@
 Musteri::Application.routes.draw do
   
+  resources :categories
+
+  resources :treatments
+
   resources :books
 
   resources :questions
