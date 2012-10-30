@@ -34,6 +34,9 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'nested_form'
 
+# Required to run rails console on Fedora 17 for some reason
+gem 'minitest'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
