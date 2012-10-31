@@ -5,6 +5,7 @@
     <tr> 
 	  <th>ID</th> 
       <th>Tölvupóstfang</th>
+      <th>Virkur</th>
       <th>Stofnaður</th>
 	  <th>Aðgerðir</th> 
 	</tr> 
@@ -15,12 +16,14 @@
     <tr> 
       <td><%= user.id %></td> 
       <td><%= user.email %></td>
-	  <td><%= user.created_at %></td> 
-  	  <td> <%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %> <%= link_to 'Destroy', user_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %> </td> 
+      <td><%= user.approved? %></td>
+	  <td><%= user.created_at %></td>
+  	  <td><%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %> <%= link_to 'Destroy', user_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %> </td> 
 	</tr> <% end %> 
    </tbody> 
 </table> 
 
 <%= link_to 'New', new_user_path, :class => 'btn btn-primary' %>
+<%= link_to "Users awaiting approval", :action => "index", :approved => "false" %>
 
 <br />

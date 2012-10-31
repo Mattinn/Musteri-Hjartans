@@ -6,13 +6,15 @@ Musteri::Application.routes.draw do
 
   resources :test_creators
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
   resources :news
   
-  resources :users 
+  resources :users
   
 
   root :to => 'news#index'
+  
 
 
   # get "sessions/new"

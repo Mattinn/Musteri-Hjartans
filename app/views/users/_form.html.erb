@@ -16,7 +16,9 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   <div class="field">
-    <%= f.label :password %><br />
+
+  <div class="field">
+	<%= f.label :password %><br />
     <%= f.password_field :password %>
   </div>
   <div class="field">
@@ -24,6 +26,17 @@
     <%= f.password_field :password_confirmation %>
   </div>
   
+  <div class="field">
+  	<%= f.label " Make the user an admin" %>
+	<%= f.check_box :approved, :method => :put, :value => :true %> 
+  </div>	
+  <div class="field">
+    <%= f.label "Is the user an admin : " %> 
+    <%= @user.is_admin ? 'Yes' : 'No' %><br />
+  </div>
+  
+  
+
   <div class="actions">
     <%= f.submit %>
   </div>
