@@ -46,6 +46,7 @@
 										<a href="/test_creators">Persónupróf</a>
 									</li>
 									<li class="divider"></li>
+								
 									<li class="nav-header">
 										Nav header
 									</li>
@@ -53,14 +54,15 @@
 										<a href="/questions">Spurningar</a>
 									</li>
 									<li>
-										<a href="#">Ósamþykktir notendur</a>
+										<a href="/unapproved">Ósamþykktir notendur</a>
 									</li>
+
 								</ul>
 							</li>
 						</ul>
 						<form class="navbar-form pull-right">
 							<% if current_user %>
-								Logged in as <%= current_user.email %>.
+								Logged in as <%= current_user.email %>
 								<button><%= link_to "Skrá út", destroy_user_session_path, :method => :delete %></button>
 							<% else %>	
 							<input class="span2" type="text" placeholder="Tölvupóstur">
@@ -87,6 +89,7 @@
 		<%= link_to "Sækja um", new_user_registration_path %> eða
 		<%= link_to "Skrá inn", new_user_session_path %>
 	<% end %>
+	<%= link_to "Ósamþykktir notendur", "unapproved" %>
 
 		<div id="user_nav" float="middle">
 			<!-- Flash messages-->
