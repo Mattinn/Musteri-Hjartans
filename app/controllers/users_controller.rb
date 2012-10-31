@@ -2,22 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   
-  # Give user admin rights  
-  def toggle_admin
-    @user = User.find(params[:id])
-    @user.is_admin = true
-    
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
+  #Returns all unapproved users or all the approved ones
   def index
     if params[:approved] == "false"
       @users = User.find_all_by_approved(false)

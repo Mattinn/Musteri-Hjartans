@@ -27,12 +27,18 @@
   </div>
   
   <div class="field">
-  	<%= f.label " Make the user an admin" %>
-	<%= f.check_box :approved, :method => :put, :value => :true %> 
+  	<%= f.label("Virkja notenda") %>
+	<%= f.check_box :approved %> 
+  </div>
+  
+  <div class="field">
+  	<%= f.label("Virkja notenda með access") %>
+	<%= f.check_box( @user.activate_user) %> 
   </div>	
+  
   <div class="field">
     <%= f.label "Is the user an admin : " %> 
-    <%= @user.is_admin ? 'Yes' : 'No' %><br />
+    <%= @user.is_admin? %><br />
   </div>
   
   
