@@ -4,6 +4,27 @@
   <%= devise_error_messages! %>
 
   <h2>Aðgangs upplýsingar</h2>
+  
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :postal %><br />
+    <%= f.text_field :postal %>
+  </div>
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
