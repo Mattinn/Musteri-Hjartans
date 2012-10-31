@@ -1,0 +1,13 @@
+%h1 Users
+
+= link_to "All Users", :action => "index"
+|
+= link_to "Users awaiting approval", :action => "index", :approved => "false"
+
+%table
+	- @users.each do |user|
+	<%= form_for(@user) do |f| %>
+		%tr
+			%td= user.email
+			%td= user.approved
+			%td= link_to "Edit", edit_user_path(user)
