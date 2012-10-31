@@ -11,14 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030175304) do
 
-  create_table "accounts", :force => true do |t|
-    t.string   "user_id"
-    t.string   "healer_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121030175304) do
 
   create_table "books", :force => true do |t|
     t.string   "name"
@@ -29,17 +23,11 @@ ActiveRecord::Schema.define(:version => 20121030175304) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "healers", :force => true do |t|
+  create_table "categories", :force => true do |t|
     t.string   "name"
-    t.integer  "postal_code"
-    t.integer  "user_id"
-    t.integer  "treatments_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "healers", ["treatments_id"], :name => "index_healers_on_treatments_id"
-  add_index "healers", ["user_id"], :name => "index_healers_on_user_id"
 
   create_table "news", :force => true do |t|
     t.string   "title"
@@ -67,10 +55,20 @@ ActiveRecord::Schema.define(:version => 20121030175304) do
   end
 
   create_table "treatments", :force => true do |t|
+
+    t.integer  "category_id"
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+
+  add_index "treatments", ["category_id"], :name => "index_treatments_on_category_id"
+
+  create_table "treatments_users", :id => false, :force => true do |t|
+    t.integer "treatment_id"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|
