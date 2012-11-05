@@ -11,7 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20121030175304) do
 
   create_table "books", :force => true do |t|
@@ -55,14 +54,12 @@ ActiveRecord::Schema.define(:version => 20121030175304) do
   end
 
   create_table "treatments", :force => true do |t|
-
     t.integer  "category_id"
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
-
 
   add_index "treatments", ["category_id"], :name => "index_treatments_on_category_id"
 
@@ -73,7 +70,6 @@ ActiveRecord::Schema.define(:version => 20121030175304) do
 
   create_table "users", :force => true do |t|
     t.string   "username"
-    t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
     t.datetime "created_at",                                :null => false
@@ -81,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20121030175304) do
     t.boolean  "active",                 :default => false
     t.boolean  "is_admin",               :default => false
     t.string   "encrypted_password",     :default => "",    :null => false
+    t.string   "email",                  :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
