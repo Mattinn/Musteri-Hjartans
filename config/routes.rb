@@ -19,9 +19,9 @@ Musteri::Application.routes.draw do
 
   root :to => 'news#index'
   
+  match "users/:id/activate" => "users#activate", :as => "active_user"
 
 
-  # get "sessions/new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

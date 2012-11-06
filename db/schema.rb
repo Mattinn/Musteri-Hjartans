@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030175304) do
+ActiveRecord::Schema.define(:version => 20121106113007) do
 
   create_table "books", :force => true do |t|
     t.string   "name"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20121030175304) do
     t.integer  "phone"
     t.integer  "postal"
     t.boolean  "approved",               :default => false, :null => false
+    t.integer  "is_approved",            :default => 0
   end
 
   add_index "users", ["approved"], :name => "index_users_on_approved"

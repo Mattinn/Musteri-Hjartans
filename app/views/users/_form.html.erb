@@ -47,21 +47,6 @@
     <%= f.password_field :password_confirmation %>
   </div>
   
-  <div class="field">
-  	<%= f.label("Virkja notenda") %>
-	<%= f.check_box :approved %> 
-  </div>
-  
-  <div class="field">
-  	<%= f.label("Virkja notenda með access") %>
-	<%= f.check_box( @user.activate_user) %> 
-  </div>	
-  
-  <div class="field">
-    <%= f.label "Is the user an admin : " %> 
-    <%= @user.is_admin? %><br />
-  </div>
-  
   <div class="actions">
     <%= f.submit %>
   </div>
