@@ -22,7 +22,7 @@
 	  	  <td>
 	  	  	<%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %> 
 	  	  	<%= link_to 'Destroy', user_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
-	  	  	<% if (user.is_approved).to_i == 0 %>
+	  	  	<% if !user.approved? %>
   	  		  <%= link_to 'Approve', active_user_path(user), :method => :put, :class => 'btn btn-mini btn-success' %> 
             <% end %> 
 	  	  </td> 

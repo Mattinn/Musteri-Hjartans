@@ -29,12 +29,14 @@ class User < ActiveRecord::Base
     end
   end
   
+  #Has the user been activated by admin ?
   def active_for_authentication? 
-    super && approved? 
+    super && is_approved? 
   end 
   
+  #If hes not approved then let him know 
   def inactive_message 
-    if !approved? 
+    if !is_approved? 
       :not_approved 
     else 
       super # Use whatever other message 
