@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   attr_accessor :is_admin, :check_admin, :approved, :activate_user
   
   #after_save :send_notification_emails
-  validates_confirmation_of :password
+  validates_confirmation_of :password, :on => :create
   validates_presence_of :password, :on => :create
   validates_presence_of :email
   validates_uniqueness_of :email
@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 #  def password_required?
 #    (authentications.empty? || !password.blank?) && super
 #  end
-  
+ 
   
   def send_notification_emails
     #Notifies both admin and user of the registration

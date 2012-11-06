@@ -1,5 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   
+  # Allow the user to update his profile without entering the password
   def update
     @user = User.find(current_user.id)
     email_changed = @user.email != params[:user][:email]
