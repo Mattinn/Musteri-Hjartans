@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :treatments
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :treatment_ids
   attr_accessible :username, :is_admin, :approved, :activate_user 
   attr_accessible :name, :address, :phone, :postal
   
@@ -50,9 +50,9 @@ class User < ActiveRecord::Base
     update_attributes(params) 
   end
   
-  def password_required?
-    (authentications.empty? || !password.blank?) && super
-  end
+#  def password_required?
+#    (authentications.empty? || !password.blank?) && super
+#  end
   
   
   def send_notification_emails
