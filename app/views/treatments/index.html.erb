@@ -1,27 +1,28 @@
-<h1>Listing treatments</h1>
+<h3>Meðferðir</h3>
 
-<table>
-  <tr>
-    <th>Category</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="table table-striped"> 
+  <thead> 
+    <tr> 
+	  <th>ID</th> 
+      <th>Flokkur</th>
+      <th>Nafn</th>
+      <th>Lýsing</th>
+	</tr> 
+  </thead> 
+  <tbody>  
+	  <% @treatments.each do |treatment| %> 
+	    <tr> 
+	      <td><%= treatment.id %></td>
+		  <td><%= treatment.category.name %></td>
+		  <td><%= link_to treatment.name, treatment_path(treatment)%></td>
+          <td><%= treatment.description %></td>
+	  	  <td>
+	  	  	<%= link_to 'Breyta', edit_treatment_path(treatment), :class => 'btn btn-mini' %> 
+	  	  	<%= link_to 'Eyða', treatment_path(treatment), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
+	  	  </td> 
+		</tr> 
+	  <% end %> 
+   </tbody> 
+</table> 
 
-<% @treatments.each do |treatment| %>
-  <tr>
-    <td><%= treatment.category %></td>
-    <td><%= treatment.name %></td>
-    <td><%= treatment.description %></td>
-    <td><%= link_to 'Show', treatment %></td>
-    <td><%= link_to 'Edit', edit_treatment_path(treatment) %></td>
-    <td><%= link_to 'Destroy', treatment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Treatment', new_treatment_path %>
+<%= link_to 'Ný meðferð', new_treatment_path, :class => 'btn btn-primary' %>

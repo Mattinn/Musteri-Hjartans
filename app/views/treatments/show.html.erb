@@ -1,20 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Category:</b>
-  <%= @treatment.category %>
-</p>
+  <b>Flokkur:</b>
+  <p>
+    <%= @treatment.category.name %>
+  </p>
 
-<p>
-  <b>Name:</b>
-  <%= @treatment.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @treatment.description %>
-</p>
+  <b>Nafn:</b>
+  <p>
+    <%= @treatment.name %>
+  </p>
 
 
-<%= link_to 'Edit', edit_treatment_path(@treatment) %> |
-<%= link_to 'Back', treatments_path %>
+  <b>Lýsing:</b>
+  <p>
+    <%= @treatment.description %>
+  </p>
+
+
+<%= link_to 'Breyta', edit_treatment_path(@treatment) %> |
+<%= link_to 'Til baka', treatments_path %>

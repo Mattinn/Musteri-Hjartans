@@ -38,6 +38,7 @@
     <%= f.password_field :password_confirmation %>
   </div>
   
+<<<<<<< HEAD
   <span class="help-block">Merktu við þær meðferðir sem þú tekur þú að þér:</span>
   
   <% Treatment.find(:all).each do |treatment| %>
@@ -53,9 +54,6 @@
           <th>Lýsing</th>
         </tr>
       </thead> 
-  
-    
-    
       <tbody> 
         <% if treatment.category_id # All treatments should have categories, but just in case... %>
         <% then %>
@@ -73,7 +71,13 @@
         <% end %>
       </tbody>
     </table>
-    
+  <% Treatment.find(:all).each do |treatment| %> 
+    <div> 
+    	<%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %> 
+      <h2><%= treatment.category.name %></h2>
+      
+      <p><%= treatment.name %></p> 
+    </div>
   <% end %>
   <span class="help-block">
     Ef þú tekur að þér meðferðir sem eru ekki á listanum eða vilt koma einhverju öðru á framfæri

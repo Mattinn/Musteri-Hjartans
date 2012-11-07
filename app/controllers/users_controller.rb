@@ -6,9 +6,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attribute(:is_approved, 1)
       @user.save
-      redirect_to "/"
+      redirect_to "/users?approved=0"
     else
-     render "/users?approved=0"
+     render "/"
     end 
   end
   
