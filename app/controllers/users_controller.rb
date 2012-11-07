@@ -2,12 +2,22 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   
+  def activate
+    @user = User.find(params[:id])
+    if @user.update_attribute(:is_approved, 1)
+      @user.save
+      redirect_to "/users?approved=0"
+    else
+     render "/"
+    end 
+  end
+  
   #Returns all unapproved users or all the approved ones
   def index
-    if params[:approved] == "false"
-      @users = User.find_all_by_approved(false)
+    if ((params[:is_approved]).to_i == 0)
+      @users = User.find_all_by_is_approved(0)
     else
-      @users = User.find_all_by_approved(true)
+      @users = User.find_all_by_is_approved(1)
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @users }

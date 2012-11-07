@@ -10,11 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+	
   <div class="field">
-    <%= f.label :category %><br />
-    <%= f.text_field :category %>
+  	<%= f.label :category %><br />
+	<%= select(:treatment, :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Velja flokk'})%>
   </div>
+  
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
