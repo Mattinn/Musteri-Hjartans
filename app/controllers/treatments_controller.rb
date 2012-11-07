@@ -25,6 +25,7 @@ class TreatmentsController < ApplicationController
   # GET /treatments/new.json
   def new
     @treatment = Treatment.new
+    #@treatment.build_category
 
     respond_to do |format|
       format.html # new.html.erb

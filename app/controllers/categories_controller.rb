@@ -1,4 +1,11 @@
 class CategoriesController < ApplicationController
+  
+  #Returns a hash of all the categries available
+  def list_all_catagories
+    @cat_hash = {}
+    Categories.all.each{|category| @cat_hash[category.id] = category}
+  end
+    
   # GET /categories
   # GET /categories.json
   def index

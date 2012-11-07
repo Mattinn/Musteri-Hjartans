@@ -6,7 +6,6 @@
 	  <th>ID</th> 
 	  <th>Nafn</th>
       <th>Tölvupóstfang</th>
-      <th>Virkur</th>
       <th>Stofnaður</th>
 	  <th>Aðgerðir</th> 
 	</tr> 
@@ -15,14 +14,13 @@
 	  <% @users.each do |user| %> 
 	    <tr> 
 	      <td><%= user.id %></td> 
-	      <td><%= user.name %></td> 
+	      <td><%= link_to user.name, user_path(user) %></td> 
 	      <td><%= user.email %></td>
-	      <td><%= user.approved? %></td>
 		  <td><%= user.created_at %></td>
 	  	  <td>
 	  	  	<%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %> 
 	  	  	<%= link_to 'Destroy', user_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
-	  	  	<% if !user.approved? %>
+	  	  	<% if (user.is_approved).to_i == 0 %>
   	  		  <%= link_to 'Approve', active_user_path(user), :method => :put, :class => 'btn btn-mini btn-success' %> 
             <% end %> 
 	  	  </td> 

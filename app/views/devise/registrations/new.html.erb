@@ -37,12 +37,13 @@
     <%= f.label "Lykilorð aftur:" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  
   <% Treatment.find(:all).each do |treatment| %> 
     <div> 
-      <%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %> 
-      <%= treatment.name %> 
-      <%= treatment.description %>
-      <%= treatment.category  %>
+    	<%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %> 
+      <h2><%= treatment.category.name %></h2>
+      
+      <p><%= treatment.name %></p> 
     </div>
   <% end %>
   
