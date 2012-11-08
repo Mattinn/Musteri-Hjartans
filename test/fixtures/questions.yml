@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  string: 
-  string: 
-  test_creator: 
+  question_text: MyString
+  value: 1.5
+  answer: 1
 
 two:
-  string: 
-  string: 
-  test_creator: 
+  question_text: MyString
+  value: 1.5
+  answer: 1

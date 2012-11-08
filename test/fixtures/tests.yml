@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  string: 
-  text: 
+  name: MyString
+  description: 
+  result: 1.5
 
 two:
-  string: 
-  text: 
+  name: MyString
+  description: 
+  result: 1.5
