@@ -1,8 +1,8 @@
 Musteri::Application.routes.draw do
   
-  resources :personal_tests
-
   resources :questions
+
+  resources :personal_tests
 
   resources :categories
 

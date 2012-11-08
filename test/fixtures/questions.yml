@@ -4,8 +4,10 @@ one:
   question_text: MyString
   value: 1.5
   answer: 1
+  personal_test: 
 
 two:
   question_text: MyString
   value: 1.5
   answer: 1
+  personal_test: 
