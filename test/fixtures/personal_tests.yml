@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  description: 
+  description: MyText
   result: 1.5
 
 two:
   name: MyString
-  description: 
+  description: MyText
   result: 1.5

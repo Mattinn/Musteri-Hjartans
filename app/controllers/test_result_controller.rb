@@ -1,2 +1,0 @@
-class TestResultController < ApplicationController
-end

@@ -1,6 +1,6 @@
 Musteri::Application.routes.draw do
   
-  resources :tests
+  resources :personal_tests
 
   resources :questions
 

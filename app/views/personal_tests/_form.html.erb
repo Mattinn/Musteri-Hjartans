@@ -1,10 +1,10 @@
-<%= form_for(@test) do |f| %>
-  <% if @test.errors.any? %>
+<%= form_for(@personal_test) do |f| %>
+  <% if @personal_test.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@test.errors.count, "error") %> prohibited this test from being saved:</h2>
+      <h2><%= pluralize(@personal_test.errors.count, "error") %> prohibited this personal_test from being saved:</h2>
 
       <ul>
-      <% @test.errors.full_messages.each do |msg| %>
+      <% @personal_test.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </div>
   <div class="field">
     <%= f.label :result %><br />
