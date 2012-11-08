@@ -12,18 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label "Titill:" %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :author %><br />
+    <%= f.label "Höfundur:" %><br />
     <%= f.text_field :author %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
-    <%= id="news_area", f.text_area :body  %>
+    <%= f.label "Innihald:" %><br />
+    <%= f.text_area :body  %>
     </div>
-  <div class="actions">
+    
+  <div class="actions" value="Stofna">
     <%= f.submit %>
   </div>
 <% end %>
