@@ -37,47 +37,32 @@
     <%= f.label "Lykilorð aftur:" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
- 
+  
   <span class="help-block">Merktu við þær meðferðir sem þú tekur þú að þér:</span>
-  
-  <% Treatment.find(:all).each do |treatment| %>
-  <label class=check_box>
-    <%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %>
-  </label>
-  
+
   <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Flokkur:</th>
-          <th>Tegund meðferðar:</th>
-          <th>Lýsing</th>
-        </tr>
-      </thead> 
-      <tbody> 
-        <% if treatment.category_id # All treatments should have categories, but just in case... %>
-        <% then %>
-          <tr>
-            <td> <%= treatment.category.name  %> </td>
-            <td> <%= treatment.name %> </td> 
-            <td> <%= treatment.description %> </td>
-          </tr>
-        <% else %>
-          <tr>
-            <td> Enginn flokkur </td>
-            <td> <%= treatment.name %> </td> 
-            <td> <%= treatment.description %> </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% Treatment.find(:all).each do |treatment| %> 
-    <div> 
-    	<%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %> 
-      <h2><%= treatment.category.name %></h2>
-      
-      <p><%= treatment.name %></p> 
-    </div>
-  <% end %>
+  <thead>
+    <tr>
+      <th>Velja:</th>
+      <th>Meðferð:</th>
+    </tr>
+  </thead> 
+    <tbody>
+	  <%= Category.find(:all).each do |cat| %>
+	  
+	    <p><%= cat.name %> </p>
+	  
+	  	<%= Treatment.where(:category_id == cat.id).each do |treatment| %>   
+	      <tr>
+	      	<td> <%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %> </td>
+	        <td> <%= treatment.name %> </td> 
+	      </tr>
+	      
+		<%end%>	       
+	  <%end%>
+    </tbody>
+  </table>
+
   <span class="help-block">
     Ef þú tekur að þér meðferðir sem eru ekki á listanum eða vilt koma einhverju öðru á framfæri
     getur þú tekið það fram hér. Stjórnandi síðunnar mun svo fara yfir upplýsingarnar ásamt umsókninni.

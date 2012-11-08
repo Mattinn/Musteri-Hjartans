@@ -27,7 +27,9 @@
 
 <p>
   <b>Meðferðir:</b>
-  <b> TODO !!</b>
+  <% @user.treatments.each do |t| %> 
+  <b> <%= link_to t.name, treatment_path(t) %> </b> 
+  <% end %>
 </p>
 
 
