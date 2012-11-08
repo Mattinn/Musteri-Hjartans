@@ -1,23 +1,26 @@
-<h1>Listing categories</h1>
+<h3>Flokkar fyrir meðferðir</h3>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="table table-striped"> 
+  <thead> 
+    <tr> 
+	  <th>ID</th> 
+      <th>Flokkur</th>
+      <th>Stofnaður</th>
+	</tr> 
+  </thead> 
+  <tbody>  
+	  <% @categories.each do |category| %> 
+	    <tr> 
+	      <td><%= category.id %></td>
+		  <td><%= link_to category.name, category_path(category)%></td>
+          <td><%= category.created_at %></td>
+	  	  <td>
+	  	  	<%= link_to 'Breyta', edit_category_path(category), :class => 'btn btn-mini' %> 
+	  	  	<%= link_to 'Eyða', category_path(category), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
+	  	  </td> 
+		</tr> 
+	  <% end %> 
+   </tbody> 
+</table> 
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Category', new_category_path %>
+<%= link_to 'Nýr flokkur', new_category_path, :class => 'btn btn-primary' %>
