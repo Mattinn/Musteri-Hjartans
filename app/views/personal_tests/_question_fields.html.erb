@@ -1,0 +1,6 @@
+<p class="fields">
+  <%= f.label "Question" %><br />
+  <%= f.text_field :question_text %><br />
+  <%= f.hidden_field :_destroy %>
+  <%= link_to_function "delete", "remouve_fields(this)" %>
+</p>
