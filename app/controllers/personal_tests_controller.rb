@@ -1,4 +1,17 @@
 class PersonalTestsController < ApplicationController
+  
+  #Calculates the resault of a given test
+  def result_calc
+    @personal_test = PersonalTest.find(params[:id])
+    
+    @personal_test.questions.each do |q|
+      if q.answer != 0
+        q.result = q.result + q.value
+      end
+    end
+
+  end
+  
   # GET /personal_tests
   # GET /personal_tests.json
   def index
@@ -14,7 +27,7 @@ class PersonalTestsController < ApplicationController
   # GET /personal_tests/1.json
   def show
     @personal_test = PersonalTest.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @personal_test }
@@ -25,6 +38,10 @@ class PersonalTestsController < ApplicationController
   # GET /personal_tests/new.json
   def new
     @personal_test = PersonalTest.new
+    
+    2.times do
+      question = @personal_test.questions.build
+    end
 
     respond_to do |format|
       format.html # new.html.erb

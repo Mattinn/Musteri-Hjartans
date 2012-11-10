@@ -48,11 +48,11 @@
     </tr>
   </thead> 
     <tbody>
-	  <%= Category.find(:all).each do |cat| %>
+	  <% Category.find(:all).each do |cat| %>
 	  
 	    <p><%= cat.name %> </p>
 	  
-	  	<%= Treatment.where(:category_id == cat.id).each do |treatment| %>   
+	  	<% Treatment.where(:category_id == cat.id).each do |treatment| %>   
 	      <tr>
 	      	<td> <%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %> </td>
 	        <td> <%= treatment.name %> </td> 
