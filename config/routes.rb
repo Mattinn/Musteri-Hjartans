@@ -1,14 +1,14 @@
 Musteri::Application.routes.draw do
   
+  resources :questions
+
+  resources :personal_tests
+
   resources :categories
 
   resources :treatments
 
   resources :books
-
-  resources :questions
-
-  resources :test_creators
 
   devise_for :users #, :controllers => { :registrations => "registrations" }
 

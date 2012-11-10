@@ -47,7 +47,7 @@
 									<li class="divider"></li>
 								
 									<li class="nav-header">
-										Nav header
+										Stjórnandi
 									</li>
 									<li>
 										<a href="/questions">Spurningar</a>
@@ -67,8 +67,8 @@
 						</ul>
 						<form class="navbar-form pull-right">
 							<% if current_user %>
-								Logged in as <%= current_user.email %>
-								<button><%= link_to "Skrá út", destroy_user_session_path, :method => :delete %></button>
+								<b><%= link_to current_user.name, current_user %></b>
+								<button><%= link_to " Skrá út", destroy_user_session_path, :method => :delete %></button>
 							<% else %>	
 							<input class="span2" type="text" placeholder="Tölvupóstur">
 							<input class="span2" type="password" placeholder="Lykilorð">

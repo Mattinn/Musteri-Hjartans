@@ -12,12 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :Spurning %><br />
-    <%= f.text_field :question %>
+    <%= f.label :question_text %><br />
+    <%= f.text_field :question_text %>
   </div>
   <div class="field">
-    <%= f.label :Flokkur %><br />
-    <%= f.text_field :tag %>
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :answer %><br />
+    <%= f.number_field :answer %>
+  </div>
+  <div class="field">
+    <%= f.label :personal_test %><br />
+    <%= f.text_field :personal_test %>
   </div>
   <div class="actions">
     <%= f.submit %>
