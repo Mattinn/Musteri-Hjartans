@@ -11,7 +11,7 @@
 		<script src="http://html5shim.googlecode/svn/trunk/html5.js" type="text/javascript"></script>
 		<![endif]-->
 		<%= stylesheet_link_tag    "application", :media => "all" %>
-		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "application", "nested_form_fields" %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
@@ -42,7 +42,7 @@
 										<a href="/users?is_approved=1">Meðferðaraðilar</a>
 									</li>
 									<li>
-										<a href="/test_creators">Persónupróf</a>
+										<a href="/personal_tests">Persónupróf</a>
 									</li>
 									<li class="divider"></li>
 								

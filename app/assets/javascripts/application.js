@@ -12,11 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery_nested_form
 //= require bootstrap
 //= require_tree .
 
-$(function(){
-    $('#some_id').change(function(){ 
-        selectBoxValue(this.value); 
-    });
-});
+
+
+
+
