@@ -9,7 +9,9 @@ class PersonalTestsController < ApplicationController
         q.result = q.result + q.value
       end
     end
-
+    
+    render "/"
+    #generate migration AddCategoryToQuestions category:string
   end
   
   # GET /personal_tests

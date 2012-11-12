@@ -40,28 +40,15 @@
   
   <span class="help-block">Merktu við þær meðferðir sem þú tekur þú að þér:</span>
 
-  <table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Velja:</th>
-      <th>Meðferð:</th>
-    </tr>
-  </thead> 
-    <tbody>
-	  <% Category.find(:all).each do |cat| %>
-	  
-	    <p><%= cat.name %> </p>
-	  
-	  	<% Treatment.where(:category_id == cat.id).each do |treatment| %>   
-	      <tr>
-	      	<td> <%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %> </td>
-	        <td> <%= treatment.name %> </td> 
-	      </tr>
-	      
+  	  <% Category.find(:all).each do |cat| %>
+	    <p><%= cat.name %><br />
+	  	<% Treatment.find(:all).each do |treatment| %>  
+	  		<% if(treatment.category_id == cat.id) %>
+		      	<%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %> 
+		        <%= treatment.name %></p> <br />
+		    <%end%>
 		<%end%>	       
 	  <%end%>
-    </tbody>
-  </table>
 
   <span class="help-block">
     Ef þú tekur að þér meðferðir sem eru ekki á listanum eða vilt koma einhverju öðru á framfæri

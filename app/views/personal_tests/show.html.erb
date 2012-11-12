@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 <div class="fields">
 <p>
-  <%= @personal_test.name %>
+  <b><%= @personal_test.name %></b>
 </p>
-
-
 <p>
-  <b>Veldu það sem á við um þig:</b><br />
+  <b><%= @personal_test.description %></b>
+</p>
+<p>
   <% @personal_test.questions.each do |q| %> 
   	<b><%= check_box_tag :answer  %> <%= q.question_text %> </b> </br> 
   <% end %>
 </p>
 
-  <%= link_to 'Áfram', personal_test_path, :method => :put, :class => 'btn btn-mini btn-success' %> 
+  <%= link_to 'Áfram', result_calc_path(@personal_test), :method => :put, :class => 'btn btn-mini btn-success' %> 
 
 </div>
-<%= link_to 'Edit', edit_personal_test_path(@personal_test) %> |
-<%= link_to 'Back', personal_tests_path %>
+<%= link_to 'Breyta', edit_personal_test_path(@personal_test) %> |
+<%= link_to 'Til baka', personal_tests_path %>

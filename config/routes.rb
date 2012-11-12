@@ -20,6 +20,7 @@ Musteri::Application.routes.draw do
   root :to => 'news#index'
   
   match "users/:id/activate" => "users#activate", :as => "active_user"
+  match "personal_tests/:id/result_calc" => "personal_tests#result_calc", :as => "result_calc"
 
 
 

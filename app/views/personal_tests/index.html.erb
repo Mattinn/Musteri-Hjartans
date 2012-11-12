@@ -1,27 +1,31 @@
-<h1>Listing personal_tests</h1>
+<h3>Tilbúin próf</h3>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Result</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @personal_tests.each do |personal_test| %>
-  <tr>
-    <td><%= personal_test.name %></td>
-    <td><%= personal_test.description %></td>
-    <td><%= personal_test.result %></td>
-    <td><%= link_to 'Show', personal_test %></td>
-    <td><%= link_to 'Edit', edit_personal_test_path(personal_test) %></td>
-    <td><%= link_to 'Destroy', personal_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<table class="table table-striped"> 
+  <thead> 
+    <tr> 
+	  <th>ID</th> 
+	  <th>Nafn</th>
+	  <th>Lýsing</th>
+      <th>Búið til</th>
+	  <th>Aðgerðir</th> 
+	</tr> 
+  </thead> 
+  <tbody>  
+	  <% @personal_tests.each do |pt| %> 
+	    <tr> 
+	      <td><%= pt.id %></td> 
+	      <td><%= link_to pt.name, personal_test_path(pt) %></td> 
+	      <td><%= pt.description %></td>
+		  <td><%= pt.created_at %></td>
+	  	  <td>
+	  	  	<%= link_to 'Breyta', edit_personal_test_path(pt), :class => 'btn btn-mini' %> 
+	  	  	<%= link_to 'Eyða', personal_test_path(pt), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
+	  	  </td> 
+		</tr> 
+	  <% end %> 
+   </tbody> 
+</table> 
 
 <br />
 
-<%= link_to 'New Personal test', new_personal_test_path %>
+<%= link_to 'Nýtt próf', new_personal_test_path %>
