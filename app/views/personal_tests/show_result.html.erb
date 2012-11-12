@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<div class="fields">
+<p>
+  <%= @personal_test.name %>
+</p>
+
+
+<p>
+  <b>Niðurstaða:</b><br />
+</p>
+
+<% if @personal_test.result == @personal_test.questions.length %>
+  <p>score is good</p>
+<% else %>
+  <p>score is bad </p>
+<% end %>
+
+<div class="">
+  
+</div>
+
+  <%= link_to 'Áfram', personal_test_path, :method => :put, :class => 'btn btn-mini btn-success' %> 
+
+</div>
+<%= link_to 'Edit', edit_personal_test_path(@personal_test) %> |
+<%= link_to 'Back', personal_tests_path %>
