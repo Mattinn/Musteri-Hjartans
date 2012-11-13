@@ -18,10 +18,10 @@
 	      <td><%= user.email %></td>
 		  <td><%= user.created_at %></td>
 	  	  <td>
-	  	  	<%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %> 
-	  	  	<%= link_to 'Destroy', user_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
+	  	  	<%= link_to 'Breyta', edit_user_path(user), :class => 'btn btn-mini' %> 
+	  	  	<%= link_to 'Eyða', user_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
 	  	  	<% if (user.is_approved).to_i == 0 %>
-  	  		  <%= link_to 'Approve', active_user_path(user), :method => :put, :class => 'btn btn-mini btn-success' %> 
+  	  		  <%= link_to 'Samþykkja', active_user_path(user), :method => :put, :class => 'btn btn-mini btn-success' %> 
             <% end %> 
 	  	  </td> 
 		</tr> 

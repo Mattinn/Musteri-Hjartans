@@ -22,13 +22,17 @@
   
   <div class="field">
   	<%= f.fields_for :questions do |ff| %>
+  	 <%= ff.label "Innihald Spurningar" %>
   	 <%= ff.text_field :question_text %>
   	 <%= ff.link_to_remove "Eyða Spurningu" %>
+  	 <%= ff.label "Gildi Spurningar" %>
+  	 <%= ff.number_field :value %>
+
     
   <% end %>
   </div>
   
-  <%= f.link_to_add "Ný Spurning", :questions %>
+  <%= f.link_to_add "Ný Spurning", :questions %><br />
 
   <div class="actions">
     <%= f.submit %>
