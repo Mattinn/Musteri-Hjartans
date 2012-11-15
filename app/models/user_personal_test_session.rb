@@ -1,9 +1,9 @@
 class UserPersonalTestSession < ActiveRecord::Base
-  belongs_to :user_id
-  belongs_to :personal_test_id
-  belongs_to :question_id
-  belongs_to :category_id
-  belongs_to :treatment_id
-  belongs_to :result_id
-  # attr_accessible :title, :body
+  belongs_to :user
+  belongs_to :personal_test
+  belongs_to :question
+  belongs_to :category
+  belongs_to :treatment
+  belongs_to :result
+  attr_accessible :personal_test_id, :question_id, :category_id, :treatment_id, :result_id
 end
