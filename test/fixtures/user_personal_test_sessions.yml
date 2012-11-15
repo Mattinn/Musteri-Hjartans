@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 
+  personal_test_id: 
+  question_id: 
+  category_id: 
+  treatment_id: 
+  result_id: 
+
+two:
+  user_id: 
+  personal_test_id: 
+  question_id: 
+  category_id: 
+  treatment_id: 
+  result_id: 

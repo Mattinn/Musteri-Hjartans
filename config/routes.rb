@@ -1,5 +1,11 @@
 Musteri::Application.routes.draw do
   
+  resources :results
+
+
+  resources :user_personal_test_sessions
+
+
   resources :questions
 
   resources :personal_tests
