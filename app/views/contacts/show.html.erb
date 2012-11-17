@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= @contact.title %>
+</p>
+
+<p>
+  <%= @contact.content %>
+</p>
+
+<p>
+  <b>Nafn:</b>
+  <%= @contact.name %>
+</p>
+
+<p>
+  <b>Netfang:</b>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <b>Símanúmer:</b>
+  <%= @contact.phone %>
+</p>
+
+
+<%= link_to 'Breyta', edit_contact_path(@contact) %> |
+<%= link_to 'Til baka', contacts_path %>

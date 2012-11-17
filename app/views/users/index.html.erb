@@ -1,35 +1,45 @@
 <h3>Meðferðaraðilar</h3>
 
-<table class="table table-striped"> 
-  <thead> 
-    <tr> 
-	  <th>ID</th> 
-	  <th>Nafn</th>
-      <th>Tölvupóstfang</th>
-      <th>Stofnaður</th>
-	  <th>Aðgerðir</th> 
-	</tr> 
-  </thead> 
-  <tbody>  
-	  <% @users.each do |user| %> 
-	    <tr> 
-	      <td><%= user.id %></td> 
-	      <td><%= link_to user.name, user_path(user) %></td> 
-	      <td><%= user.email %></td>
-		  <td><%= user.created_at %></td>
-	  	  <td>
-	  	  	<%= link_to 'Breyta', edit_user_path(user), :class => 'btn btn-mini' %> 
-	  	  	<%= link_to 'Eyða', user_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
-	  	  	<% if (user.is_approved).to_i == 0 %>
-  	  		  <%= link_to 'Samþykkja', active_user_path(user), :method => :put, :class => 'btn btn-mini btn-success' %> 
-            <% end %> 
-	  	  </td> 
-		</tr> 
-	  <% end %> 
-   </tbody> 
-</table> 
 
-<%= link_to 'New', new_user_path, :class => 'btn btn-primary' %>
-<%= link_to "Users awaiting approval", :action => "index", :approved => "false" %>
+<div class="row">        	
+  <div class="span6">
+	<table class="table table-striped"> 
+	  <thead> 
+	    <tr> 
+		  <th>Nafn</th>
+		  <th></th>
+		  <th></th>
+		  <th></th>
+		  <th></th>
+		  <th></th>
+		  <th></th>
+		  <th>Aðgerðir</th> 
+		</tr> 
+	  </thead> 
+	  <tbody>  
+		  <% @users.each do |user| %> 
+		    <tr> 
+		      <td><%= link_to user.name, user_path(user) %></td>
+		      <td></td>
+		      <td></td>
+		      <td></td> 
+		      <td></td> 
+		      <td></td> 
+		      <td></td> 
+		  	  <td>
+		  	  	<%= link_to 'Breyta', edit_user_path(user), :class => 'btn btn-mini' %> 
+		  	  	<%= link_to 'Eyða', user_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
+		  	  	<% if (user.is_approved).to_i == 0 %>
+	  	  		  <%= link_to 'Samþykkja', active_user_path(user), :method => :put, :class => 'btn btn-mini btn-success' %> 
+	            <% end %> 
+		  	  </td> 
+			</tr> 
+		  <% end %> 
+	   </tbody> 
+	</table>
+  </div> 
+</div>
+
+<%= link_to 'Sækja um', new_user_path, :class => 'btn btn-primary' %>
 
 <br />

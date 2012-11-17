@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121108173430) do
+ActiveRecord::Schema.define(:version => 20121117113951) do
+
+  create_table "abouts", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "books", :force => true do |t|
     t.string   "name"
@@ -24,6 +31,16 @@ ActiveRecord::Schema.define(:version => 20121108173430) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -47,10 +64,10 @@ ActiveRecord::Schema.define(:version => 20121108173430) do
   create_table "questions", :force => true do |t|
     t.string   "question_text"
     t.float    "value"
-    t.integer  "answer",           :default => 0
+    t.integer  "answer"
     t.integer  "personal_test_id"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "questions", ["personal_test_id"], :name => "index_questions_on_personal_test_id"
