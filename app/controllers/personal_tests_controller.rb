@@ -1,19 +1,5 @@
 class PersonalTestsController < ApplicationController
   
-  #Calculates the resault of a given test
-  def result_calc
-    @personal_test = PersonalTest.find(params[:id])
-    
-    @personal_test.questions.each do |q|
-      if q.answer != 0
-        q.result = q.result + q.value
-      end
-    end
-    
-    render "/"
-    #generate migration AddCategoryToQuestions category:string
-  end
-  
   # GET /personal_tests
   # GET /personal_tests.json
   def index

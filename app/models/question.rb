@@ -1,4 +1,4 @@
 class Question < ActiveRecord::Base
   belongs_to :personal_test
-  attr_accessible :answer, :question_text, :value, :result
+  attr_accessible :answer, :question_text, :value, :personal_test_id
 end
