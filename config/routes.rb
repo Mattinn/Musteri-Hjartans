@@ -1,10 +1,14 @@
 Musteri::Application.routes.draw do
   
+  root :to => 'news#index'
+   
+  resources :contacts
+
+  resources :abouts
+
   resources :results
 
-
   resources :user_personal_test_sessions
-
 
   resources :questions
 
@@ -23,7 +27,7 @@ Musteri::Application.routes.draw do
   resources :users
   
 
-  root :to => 'news#index'
+  #Custum routes
   
   match "users/:id/activate" => "users#activate", :as => "active_user"
   match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"
