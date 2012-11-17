@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @user_personal_test_session.user_id %>
+</p>
+
+<p>
+  <b>Personal test:</b>
+  <%= @user_personal_test_session.personal_test_id %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%= @user_personal_test_session.question_id %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @user_personal_test_session.category_id %>
+</p>
+
+<p>
+  <b>Treatment:</b>
+  <%= @user_personal_test_session.treatment_id %>
+</p>
+
+<p>
+  <b>Result:</b>
+  <%= @user_personal_test_session.result_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_personal_test_session_path(@user_personal_test_session) %> |
+<%= link_to 'Back', user_personal_test_sessions_path %>

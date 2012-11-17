@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  score: 1.5
+  message: MyText
+  user_personal_test_session: 
+
+two:
+  score: 1.5
+  message: MyText
+  user_personal_test_session: 

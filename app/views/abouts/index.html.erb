@@ -1,0 +1,11 @@
+<h3>Um okkur</h3>
+
+<% @abouts.each do |about| %>
+  <h4><%= about.title %></h4>
+  <p><%= about.content %></p>
+  <br />
+<% end %>
+
+<br />
+
+<%= link_to 'Breyta', edit_about_path(1) %>
