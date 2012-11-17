@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Score:</b>
+  <%= @result.score %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @result.message %>
+</p>
+
+<p>
+  <b>User personal test session:</b>
+  <%= @result.user_personal_test_session %>
+</p>
+
+
+<%= link_to 'Edit', edit_result_path(@result) %> |
+<%= link_to 'Back', results_path %>
