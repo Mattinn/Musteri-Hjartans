@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
+
 <div class="fields">
-<p>
-  <b><%= @personal_test.name %></b>
-</p>
-<p>
-  <b><%= @personal_test.description %></b>
-</p>
-<p>
-  <% @personal_test.questions.each do |q| %> 
-  	<b><%= check_box_tag :answer  %> <%= q.question_text %> </b> </br> 
+  <div class="field">
+    <%= @personal_test.name %>
+  </div>
+  <div class="field">
+    <%= @personal_test.description %>
+  </div>
+  <div class="field">
+  <% @personal_test.questions.each do |question| %> 
+    <%= check_box_tag "@personal_test[question_ids][]", question.id, @personal_test.questions.include?(question) %>
+    <!-- <%= check_box_tag "@personal_test[questions][]", question.id, checked, {:id => "personal_test_questions_#{question.id}" %>-->
+    <%= question.question_text %>  
   <% end %>
-</p>
-
-  <%= link_to 'Áfram', calcualte_result_path(@personal_test), :method => :put, :class => 'btn btn-mini btn-success' %> 
-
+  </div>
 </div>
 <%= link_to 'Breyta', edit_personal_test_path(@personal_test) %> |
 <%= link_to 'Til baka', personal_tests_path %>
+
+
+
+
