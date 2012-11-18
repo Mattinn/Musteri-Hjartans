@@ -20,15 +20,16 @@ def answerQuestions
     if q.id % 2 == 0 
       q.answer = 1
     end
+    @theSession.save!
   end  
 end
 
 def calculateResult
   @theSession.result.score = 0
   @theSession.personal_test.questions.each do |q|
-      if q.answer != 0
-        @theSession.result.score += q.value
-      end
+    if q.answer != 0
+      @theSession.result.score += q.value
+    end
   end
   @theSession.result.save!
 end

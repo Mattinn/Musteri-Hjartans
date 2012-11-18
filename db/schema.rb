@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115004512) do
+ActiveRecord::Schema.define(:version => 20121117113951) do
 
   create_table "abouts", :force => true do |t|
     t.string   "title"
@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(:version => 20121115004512) do
   create_table "questions", :force => true do |t|
     t.string   "question_text"
     t.float    "value"
-    t.integer  "answer"
+    t.integer  "answer",           :default => 0
     t.integer  "personal_test_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   add_index "questions", ["personal_test_id"], :name => "index_questions_on_personal_test_id"

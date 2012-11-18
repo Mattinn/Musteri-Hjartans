@@ -1,5 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<div class="fields">
+<p>
+  <b><%= @user_personal_test_session.personal_test.name %></b>
+</p>
+<p>
+  <b><%= @user_personal_test_session.personal_test.description %></b>
+</p>
+<p>
+  <% @user_personal_test_session.personal_test.questions.each do |q| %> 
+  	<b><%= check_box_tag :answer  %> <%= q.question_text %> </b> </br> 
+  <% end %>
+</p>
+  
+
+</div>
 <p>
   <b>User:</b>
   <%= @user_personal_test_session.user_id %>
@@ -7,12 +22,16 @@
 
 <p>
   <b>Personal test:</b>
-  <%= @user_personal_test_session.personal_test_id %>
+  <%= @user_personal_test_session.personal_test.name %>
 </p>
 
 <p>
   <b>Question:</b>
-  <%= @user_personal_test_session.question_id %>
+  <% @user_personal_test_session.personal_test.questions.each do |q| %>
+  <%= q.question_text %>
+  <br/>
+  <%= q.answer %>
+  <% end %>
 </p>
 
 <p>
