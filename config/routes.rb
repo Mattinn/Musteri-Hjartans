@@ -28,9 +28,11 @@ Musteri::Application.routes.draw do
   
 
   #Custum routes
-  
+  match "news/show_all_news" => "news#show_all_news", :as => "news"
   match "users/:id/activate" => "users#activate", :as => "active_user"
   match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"
+  
+  match "users/new" => "devise#sign_up", :as => "sign_up"
 
 
 

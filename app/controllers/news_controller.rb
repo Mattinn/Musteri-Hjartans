@@ -2,7 +2,16 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.all(:order => "created_at DESC")
+    @news = News.all(:order => "created_at DESC", :limit => 1)
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @news }
+    end
+  end
+  
+  def show_all_news
+    @news = News.all
     
     respond_to do |format|
       format.html # index.html.erb
@@ -35,6 +44,11 @@ class NewsController < ApplicationController
   # GET /news/1/edit
   def edit
     @news = News.find(params[:id])
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @news }
+    end
   end
 
   # POST /news

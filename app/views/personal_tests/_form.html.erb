@@ -12,37 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "Nafn prófsins" %><br />
-    <%= f.text_field :name %>
+    <%= f.label "Nafn prófs" %>
+    <%= f.text_field :name %><br />
   </div>
   <div class="field">
-    <%= f.label "Lýsing á prófinu" %><br />
-    <%= f.text_area :description %>
+    <%= f.label "Lýsing prófs" %>
+    <%= f.text_area :description %><br />
   </div>
   
   <div class="field">
   	<%= f.fields_for :questions do |ff| %>
-  	 <%= ff.label "Innihald Spurningar" %>
-  	 <%= ff.text_field :question_text %>
-  	 <%= ff.link_to_remove "Eyða Spurningu" %>
-  	 <%= ff.label "Vægi Spurningar" %>
-  	 <%= ff.number_field :value %>
-
-    
-  <% end %>
-  </div>
-  
-   <div class="field">
-  	<%= f.fields_for :user_personal_test_sessions do |ff| %>
-  	 <%= ff.label "Niðurstaða 1" %>
-  	 <%= ff.fields_for :result_id %>
+  	  <%= ff.label "Spurning" %>
+  	  <%= ff.text_field :question_text %>
+  	  <%= ff.link_to_remove "Eyða Spurningu" %>
+  	  <%= ff.label "Vægi Spurningar" %>
+  	  <%= ff.number_field :value %><br />
     <% end %>
   </div>
   
   
   <%= f.link_to_add "Ný Spurning", :questions %><br />
-
+  <br />
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Vista' %>
   </div>
 <% end %>
