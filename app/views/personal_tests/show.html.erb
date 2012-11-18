@@ -10,7 +10,6 @@
   <div class="field">
   <% @personal_test.questions.each do |question| %> 
     <%= check_box_tag "@personal_test[question_ids][]", question.id, @personal_test.questions.include?(question) %>
-    <!-- <%= check_box_tag "@personal_test[questions][]", question.id, checked, {:id => "personal_test_questions_#{question.id}" %>-->
     <%= question.question_text %>  
   <% end %>
   </div>

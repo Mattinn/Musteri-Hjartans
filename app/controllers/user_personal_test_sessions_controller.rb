@@ -56,7 +56,12 @@ class UserPersonalTestSessionsController < ApplicationController
   # PUT /user_personal_test_sessions/1
   # PUT /user_personal_test_sessions/1.json
   def update
+    #params[:personal_test][:question_ids] ||= []
     @user_personal_test_session = UserPersonalTestSession.find(params[:id])
+  
+    @user_personal_test_session.personal_test.questions.each do |q|
+      q.answer = 1
+      end
 
     respond_to do |format|
       if @user_personal_test_session.update_attributes(params[:user_personal_test_session])

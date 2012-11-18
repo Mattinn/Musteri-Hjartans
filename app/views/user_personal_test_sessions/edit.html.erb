@@ -1,6 +1,42 @@
-<h1>Editing user_personal_test_session</h1>
+<%= form_for(@user_personal_test_session) do |f| %>
+  <% if @user_personal_test_session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_personal_test_session.errors.count, "error") %> prohibited this user_personal_test_session from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @user_personal_test_session.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+
+	<div class="fields">
+	<p>
+	  <b><%= @user_personal_test_session.personal_test.name %></b>
+	</p>
+	<p>
+	  <b><%= @user_personal_test_session.personal_test.description %></b>
+	</p>
+	<p>
+		<%= @article %>
+  <% @user_personal_test_session.personal_test.questions.each do |question| %> 
+  		
+  		<%= check_box_tag "@user_personal_test_session.personal_test[question_ids]", question.id, false, :id => "@user_personal_test_session.personal_test_ids_#{question.id}" %>
+  		<%= question.question_text %> 
+  		
+  <% end %>
+</p>
+  
+    </div>
+  
+  
+
+  <div class="actions">
+    <%= f.submit 'Value'%>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @user_personal_test_session %> |
 <%= link_to 'Back', user_personal_test_sessions_path %>

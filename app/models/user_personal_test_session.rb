@@ -12,7 +12,17 @@ class UserPersonalTestSession < ActiveRecord::Base
       if q.answer != 0
         self.result.score += q.value
       end
+      
     end
   end
+  
+  def answerQuestions
+  self.personal_test.questions.each do |q|
+    if q.id % 2 == 0 
+      q.answer = 1
+    end
+    self.save!
+  end  
+end
   
 end
