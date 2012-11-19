@@ -58,16 +58,12 @@ class UserPersonalTestSessionsController < ApplicationController
   def update
     #params[:personal_test][:question_ids] ||= []
     @user_personal_test_session = UserPersonalTestSession.find(params[:id])
-    @theResault = @user_personal_test_session.personal_test.resault
+    @theResault = @user_personal_test_session.personal_test.result
     
     @user_personal_test_session.personal_test.questions.each do |q|
       #if params[:checked] == true
       #q.value = 
       end
-      
-    #  @theResault =
-      
-   end
       
        
 
