@@ -1,5 +1,5 @@
 <% @news.each do |news| %>
-  <ul id="showNews">
+  <ul>
     <li><h2><%= news.title %></h2></li>
     <li><%= news.created_at.strftime("%Y-%m-%d %H:%M") %></li>
 	<li><%= truncate(news.body, :length => 450) %><%= link_to ' meira', news %></li>
@@ -17,5 +17,3 @@
 <% end %>
 
 <br />
-
-<%= link_to 'Allar fréttir', news_all_path(@news), :class => 'btn btn-mini btn-success' %>

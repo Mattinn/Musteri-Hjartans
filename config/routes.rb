@@ -27,7 +27,7 @@
   resources :users
   
   #Custum routes
-  match "news/show_all_news" => "news#show_all_news", :as => "news"
+  match "news/all" => "news#all", :as => "news/all"
   match "users/:id/activate" => "users#activate", :as => "active_user"
   match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"
   
