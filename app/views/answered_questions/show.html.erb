@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User personal test session:</b>
+  <%= @answered_question.user_personal_test_session_id %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%= @answered_question.question_id %>
+</p>
+
+<p>
+  <b>Answer:</b>
+  <%= @answered_question.answer %>
+</p>
+
+<p>
+  <b>Text answer:</b>
+  <%= @answered_question.text_answer %>
+</p>
+
+
+<%= link_to 'Edit', edit_answered_question_path(@answered_question) %> |
+<%= link_to 'Back', answered_questions_path %>

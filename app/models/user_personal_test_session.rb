@@ -4,7 +4,11 @@ class UserPersonalTestSession < ActiveRecord::Base
   belongs_to :category
   belongs_to :treatment
   belongs_to :result
-  attr_accessible :personal_test_id, :user_id, :category_id, :treatment_id, :result_id
+  has_many :answered_questions
+  
+  attr_accessible :personal_test_id, :user_id, :category_id, :treatment_id, :result_id, :answered_question_ids 
+  accepts_nested_attributes_for :answered_questions
+  accepts_nested_attributes_for :personal_test
   
   def calculateResult
     self.result.score = 0

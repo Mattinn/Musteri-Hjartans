@@ -1,5 +1,8 @@
   Musteri::Application.routes.draw do
   
+  resources :answered_questions
+
+
   root :to => 'news#index'
    
   resources :contacts
