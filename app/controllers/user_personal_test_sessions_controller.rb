@@ -68,7 +68,7 @@ class UserPersonalTestSessionsController < ApplicationController
    
    puts "The result before adding question values" 
    
-   puts @theResult.inspect
+   puts @theResult.to_iinspect
    
     @user_personal_test_session.personal_test.questions.each do |q|
     #if @user_personal_test_session.checked] == true
@@ -91,6 +91,11 @@ class UserPersonalTestSessionsController < ApplicationController
         
     #Rails.logger.info (params)
     #Rails.logger.debug()
+
+    @user_personal_test_session = UserPersonalTestSession.find(params[:id])
+    @user_personal_test_session.personal_test.questions.each do |q|
+      puts q.answer
+    end  
     
     respond_to do |format|
       if @user_personal_test_session.update_attributes(params[:user_personal_test_session])

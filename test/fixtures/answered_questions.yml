@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_personal_test_session_id: 1
+  question_id: 1
+  answer: 1
+  text_answer: MyText
+
+two:
+  user_personal_test_session_id: 1
+  question_id: 1
+  answer: 1
+  text_answer: MyText

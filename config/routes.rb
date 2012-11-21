@@ -2,9 +2,9 @@
   
   resources :webstores
 
-
   resources :books
-
+  
+  resources :answered_questions
 
   root :to => 'news#index'
    

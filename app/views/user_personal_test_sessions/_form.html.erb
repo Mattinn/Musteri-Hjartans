@@ -21,8 +21,9 @@
 	<%= select(:user_personal_test_session, :user_id, User.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Velja notenda'})%>
   </div>
   
+  <div class="field">
+  	<%= f.label "Spurningar" %><br />
   
-
   <div class="actions">
     <%= f.submit %>
   </div>

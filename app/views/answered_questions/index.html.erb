@@ -1,0 +1,29 @@
+<h1>Listing answered_questions</h1>
+
+<table>
+  <tr>
+    <th>User personal test session</th>
+    <th>Question</th>
+    <th>Answer</th>
+    <th>Text answer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @answered_questions.each do |answered_question| %>
+  <tr>
+    <td><%= answered_question.user_personal_test_session_id %></td>
+    <td><%= answered_question.question_id %></td>
+    <td><%= answered_question.answer %></td>
+    <td><%= answered_question.text_answer %></td>
+    <td><%= link_to 'Show', answered_question %></td>
+    <td><%= link_to 'Edit', edit_answered_question_path(answered_question) %></td>
+    <td><%= link_to 'Destroy', answered_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Answered question', new_answered_question_path %>
