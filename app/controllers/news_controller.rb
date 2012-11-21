@@ -3,7 +3,6 @@ class NewsController < ApplicationController
   # GET /news.json
   def index
     @news = News.all(:order => "created_at DESC", :limit => 2)
-    @news_all = News.all(:order => "created_at DESC")
     
     respond_to do |format|
       format.html # index.html.erb

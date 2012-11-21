@@ -4,8 +4,11 @@ class UsersController < ApplicationController
   
   def activate
     @user = User.find(params[:id])
-    if @user.update_attribute(:is_approved, 1)
-      redirect_to "/users?approved=0"
+    
+    @user.is_approved = 1
+    
+    if@user.update_attribute(:is_approved, 1)
+      redirect_to "/users?is_approved=0"
     else
      render "/"
     end 
@@ -13,15 +16,16 @@ class UsersController < ApplicationController
   
   #Returns all unapproved users or all the approved ones
   def index
-    if ((params[:is_approved]).to_i == 0)
-      @users = User.find_all_by_is_approved(0)
+    if params[:is_approved].to_i == 0
+      @users = User.find_all_by_is_approved(0) #unapproved 
     else
-      @users = User.find_all_by_is_approved(1)
-      respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @users }
-      end    
+      @users = User.find_all_by_is_approved(1) 
     end
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end    
   end
 
   # GET /users/1
@@ -58,7 +62,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root, notice: 'User was successfully created.' }
+        format.html { render action: 'welcome', notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
         render :welcome
         
@@ -84,6 +88,7 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+    
   end
 
   # DELETE /users/1
@@ -96,5 +101,7 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
+    
   end
+  
 end

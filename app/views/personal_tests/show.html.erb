@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="fields">
+<div class="form" id="question">
   <div class="field">
     <%= @personal_test.name %>
   </div>
@@ -13,6 +13,14 @@
     <%= question.question_text %>  
   <% end %>
   </div>
+  
+  <div class="actions">
+    <a href="#" onclick="getElementById("question").submit()">Vista</a>
+  </div>
+  
+  <%= @test_session.to_yaml %>
+  <%= session.to_yaml %>
+  
 </div>
 <%= link_to 'Breyta', edit_personal_test_path(@personal_test) %> |
 <%= link_to 'Til baka', personal_tests_path %>

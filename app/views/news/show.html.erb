@@ -13,6 +13,7 @@
   <%= @news.author %>
 </p>
 
-
-<%= link_to 'Breyta', edit_news_path(@news) %> |
+<% if (current_user && (current_user.is_admin).to_i == 0) %>
+  <%= link_to 'Breyta', edit_news_path(@news) %> |
+<% end %>
 <%= link_to 'Til baka', news_index_path %>
