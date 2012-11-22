@@ -2,7 +2,7 @@
   
 def answerQuestions(session)
   session.personal_test.questions.each do |q|
-    a = AnsweredQuestion.create(:question_id => q.id)
+    a = AnsweredQuestion.create(:question_id => q.id, :user_personal_test_session_id => session.id)
     if q.id % 2 == 0 
       a.answer = 1
       a.save!
