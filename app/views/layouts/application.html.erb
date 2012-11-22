@@ -37,24 +37,25 @@
 				  <li><a href="/users?is_approved=1">Meðferðaraðilar</a></li>
 				  <li><a href="/personal_tests">Persónupróf</a></li>
 				  <li><a href="/webstores">Vefverslanir</a></li>
-				
-		    	  <li class="divider"></li>
-				  <li class="nav-header">Stjórnandi</li>
-				  <li><a href="/categories/new">Búa til flokk</a></li>
-				  <li><a href="/treatments/new">Búa til meðferð</a></li>
-				  <li><a href="/personal_tests/new">Búa til próf</a></li>
-				  <li><a href="/user_personal_test_sessions">Test Sessions</a></li>
-				  <li><a href="/webstores/new">Bæta við vefverslun</a></li>
-				  <li><p>Bæta við spakmæli</p></li>
-				  <li><a href="/books/new">Ný bók</a></li>
-				  <li><a href="/news/new">Ný frétt</a></li>
-				  <li><a href="/users?is_approved=0">Ósamþykktir notendur</a></li>
+				  <% if current_user && current_user.is_admin.to_i == 1 %>
+		    	    <li class="divider"></li>
+				    <li class="nav-header">Stjórnandi</li>
+				    <li><a href="/categories/new">Búa til flokk</a></li>
+				    <li><a href="/treatments/new">Búa til meðferð</a></li>
+				    <li><a href="/personal_tests/new">Búa til próf</a></li>
+				    <li><a href="/user_personal_test_sessions">Test Sessions</a></li>
+				    <li><a href="/webstores/new">Bæta við vefverslun</a></li>
+				    <li><p>Bæta við spakmæli</p></li>
+				    <li><a href="/books/new">Ný bók</a></li>
+				    <li><a href="/news/new">Ný frétt</a></li>
+				    <li><a href="/users?is_approved=0">Ósamþykktir notendur</a></li>
+				  <% end %>
 				</ul>
 			  </li>
 		     </ul>
 		     <form class="navbar-form pull-right">
 		       <% if user_signed_in? %>
-		         <%= current_user.name %>
+		         <%= link_to current_user.name, user_path(current_user) %>
 		         <%= link_to "Skrá út", destroy_user_session_path, :method => :delete %>
 		       <% end %>
 	         </form>
@@ -88,9 +89,7 @@
         </div>
       
 	<div id="user_nav" float="left"> <!-- Flash messages-->     
-      <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
+
 	</div>
         
     <div class="row">	

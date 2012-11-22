@@ -14,7 +14,7 @@ class NewsController < ApplicationController
     @news_all = News.all(:order => "created_at DESC")
     
     respond_to do |format|
-      format.html # should be all.html.erb
+      format.html # all.html.erb
       format.json { render json: @news }
     end
   end
