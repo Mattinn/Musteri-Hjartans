@@ -56,6 +56,42 @@ class UserPersonalTestSessionsController < ApplicationController
   # PUT /user_personal_test_sessions/1
   # PUT /user_personal_test_sessions/1.json
   def update
+    
+    #params[:personal_test][:question_ids] ||= []
+    @user_personal_test_session = UserPersonalTestSession.find(params[:id])
+    #@theResult = @user_personal_test_session.result
+    @theResult = 0.0
+    
+   # puts "debuggid: #{@user_personal_test_session}"
+   
+   puts "DEBUGG!!"
+   
+   puts "The result before adding question values" 
+   
+   puts @theResult.to_iinspect
+   
+    @user_personal_test_session.personal_test.questions.each do |q|
+    #if @user_personal_test_session.checked] == true
+       @theResult = q.value + @theResault 
+    end
+    
+    puts "The result after adding question values"
+    
+    puts @theResult.inspect
+    
+    puts "DEBUGG!!"
+    
+    @user_personal_test_session.personal_test.questions.each do |q|
+      puts q.inspect
+      #if @user_personal_test_session.checked] == true
+      # @theResult = q.value + @theResault 
+      end
+    
+    puts "DEBUGG!!"
+        
+    #Rails.logger.info (params)
+    #Rails.logger.debug()
+
     @user_personal_test_session = UserPersonalTestSession.find(params[:id])
     @user_personal_test_session.personal_test.questions.each do |q|
       puts q.answer

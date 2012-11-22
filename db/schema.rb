@@ -11,7 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121120183843) do
+ActiveRecord::Schema.define(:version => 20121121221822) do
+
 
   create_table "abouts", :force => true do |t|
     t.string   "title"
@@ -33,12 +34,13 @@ ActiveRecord::Schema.define(:version => 20121120183843) do
   add_index "answered_questions", ["user_personal_test_session_id"], :name => "index_answered_questions_on_user_personal_test_session_id"
 
   create_table "books", :force => true do |t|
-    t.string   "name"
+    t.string   "title"
+    t.text     "description"
+    t.string   "category"
+    t.integer  "isbn"
     t.string   "author"
-    t.string   "tag"
-    t.string   "link"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "categories", :force => true do |t|
@@ -76,10 +78,10 @@ ActiveRecord::Schema.define(:version => 20121120183843) do
   create_table "questions", :force => true do |t|
     t.string   "question_text"
     t.float    "value"
-    t.integer  "answer",           :default => 0
+    t.integer  "answer"
     t.integer  "personal_test_id"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "questions", ["personal_test_id"], :name => "index_questions_on_personal_test_id"
@@ -151,5 +153,15 @@ ActiveRecord::Schema.define(:version => 20121120183843) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "webstores", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "phone"
+    t.string   "address"
+    t.string   "link"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
 end

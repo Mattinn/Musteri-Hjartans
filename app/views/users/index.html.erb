@@ -7,12 +7,7 @@
 	  <thead> 
 	    <tr> 
 		  <th>Nafn</th>
-		  <th></th>
-		  <th></th>
-		  <th></th>
-		  <th></th>
-		  <th></th>
-		  <th></th>
+		  <th>Meðferðir</th>
 		  <th>Aðgerðir</th> 
 		</tr> 
 	  </thead> 
@@ -20,12 +15,11 @@
 		  <% @users.each do |user| %> 
 		    <tr> 
 		      <td><%= link_to user.name, user_path(user) %></td>
-		      <td></td>
-		      <td></td>
-		      <td></td> 
-		      <td></td> 
-		      <td></td> 
-		      <td></td> 
+		      <td>
+				  <% user.treatments.each do |t| %> 
+				    <%= t.name %><br />
+				  <% end %>
+		      </td>
 		  	  <td>
 		  	  	<%= link_to 'Breyta', edit_user_path(user), :class => 'btn btn-mini' %> 
 		  	  	<%= link_to 'Eyða', user_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>

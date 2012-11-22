@@ -35,4 +35,6 @@
 </div>
 <br />
 
-<%= link_to 'Bæta við', new_contact_path %>
+<% if (current_user && (current_user.is_admin).to_i == 0) %>
+  <%= link_to 'Bæta við', new_contact_path %>
+<% end %>

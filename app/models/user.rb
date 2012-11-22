@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :treatments
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :treatment_ids
-  attr_accessible :username, :is_admin, :approved, :activate_user 
-  attr_accessible :name, :address, :phone, :postal
+  attr_accessible :username, :activate_user
+  attr_accessible :name, :address, :phone, :postal, :is_admin, :is_approved
   
-  attr_accessor :is_admin, :check_admin, :approved, :activate_user
+  #attr_accessor :activate_user
   
   #after_save :send_notification_emails
   validates_confirmation_of :password, :on => :create
@@ -21,12 +21,8 @@ class User < ActiveRecord::Base
   
   # this will activate a user
   def activate_user
-    self.update_attributes(params[:approved])
-  end
-  
-  def check_admin
-    if is_admin ? 'Yes' : 'No'
-    end
+    self.is_approved = 1
+    self.save!
   end
   
   #Has the user been activated by admin ?

@@ -3,13 +3,13 @@
 one:
   title: MyString
   description: MyText
-  category: MyString
-  isbn: 1
-  author: MyString
+  phone: MyString
+  address: MyString
+  link: MyString
 
 two:
   title: MyString
   description: MyText
-  category: MyString
-  isbn: 1
-  author: MyString
+  phone: MyString
+  address: MyString
+  link: MyString

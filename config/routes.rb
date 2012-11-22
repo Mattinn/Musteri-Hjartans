@@ -1,7 +1,10 @@
   Musteri::Application.routes.draw do
   
-  resources :answered_questions
+  resources :webstores
 
+  resources :books
+  
+  resources :answered_questions
 
   root :to => 'news#index'
    
@@ -23,18 +26,28 @@
 
   resources :books
 
-  devise_for :users #, :controllers => { :registrations => "registrations" }
+  devise_for :users #, :controllers => { :registrations => "registrations" } 
 
-  resources :news
+
+  resources :news do
+    collection do
+      get 'all'
+    end
+  end
   
-  resources :users
+  resources :users do
+    collection do
+      get 'welcome'
+    end
+  end
   
   #Custum routes
-  match "news/show_all_news" => "news#show_all_news", :as => "news"
-  match "users/:id/activate" => "users#activate", :as => "active_user"
-  match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"
+  #match "news/all" => "news#all", :as => "news_all"
+  match "users/:id/activate" => "users#activate", :as => "active_user" #usage: activate_user_path(user)
   
-  match "users/new" => "devise#sign_up", :as => "sign_up"
+  #match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"
+  
+  #match "users/new" => "devise#sign_up", :as => "sign_up"
 
 
 
