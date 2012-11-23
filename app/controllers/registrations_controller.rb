@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  protected
   
   # Allow the user to update his profile without entering the password
   def update
@@ -19,5 +20,10 @@ class RegistrationsController < Devise::RegistrationsController
     else
       render "edit"
     end
+  end
+  
+  # Redirect to welcome page after a successful registration
+  def after_sign_up_path_for(resource)
+    redirect_to '/users/welcome'
   end
 end

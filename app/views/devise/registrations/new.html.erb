@@ -41,13 +41,14 @@
   <span class="help-block">Merktu við þær meðferðir sem þú tekur þú að þér:</span>
 
   	  <% Category.find(:all).each do |cat| %>
-	    <p><%= cat.name %><br />
+	    <p><%= cat.name %></p>
 	  	<% Treatment.find(:all).each do |treatment| %>  
 	  		<% if(treatment.category_id == cat.id) %>
 		      	<%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %> 
-		        <%= treatment.name %></p> <br />
+		        <%= treatment.name %><br />
 		    <%end%>
-		<%end%>	       
+		<%end%>	
+		<br />
 	  <%end%>
 
   <span class="help-block">

@@ -1,53 +1,65 @@
-  Musteri::Application.routes.draw do
+Musteri::Application.routes.draw do
     
+  #The root is on top since its the most visited route (will be found quicker)  
   root :to => 'news#index'
-    
-  devise_for :users #, :controllers => { :registrations => "registrations" } 
   
+  #Resources for various services on the site
   resources :news do
     collection do
       get 'all'
     end
   end
   
-  resources :users do
-      get 'welcome'
-  end
-  
   resources :webstores
 
   resources :books
   
-  resources :answered_questions
-   
   resources :contacts
 
   resources :abouts
+  
+  #Resources for users
+  
+  resources :members
+  
+  authenticated :user do
+    root :to => 'members#welcome'
+  end
+  
+  devise_for :users
+  
+  #devise_for :users, :controllers => { :registrations => "registrations" }
+  
+  resources :members do
+    get 'welcome'
+  end
 
-  resources :results
-
-  resources :user_personal_test_sessions
-
-  resources :questions
-
-  resources :personal_tests
-
+  
+  #Resources for treatments
   resources :categories
 
   resources :treatments
-
-  resources :books
-
   
+  #Resources for the personal tests
+  resources :personal_tests
+  
+  resources :questions
+  
+  resources :results
+  
+  resources :answered_questions
+  
+  resources :user_personal_test_sessions
   
 
   #Custum routes
-  #match "news/all" => "news#all", :as => "news_all"
-  match "users/:id/activate" => "users#activate", :as => "active_user" #usage: activate_user_path(user)
+  match "users/:id/activate" => "members#activate", :as => "active_user" #usage: activate_user_path(user)
   
   #match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"
+
   
   #match "users/new" => "devise#sign_up", :as => "sign_up"
+ #match '/users/:id', :to => 'users#show', :as => :user
 
 
 

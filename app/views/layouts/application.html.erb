@@ -34,7 +34,7 @@
 				  <li><a href="/books">Bækur</a></li>
 				  <li><a href="/news">Fréttir</a></li>
 				  <li><a href="/treatments">Meðferðir</a></li>
-				  <li><a href="/users?is_approved=1">Meðferðaraðilar</a></li>
+				  <li><a href="/members?is_approved=1">Meðferðaraðilar</a></li>
 				  <li><a href="/personal_tests">Persónupróf</a></li>
 				  <li><a href="/webstores">Vefverslanir</a></li>
 				  <% if current_user && current_user.is_admin.to_i == 1 %>
@@ -48,14 +48,14 @@
 				    <li><p>Bæta við spakmæli</p></li>
 				    <li><a href="/books/new">Ný bók</a></li>
 				    <li><a href="/news/new">Ný frétt</a></li>
-				    <li><a href="/users?is_approved=0">Ósamþykktir notendur</a></li>
+				    <li><a href="/members?is_approved=0">Ósamþykktir notendur</a></li>
 				  <% end %>
 				</ul>
 			  </li>
 		     </ul>
 		     <form class="navbar-form pull-right">
 		       <% if user_signed_in? %>
-		         <%= link_to current_user.name, user_path(current_user) %>
+		         <%= link_to current_user.name, member_path(current_user.id) %>
 		         <%= link_to "Skrá út", destroy_user_session_path, :method => :delete %>
 		       <% end %>
 	         </form>

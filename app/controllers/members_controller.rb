@@ -1,25 +1,35 @@
-class UsersController < ApplicationController
+class MembersController < ApplicationController
   # GET /users
   # GET /users.json
   
   def activate
     @user = User.find(params[:id])
     
-    @user.is_approved = 1
-    
     if@user.update_attribute(:is_approved, 1)
-      redirect_to "/users?is_approved=0"
+      redirect_to "/members?is_approved=0"
     else
-     render "/"
+     redirect_to "/members?is_approved=0"
+    end 
+  end
+  
+  def deactivate
+    @user = User.find(params[:id])
+    
+    if@user.update_attribute(:is_approved, 0)
+      redirect_to "/members?is_approved=1"
+    else
+      redirect_to "/members?is_approved=1"
     end 
   end
   
   #Returns all unapproved users or all the approved ones
   def index
     if params[:is_approved].to_i == 0
-      @users = User.find_all_by_is_approved(0) #unapproved 
+      @users = User.find_all_by_is_approved(0) #returns unapproved users 
+    elsif params[:is_approved].to_i == 1
+      @users = User.where(:is_approved => 1, :is_admin => 0)
     else
-      @users = User.find_all_by_is_approved(1) 
+      @users = User.all #if no arguments are provided return all registered users
     end
     
     respond_to do |format|

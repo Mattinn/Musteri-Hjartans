@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   attr_accessible :username, :activate_user
   attr_accessible :name, :address, :phone, :postal, :is_admin, :is_approved
   
-  #attr_accessor :activate_user
+  #These attributes are not mapped to the users database table 
+  attr_accessor :user_message #used to keep the message from the user on registration and handed to the mailer
   
   #after_save :send_notification_emails
   validates_confirmation_of :password, :on => :create

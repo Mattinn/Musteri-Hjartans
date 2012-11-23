@@ -34,6 +34,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'nested_form'
 gem 'simple_form'
+gem 'madmimi'
 
 # Required to run rails console on Fedora 17 for some reason
 gem 'minitest'
