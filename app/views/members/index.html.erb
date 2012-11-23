@@ -1,0 +1,37 @@
+<h3>Meðferðaraðilar</h3>
+
+
+<div class="row">        	
+  <div class="span6">
+	<table class="table table-striped"> 
+	  <thead> 
+	    <tr> 
+		  <th>Nafn</th>
+		  <th>Meðferðir</th>
+		  <th>Aðgerðir</th> 
+		</tr> 
+	  </thead> 
+	  <tbody>  
+		  <% @users.each do |user| %> 
+		    <tr> 
+		      <td><%= link_to user.name, member_path(user.id) %></td>
+		      <td>
+				  <% user.treatments.each do |t| %> 
+				    <%= t.name %><br />
+				  <% end %>
+		      </td>
+		  	  <td>
+		  	  	<%= link_to 'Breyta', edit_member_path(user), :class => 'btn btn-mini' %> 
+		  	  	<%= link_to 'Eyða', member_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
+		  	  	<% if (user.is_approved).to_i == 0 %>
+	  	  		  <%= link_to 'Samþykkja', active_user_path(user), :method => :put, :class => 'btn btn-mini btn-success' %> 
+	            <% end %> 
+		  	  </td> 
+			</tr> 
+		  <% end %> 
+	   </tbody> 
+	</table>
+  </div> 
+</div>
+
+<br />
