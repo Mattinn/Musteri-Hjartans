@@ -12,5 +12,13 @@ class ApplicationController < ActionController::Base
       redirect_to "/users/sign_in", notice: 'Þú þarft að skrá þig inn með stjórnanda réttindi til að skoða þessa síðu.'
     end
   end
+  
+  
+  #
+  def check_is_user?
+    if
+      current_user
+    end
+  end
 
 end
