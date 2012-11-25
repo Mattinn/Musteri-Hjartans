@@ -46,6 +46,17 @@
     <%= f.label "Lykilorð aftur:" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  
+  <% Category.find(:all).each do |cat| %>
+	<p><%= cat.name %></p>
+	<% Treatment.find(:all).each do |treatment| %>  
+	  <% if(treatment.category_id == cat.id) %>
+	    <%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %> 
+	    <%= treatment.name %><br />
+	  <%end%>
+	<%end%>	
+	<br />
+  <%end%>
 
   <div class="actions">
     <%= f.submit 'Vista' %>

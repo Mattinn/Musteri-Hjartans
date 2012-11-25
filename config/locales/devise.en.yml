@@ -14,7 +14,7 @@ en:
 
   devise:
     failure:
-      already_authenticated: 'Þú ert þegar skráður inn'
+      already_authenticated: 'Þú hefur ekki leyfi til að breyta upplýsingum annara notenda'
       unauthenticated: 'Þú verður að skrá þig inn til þess að halda áfram'
       unconfirmed: 'Þú verður að staðfesta aðganginn þinn áðuren hægt er að halda áfram.'
       locked: 'Þessi aðgangur er læstur'
@@ -22,7 +22,7 @@ en:
       invalid_token: 'Ólöglegur staðfestingar tóki.'
       timeout: 'Lotan þín er útrunnin, vinsamlegast skráðu þig inn aftur til að halda áfram.'
       user:
-        not_approved: 'Aðgangur hefur ekki verið virkjaður'
+        not_approved: 'Aðgangur þinn hefur ekki verið virkjaður'
     sessions:
       signed_in: 'Notandi skráður inn!'
       signed_out: 'Notandi skráður út!'
