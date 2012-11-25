@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(:version => 20121124173812) do
   add_index "results", ["user_personal_test_session_id"], :name => "index_results_on_user_personal_test_session_id"
 
   create_table "sayings", :force => true do |t|
-    t.string   "message"
+    t.text     "message"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
