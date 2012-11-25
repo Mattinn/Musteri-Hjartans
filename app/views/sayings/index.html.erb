@@ -1,0 +1,16 @@
+<h3>Spakmæli og fyrirbænir</h3>
+<table>
+  <tbody>  
+	  <% @sayings.each do |saying| %> 
+	    <tr> 
+	      <td><%= link_to truncate(saying.message, :length => 70), saying_path(saying) %></td>
+	  	  <td>
+	  	  	<%= link_to 'Breyta', edit_saying_path(saying), :class => 'btn btn-mini' %> 
+	  	  	<%= link_to 'Eyða', saying_path(saying), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
+	  	  </td> 
+		</tr> 
+	  <% end %> 
+   </tbody> 
+</table>
+  </div> 
+</div>

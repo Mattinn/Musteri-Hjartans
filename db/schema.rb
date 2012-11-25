@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121123215842) do
+ActiveRecord::Schema.define(:version => 20121124173812) do
 
   create_table "abouts", :force => true do |t|
     t.string   "title"
@@ -99,6 +99,12 @@ ActiveRecord::Schema.define(:version => 20121123215842) do
   end
 
   add_index "results", ["user_personal_test_session_id"], :name => "index_results_on_user_personal_test_session_id"
+
+  create_table "sayings", :force => true do |t|
+    t.string   "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "treatments", :force => true do |t|
     t.integer  "category_id"

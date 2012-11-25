@@ -1,5 +1,8 @@
 Musteri::Application.routes.draw do
     
+  resources :sayings
+
+
   #The root is on top since its the most visited route (will be found quicker)  
   root :to => 'news#index'
   
@@ -26,9 +29,9 @@ Musteri::Application.routes.draw do
     root :to => 'members#welcome'
   end
   
-  devise_for :users
+  #devise_for :users
   
-  #devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users, :controllers => { :registrations => "registrations" }
   
   resources :members do
     get 'welcome'
@@ -53,7 +56,9 @@ Musteri::Application.routes.draw do
   
 
   #Custum routes
-  match "users/:id/activate" => "members#activate", :as => "active_user" #usage: activate_user_path(user)
+  match "users/:id/activate" => "members#activate", :as => "activate_user" #usage: activate_user_path(user)
+  match "users/:id/deactivate" => "members#deactivate", :as => "deactivate_user" #usage: deactivate_user_path(user)
+  match "members/:id/welcome" => "members#welcome", :as => "welcome"
   
   #match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"
 

@@ -9,12 +9,14 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :treatment_ids
   attr_accessible :username, :activate_user
-  attr_accessible :name, :address, :phone, :postal, :is_admin, :is_approved
+  attr_accessible :name, :address, :phone, :postal, :is_admin, :is_approved, :user_message
   
   #These attributes are not mapped to the users database table 
   attr_accessor :user_message #used to keep the message from the user on registration and handed to the mailer
   
-  #after_save :send_notification_emails
+  after_create :send_admin_notification_email
+  #after_activate :send_user_notification_email
+  
   validates_confirmation_of :password, :on => :create
   validates_presence_of :password, :on => :create
   validates_presence_of :email
@@ -22,8 +24,8 @@ class User < ActiveRecord::Base
   
   # this will activate a user
   def activate_user
-    self.is_approved = 1
-    self.save!
+    self.save
+    self.send_user_notification_email
   end
   
   #Has the user been activated by admin ?
@@ -54,10 +56,14 @@ class User < ActiveRecord::Base
 #  end
  
   
-  def send_notification_emails
-    #Notifies both admin and user of the registration
-    UserMailer.confirmation(self).deliver
+  def send_admin_notification_email
+    #Notifies admin of the registration
     UserMailer.new_user(self).deliver
+  end
+  
+  def send_user_notification_email
+    #Notifies user of beaing approved
+    UserMailer.confirmation(self).deliver
   end
 
 

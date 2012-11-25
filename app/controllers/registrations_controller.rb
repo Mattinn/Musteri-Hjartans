@@ -23,7 +23,8 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   # Redirect to welcome page after a successful registration
-  def after_sign_up_path_for(resource)
-    redirect_to '/users/welcome'
+   def after_inactive_sign_up_path_for(resource)
+    '/members/:id/welcome'
   end
+  
 end

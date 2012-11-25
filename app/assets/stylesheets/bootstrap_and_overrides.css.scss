@@ -22,3 +22,23 @@ textarea
 {
   line-height: 17px;
 }
+
+#signed-in
+{
+  padding-top: 10px;
+  text-color: #999999;
+  
+  A {
+    text-decoration:none
+  }
+  
+  A:link {
+   COLOR: #999999 /*The color of the link*/
+  }
+  A:visited {
+   COLOR: #999999 /*The color of the visited link*/
+  }
+  A:hover {
+   COLOR: white /*The color of the mouseover or 'hover' link*/
+  }
+}

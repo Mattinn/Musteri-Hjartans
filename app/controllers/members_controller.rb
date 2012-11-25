@@ -6,6 +6,7 @@ class MembersController < ApplicationController
     @user = User.find(params[:id])
     
     if@user.update_attribute(:is_approved, 1)
+      @user.activate_user
       redirect_to "/members?is_approved=0"
     else
      redirect_to "/members?is_approved=0"
@@ -15,11 +16,18 @@ class MembersController < ApplicationController
   def deactivate
     @user = User.find(params[:id])
     
-    if@user.update_attribute(:is_approved, 0)
+    if@user.update_attribute(:is_approved, 0)     
       redirect_to "/members?is_approved=1"
     else
       redirect_to "/members?is_approved=1"
     end 
+  end
+  
+  def welcome
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end
   end
   
   #Returns all unapproved users or all the approved ones
@@ -62,7 +70,12 @@ class MembersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    @member = Member.find(params[:id])
+    
+    respond_to do |format|
+      format.html # edit.html.erb
+      format.json { render json: @member }
+    end
   end
 
   # POST /users

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UserMailer < Devise::Mailer
   default from: "musterikaerleikans@gmail.com"
 
@@ -7,7 +8,14 @@ class UserMailer < Devise::Mailer
   #   en.user_mailer.new_user.subject
   #
   def new_user(user)
-    mail to: "musterikaerleikans@gmail.com", subject: 'New user awaiting confirmation'
+    @name = user.name
+    @phone = user.phone
+    @address = user.address
+    @postal = user.postal
+    @message = user.user_message
+    mail to: "musterikaerleikans@gmail.com", subject: 'Nýr meðferðaraðili'
+    
+    
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -16,7 +24,7 @@ class UserMailer < Devise::Mailer
   #   en.user_mailer.confirmation.subject
   #
   def confirmation(user)
-    @name = user.username
-    mail to: user.email, subject: 'Thanks for registering'
+    @name = user.name
+    mail to: user.email, subject: 'Aðgangur þinn hefur verið virkjaður'
   end
 end
