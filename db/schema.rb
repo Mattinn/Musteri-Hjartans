@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(:version => 20121124173812) do
   create_table "questions", :force => true do |t|
     t.string   "question_text"
     t.float    "value"
-    t.integer  "answer"
     t.integer  "personal_test_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
@@ -124,7 +123,6 @@ ActiveRecord::Schema.define(:version => 20121124173812) do
   create_table "user_personal_test_sessions", :force => true do |t|
     t.integer  "user_id"
     t.integer  "personal_test_id"
-    t.integer  "question_id"
     t.integer  "category_id"
     t.integer  "treatment_id"
     t.integer  "result_id"
@@ -134,7 +132,6 @@ ActiveRecord::Schema.define(:version => 20121124173812) do
 
   add_index "user_personal_test_sessions", ["category_id"], :name => "index_user_personal_test_sessions_on_category_id"
   add_index "user_personal_test_sessions", ["personal_test_id"], :name => "index_user_personal_test_sessions_on_personal_test_id"
-  add_index "user_personal_test_sessions", ["question_id"], :name => "index_user_personal_test_sessions_on_question_id"
   add_index "user_personal_test_sessions", ["result_id"], :name => "index_user_personal_test_sessions_on_result_id"
   add_index "user_personal_test_sessions", ["treatment_id"], :name => "index_user_personal_test_sessions_on_treatment_id"
   add_index "user_personal_test_sessions", ["user_id"], :name => "index_user_personal_test_sessions_on_user_id"

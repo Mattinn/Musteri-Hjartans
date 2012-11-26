@@ -10,12 +10,7 @@
       </ul>
     </div>
   <% end %>
-
- <% @user_personal_test_session.personal_test.questions.each do |q| %>
-  <%= q.answer = 1%>
-   <%=  @user_personal_test_session.save! %>
-  <% end %>
-
+  
   <div class="actions">
     <%= f.submit 'Value'%>
   </div>

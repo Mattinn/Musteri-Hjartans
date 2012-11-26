@@ -3,7 +3,6 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.string :question_text
       t.float :value
-      t.integer :answer, :default => 0
       t.belongs_to :personal_test
 
       t.timestamps

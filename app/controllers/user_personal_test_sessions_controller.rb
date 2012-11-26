@@ -41,7 +41,6 @@ class UserPersonalTestSessionsController < ApplicationController
   # POST /user_personal_test_sessions.json
   def create
     @user_personal_test_session = UserPersonalTestSession.new(params[:user_personal_test_session])
-
     respond_to do |format|
       if @user_personal_test_session.save
         format.html { redirect_to @user_personal_test_session, notice: 'User personal test session was successfully created.' }
@@ -56,47 +55,11 @@ class UserPersonalTestSessionsController < ApplicationController
   # PUT /user_personal_test_sessions/1
   # PUT /user_personal_test_sessions/1.json
   def update
-    
-    #params[:personal_test][:question_ids] ||= []
     @user_personal_test_session = UserPersonalTestSession.find(params[:id])
-    #@theResult = @user_personal_test_session.result
-    @theResult = 0.0
-    
-   # puts "debuggid: #{@user_personal_test_session}"
-   
-   puts "DEBUGG!!"
-   
-   puts "The result before adding question values" 
-   
-   puts @theResult.to_iinspect
-   
     @user_personal_test_session.personal_test.questions.each do |q|
-    #if @user_personal_test_session.checked] == true
-       @theResult = q.value + @theResault 
+      a = @user_personal_test_session.answered_questions.create(:question_id => q.id)
+      @user_personal_test_session.save!
     end
-    
-    puts "The result after adding question values"
-    
-    puts @theResult.inspect
-    
-    puts "DEBUGG!!"
-    
-    @user_personal_test_session.personal_test.questions.each do |q|
-      puts q.inspect
-      #if @user_personal_test_session.checked] == true
-      # @theResult = q.value + @theResault 
-      end
-    
-    puts "DEBUGG!!"
-        
-    #Rails.logger.info (params)
-    #Rails.logger.debug()
-
-    @user_personal_test_session = UserPersonalTestSession.find(params[:id])
-    @user_personal_test_session.personal_test.questions.each do |q|
-      puts q.answer
-    end  
-    
     respond_to do |format|
       if @user_personal_test_session.update_attributes(params[:user_personal_test_session])
         format.html { redirect_to @user_personal_test_session, notice: 'User personal test session was successfully updated.' }
