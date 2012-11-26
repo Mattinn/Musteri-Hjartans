@@ -55,14 +55,15 @@ Musteri::Application.routes.draw do
   match "users/:id/deactivate" => "members#deactivate", :as => "deactivate_user" #usage: deactivate_user_path(user)
   match "members/:id/welcome" => "members#welcome", :as => "welcome"
   
-  match "members/:id/edit" => "registrations#edit", :as => "edit_user_registration"
-  #match "members/:id" => "registrations#update"#, :as => "update_users_path"
+  #match "members/:id/edit" => "registrations#edit", :as => "edit_user_registration"
+  match "users/:id/edit" => "members#edit", :as => "edit_user_registration"
+  match "users/:id/update" => "registrations#update" #, :as => "update_user"
   
   #match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"
 
   
   #match "users/new" => "devise#sign_up", :as => "sign_up"
- #match '/users/:id', :to => 'users#show', :as => :user
+  #match '/users/:id', :to => 'users#show', :as => :user
 
 
 
