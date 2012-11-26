@@ -1,10 +1,10 @@
-<%= form_for(@member) do |f| %>
-  <% if @member.errors.any? %>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @member.errors.full_messages.each do |msg| %>
+      <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -46,6 +46,17 @@
     <%= f.label "Lykilorð aftur:" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  
+  <% Category.find(:all).each do |cat| %>
+	<p><%= cat.name %></p>
+	<% Treatment.find(:all).each do |treatment| %>  
+	  <% if(treatment.category_id == cat.id) %>
+	    <%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %> 
+	    <%= treatment.name %><br />
+	  <%end%>
+	<%end%>	
+	<br />
+  <%end%>
 
   <div class="actions">
     <%= f.submit 'Vista' %>

@@ -22,14 +22,9 @@ Musteri::Application.routes.draw do
   resources :abouts
   
   #Resources for users
-  
-  resources :members
-  
   authenticated :user do
     root :to => 'members#welcome'
   end
-  
-  #devise_for :users
   
   devise_for :users, :controllers => { :registrations => "registrations" }
   
@@ -59,6 +54,8 @@ Musteri::Application.routes.draw do
   match "users/:id/activate" => "members#activate", :as => "activate_user" #usage: activate_user_path(user)
   match "users/:id/deactivate" => "members#deactivate", :as => "deactivate_user" #usage: deactivate_user_path(user)
   match "members/:id/welcome" => "members#welcome", :as => "welcome"
+  match "members/:id/edit" => "registrations#edit", :as => "edit_user_registration"
+  match "users/:id" => "registrations#update"#, :as => "update_users_path"
   
   #match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"
 

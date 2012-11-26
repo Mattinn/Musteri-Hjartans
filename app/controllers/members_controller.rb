@@ -68,13 +68,18 @@ class MembersController < ApplicationController
     end
   end
 
+
   # GET /users/1/edit
   def edit
-    @member = Member.find(params[:id])
-    
-    respond_to do |format|
-      format.html # edit.html.erb
-      format.json { render json: @member }
+    @who = User.find(params[:id])
+    if(current_user)
+      if (current_user.id == @who.id)
+        @user = User.find(params[:id])
+      else
+        redirect_to '/users/sign_in'
+      end
+    else
+      redirect_to '/users/sign_in'
     end
   end
 
@@ -104,7 +109,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html {  render action: "edit", notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

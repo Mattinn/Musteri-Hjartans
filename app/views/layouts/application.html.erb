@@ -51,6 +51,8 @@
 				  <% if current_user && current_user.is_admin.to_i == 1 %>
 		    	    <li class="divider"></li>
 				    <li class="nav-header">Stjórnandi</li>
+				    <li><a href="/abouts/1/edit">Breyta um okkur</a></li>
+				    <li><a href="/contacts/new">Bæta við tengilið</a></li>
 				    <li><a href="/categories/new">Búa til flokk</a></li>
 				    <li><a href="/treatments/new">Búa til meðferð</a></li>
 				    <li><a href="/personal_tests/new">Búa til próf</a></li>
@@ -99,12 +101,11 @@
           <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
         </div>
       
-	<div id="user_nav" float="left"> <!-- Flash messages-->     
-					<!-- Flash messages-->
-			<% flash.each do |name, msg| %>
-			<%= content_tag :div, msg, :id => "flash_#{name}" %>
-			<% end %>
-	</div>
+	<div id="user_nav" float="left">    			
+	  <% flash.each do |name, msg| %>
+	  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+	</div><!-- Flash messages-->  
         
     <div class="row">	
       <div class="span8">
@@ -130,7 +131,7 @@
 
             <div class="widget span4">
               <h3>Finndu okkur á Facebook</h3>
-			  <div class="fb-like-box" data-href="http://www.facebook.com/MusteriHjartans" data-width="370" data-height="200" data-show-faces="true" data-border-color="gray" data-stream="false" data-header="false"></div>
+			  <div class="fb-like-box" data-href="http://www.facebook.com/MusteriHjartans" data-width="370" data-height="180" data-show-faces="true" data-border-color="gray" data-stream="false" data-header="false"></div>
 			 
             </div><!-- end widget -->
             <br />
