@@ -1,4 +1,13 @@
-<h3>Meðferðaraðilar</h3>
+<% if !@users.empty? %>
+  <% @first = @users.first %>
+  <% if (@first.is_approved).to_i == 1 %>
+    <h3>Meðferðaraðilar</h3>
+  <% else %>
+    <h3>Ósamþykktir meðferðaraðilar</h3>
+  <% end %>
+  <% else %>
+  <h3>Engar umsóknir</h3>
+<% end %>
 
 <div class="row">        	
   <div class="span6">
@@ -22,7 +31,6 @@
 				  <% end %>
 		      </td>
 		  	  <td>
-		  	  	<%= link_to 'Breyta', edit_member_path(user), :class => 'btn btn-mini' %> 
 		  	  	<%= link_to 'Eyða', member_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
 		  	  	<% if (user.is_approved).to_i == 0 %>
 	  	  		  <%= link_to 'Samþykkja', activate_user_path(user), :method => :put, :class => 'btn btn-mini btn-success' %>

@@ -28,8 +28,6 @@ Musteri::Application.routes.draw do
   
   devise_for :users, :controllers => { :registrations => "registrations" }
   
-  #match  "members/:id/edit" => "registrations#edit"
-  
   resources :members do
     get 'welcome'
   end
@@ -55,16 +53,22 @@ Musteri::Application.routes.draw do
   #Custum routes
   match "users/:id/activate" => "members#activate", :as => "activate_user" #usage: activate_user_path(user)
   match "users/:id/deactivate" => "members#deactivate", :as => "deactivate_user" #usage: deactivate_user_path(user)
-  match "members/:id/welcome" => "members#welcome", :as => "welcome"
   
-  #match "members/:id/edit" => "registrations#edit", :as => "edit_user_registration"
-  #match "users/:id/edit" => "members#edit"#, :as => "edit_user_registration"
-  match "users/:id/edit" => "registrations#edit" #, :as => "update_user"
-  match  "members/:id/edit" => "registrations#update"#, :as => update_registration
+  
+  match "members/:id/edit" => "users#edit", :as => "user"
+  match "members/:id/update" => "registrations#update"#, :as => "user"
+
   
   #match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"
 
   
+  #TRASH_BIN - Remove before handin !! 
+  #match "members/:id/welcome" => "members#welcome", :as => "welcome"
+  #match "members/:id/edit" => "registrations#edit", :as => "edit_user_registration"
+  #match "users/:id/edit" => "members#edit"#, :as => "edit_user_registration"
+  #match "users/:id/edit" => "registrations#edit" #, :as => "update_user"
+  #match  "members/:id/edit" => "registrations#update"#, :as => update_registration
+  #match  "members/:id/edit" => "registrations#edit"
   #match "users/new" => "devise#sign_up", :as => "sign_up"
   #match '/users/:id', :to => 'users#show', :as => :user
 
