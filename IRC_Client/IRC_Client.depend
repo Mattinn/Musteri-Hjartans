@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1352996907 source:c:\temp\tsam\irc_client\main.cpp
+	<iostream>
+	<cstring>
+	<stdlib.h>
+	<winsock2.h>
+	<fstream>
+	<iomanip>
+	<ctime>
+	<unistd.h>
+
+1353178354 source:c:\users\carsten\documents\github\irc\irc_client\main.cpp
+	<iostream>
+	<cstring>
+	<stdlib.h>
+	<winsock2.h>
+	<fstream>
+	<iomanip>
+	<ctime>
+	<unistd.h>
+
+1353179320 source:c:\users\notandi\dropbox\tsam\irc_client\main.cpp
+	<iostream>
+	<cstring>
+	<stdlib.h>
+	<winsock2.h>
+	<fstream>
+	<iomanip>
+	<ctime>
+	<unistd.h>
+
+1354021709 source:c:\users\notandi\documents\github\irc\irc_client\main.cpp
+	<iostream>
+	<cstring>
+	<stdlib.h>
+	<winsock2.h>
+	<fstream>
+	<iomanip>
+	<ctime>
+	<unistd.h>
+

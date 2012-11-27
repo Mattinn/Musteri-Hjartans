@@ -22,13 +22,40 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
   
+  # PUT /users/1
+  # PUT /users/1.json
+  def update
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html {  render action: "edit", notice: 'User was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+    
+  end
+  
+    # Edit a user registration
+  def edit
+    @who = User.find(params[:id])
+    if(current_user)
+      if (current_user.id == @who.id)
+        @user = User.find(params[:id])
+      else
+        redirect_to '/users/sign_in'
+      end
+    else
+      redirect_to '/users/sign_in'
+    end
+  end
+  
   # Redirect to welcome page after a successful registration
    def after_inactive_sign_up_path_for(resource)
     '/members/:id/welcome'
-  end
-  
-  def update
-    super
   end
   
 end

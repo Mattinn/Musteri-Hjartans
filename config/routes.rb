@@ -28,6 +28,8 @@ Musteri::Application.routes.draw do
   
   devise_for :users, :controllers => { :registrations => "registrations" }
   
+  #match  "members/:id/edit" => "registrations#edit"
+  
   resources :members do
     get 'welcome'
   end
@@ -56,8 +58,9 @@ Musteri::Application.routes.draw do
   match "members/:id/welcome" => "members#welcome", :as => "welcome"
   
   #match "members/:id/edit" => "registrations#edit", :as => "edit_user_registration"
-  match "users/:id/edit" => "members#edit", :as => "edit_user_registration"
-  match "users/:id/update" => "registrations#update" #, :as => "update_user"
+  #match "users/:id/edit" => "members#edit"#, :as => "edit_user_registration"
+  match "users/:id/edit" => "registrations#edit" #, :as => "update_user"
+  match  "members/:id/edit" => "registrations#update"#, :as => update_registration
   
   #match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"
 

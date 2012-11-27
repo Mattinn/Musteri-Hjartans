@@ -2,14 +2,14 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :phone %>
-    <%= f.input :address %>
-    <%= f.input :link %>
+    <%= f.input :title, :label => "Nafn"%>
+    <%= f.input :description, :label => "Lýsing" %>
+    <%= f.input :phone, :label => "Sími" %>
+    <%= f.input :address, :label => "Staðsetning" %>
+    <%= f.input :link, :label => "Vefslóð" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Vista" %>
   </div>
 <% end %>
