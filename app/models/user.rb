@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :treatments
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :treatment_ids
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :treatment_ids, :current_password
   attr_accessible :username, :activate_user
   attr_accessible :name, :address, :phone, :postal, :is_admin, :is_approved, :user_message
   

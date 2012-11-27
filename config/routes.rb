@@ -1,17 +1,19 @@
 Musteri::Application.routes.draw do
     
-  resources :sayings
+ 
 
 
   #The root is on top since its the most visited route (will be found quicker)  
   root :to => 'news#index'
   
-  #Resources for various services on the site
+  #Resources for various services on the site   registrations#update
   resources :news do
     collection do
       get 'all'
     end
   end
+  
+  resources :sayings
   
   resources :webstores
 
@@ -21,14 +23,25 @@ Musteri::Application.routes.draw do
 
   resources :abouts
   
+  #match "registrations/:id/update" => "members#update"
+  #match "users/:id/update" => "members#update"
+  #match "users/update" => "members#update"
+  #match "registrations/update" => "members#update"
+  
   #Resources for users
   authenticated :user do
     root :to => 'members#welcome'
   end
   
+  
+  
   devise_for :users, :controllers => { :registrations => "registrations" }
   
-  resources :members do
+   #devise_scope :user do
+     #post 'users/update' => 'members#update'
+   #end
+  
+  resources :members, :except => [:create, :edit] do
     get 'welcome'
   end
 
@@ -55,8 +68,8 @@ Musteri::Application.routes.draw do
   match "users/:id/deactivate" => "members#deactivate", :as => "deactivate_user" #usage: deactivate_user_path(user)
   
   
-  match "members/:id/edit" => "users#edit", :as => "user"
-  match "members/:id/update" => "registrations#update"#, :as => "user"
+  #match "members/:id/edit" => "users#edit", :as => "user"
+  #match "members/:id/update" => "registrations#update"#, :as => "user"
 
   
   #match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"

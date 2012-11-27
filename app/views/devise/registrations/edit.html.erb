@@ -4,18 +4,41 @@
   
   <div><%= f.label "Nafn" %>
   <%= f.text_field :name %></div>
+  
+  <div class="field">
+    <%= f.label("Heimilsfang:") %>
+    <%= f.text_field :address %>
+  </div>
+  
+  <div class="field">
+    <%= f.label("Símanúmer") %>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label("Póstnúmer") %>
+    <%= f.text_field :postal %>
+  </div>
 
   <div><%= f.label "Tölvupóstur" %>
   <%= f.email_field :email %></div>
 
-  <div><%= f.label "Nýtt lykilorð" %> <i>(Skilja eftir autt ef ekki á að breyta)</i><br />
+  <div><b><%= f.label "Nýtt lykilorð" %></b><i>Skilja eftir autt ef ekki á að breyta</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
-  <div><%= f.label "Staðfesting á nýju lykilorði" %>
+  <div><%= f.label "Staðfesting á nýju lykilorði" %><i>Skilja eftir autt ef ekki á að breyta</i><br />
   <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label "Núverandi lykilorð" %> <i>(Það verður að staðfesta breytingarnar með lykilorði)</i><br />
-  <%= f.password_field :current_password %></div>
+  
+  <% Category.find(:all).each do |cat| %>
+	<p><%= cat.name %></p>
+	<% Treatment.find(:all).each do |treatment| %>  
+	  <% if(treatment.category_id == cat.id) %>
+	    <%= check_box_tag "user[treatment_ids][]", treatment.id, @user.treatments.include?(treatment) %> 
+	    <%= treatment.name %><br />
+	  <%end%>
+	<%end%>	
+	<br />
+  <%end%>
 
   <div><%= f.submit "Vista" %></div>
 <% end %>
