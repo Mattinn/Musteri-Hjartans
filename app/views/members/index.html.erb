@@ -1,12 +1,12 @@
 <h3>Meðferðaraðilar</h3>
 
-
 <div class="row">        	
   <div class="span6">
 	<table class="table table-striped"> 
 	  <thead> 
 	    <tr> 
 		  <th>Nafn</th>
+		  <th>Póstnúmer</th>
 		  <th>Meðferðir</th>
 		  <th>Aðgerðir</th> 
 		</tr> 
@@ -15,6 +15,7 @@
 		  <% @users.each do |user| %> 
 		    <tr> 
 		      <td><%= link_to user.name, member_path(user.id) %></td>
+		      <td><%= user.postal %></td>
 		      <td>
 				  <% user.treatments.each do |t| %> 
 				    <%= t.name %><br />

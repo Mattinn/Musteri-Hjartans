@@ -35,10 +35,12 @@ class MembersController < ApplicationController
     if params[:is_approved].to_i == 0
       @users = User.find_all_by_is_approved(0) #returns unapproved users 
     elsif params[:is_approved].to_i == 1
-      @users = User.where(:is_approved => 1, :is_admin => 0)
+      @unsorted_users = User.where(:is_approved => 1, :is_admin => 0)
+      @users = @unsorted_users.sort_by { |obj| obj.postal }  
     else
-      @users = User.all #if no arguments are provided return all registered users
+      redirect_to "/" #For bogus calls => return to root
     end
+    
     
     respond_to do |format|
       format.html # index.html.erb

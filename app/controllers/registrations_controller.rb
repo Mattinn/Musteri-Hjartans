@@ -27,4 +27,8 @@ class RegistrationsController < Devise::RegistrationsController
     '/members/:id/welcome'
   end
   
+  def update
+    super
+  end
+  
 end
