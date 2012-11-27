@@ -1,4 +1,4 @@
-<%= simple_form_for(@user_personal_test_session, :html => {:class => 'form-horizontal' }) do |f|%>
+<%= form_for(@user_personal_test_session, :html => {:class => 'form-horizontal' }) do |f|%>
   <% if @user_personal_test_session.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user_personal_test_session.errors.count, "error") %> prohibited this user_personal_test_session from being saved:</h2>
@@ -18,7 +18,7 @@
   
   <div class="field">
   	<%= f.label "Notandi" %><br />
-	<%= select(:user_personal_test_session, :user_id, User.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Velja notenda'})%>
+	<%= select(:user_personal_test_session, :user_id, User.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Velja notanda'})%>
   </div>
   
   <div class="field">

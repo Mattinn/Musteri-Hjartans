@@ -1,6 +1,6 @@
 class PersonalTest < ActiveRecord::Base
   has_many :questions, :dependent => :destroy
-  has_many :user_personal_test_sessions, :dependent => :destroy
+  has_many :user_personal_test_sessions
   attr_accessible :description, :name, :questions_attributes, :user_personal_test_sessions_attributes
   
   #Gives access to question attributes and removes blank question objects (in case there are any)  

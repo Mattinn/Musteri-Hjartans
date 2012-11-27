@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<%= form_for(@user_personal_test_session) do |f| %>
+<%= nested_form_for(@user_personal_test_session) do |f| %>
 
 <div class="fields">
 <p>
@@ -9,53 +9,30 @@
   <b><%= @user_personal_test_session.personal_test.description %></b>
 </p>
 <p>
-  <% @user_personal_test_session.personal_test.questions.each do |question| %> 
-  		
-  		 <%= check_box_tag "@user_personal_test_session.personal_test[question_ids]", question.id, false, :id => "@user_personal_test_session.personal_test_ids_#{question.id}" %>
-  		<%= question.question_text %> </b> </br> 
-  <% end %>
+
+<%= f.fields_for :answered_questions do |a| %>
+  <% a.label :question_id %>
+  <%= a.check_box :answer %>
+<% end %>
+		 
 </p>
-  
+
+<%= f.fields_for :results do |r| %>
+  <% r.label :score %>
+  <% r.number_field :score %>
+<% end %>
+
 </div>
+
+<p>
+  <b><%= @user_personal_test_session.results.last %></b>
+</p>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
 <p>
-  <b>User:</b>
-  <%= @user_personal_test_session.user_id %>
-</p>
-
-<p>
-  <b>Personal test:</b>
-  <%= @user_personal_test_session.personal_test.name %>
-</p>
-
-<p>
-  <b>Question:</b>
-  <% @user_personal_test_session.personal_test.questions.each do |q| %>
-  <%= q.question_text %>
-  <br/>
-  <%= q.answer %>
-  <% end %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @user_personal_test_session.category_id %>
-</p>
-
-<p>
-  <b>Treatment:</b>
-  <%= @user_personal_test_session.treatment_id %>
-</p>
-
-<p>
-  <b>Result:</b>
-  <%= @user_personal_test_session.result_id %>
-</p>
-
-
+c
 <%= link_to 'Edit', edit_user_personal_test_session_path(@user_personal_test_session) %> |
 <%= link_to 'Back', user_personal_test_sessions_path %>

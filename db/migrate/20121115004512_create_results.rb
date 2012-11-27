@@ -1,9 +1,9 @@
 class CreateResults < ActiveRecord::Migration
   def change
     create_table :results do |t|
+      t.integer :user_personal_test_session_id
       t.float :score
-      t.text :message
-      t.references :user_personal_test_session
+      t.text :message 
 
       t.timestamps
     end
