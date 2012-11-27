@@ -5,7 +5,7 @@ class Saying < ActiveRecord::Base
   
   def self.random
       if (c = count) == 0
-        "Það eru engin spakmæli í grunninum"
+        Saying.create(:message => "Það eru engin spakmæli í grunninum")
       else
         find(:first, :offset =>rand(c))
       end
