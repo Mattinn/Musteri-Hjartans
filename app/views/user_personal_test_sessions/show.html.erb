@@ -12,14 +12,21 @@
 
 <%= f.fields_for :answered_questions do |a| %>
   <% a.label :question_id %>
-  <%= a.text_field :answer %>
-  <%= a.link_to_remove "Remove" %>
+  <%= a.check_box :answer %>
 <% end %>
-<p><%= f.link_to_add "Add", :answered_questions %></p>
 		 
 </p>
-  
+
+<%= f.fields_for :results do |r| %>
+  <% r.label :score %>
+  <% r.number_field :score %>
+<% end %>
+
 </div>
+
+<p>
+  <b><%= @user_personal_test_session.results.last %></b>
+</p>
 
   <div class="actions">
     <%= f.submit %>
