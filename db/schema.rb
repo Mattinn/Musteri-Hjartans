@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20121124173812) do
     t.integer  "question_id"
     t.integer  "answer"
     t.text     "text_answer"
+    t.float    "q_value"
+    t.string   "q_text"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end

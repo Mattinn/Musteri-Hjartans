@@ -16,14 +16,6 @@
 	<%= select(:user_personal_test_session, :personal_test_id, PersonalTest.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Velja próf'})%>
   </div>
   
-  <div class="field">
-  	<%= f.label "Notandi" %><br />
-	<%= select(:user_personal_test_session, :user_id, User.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Velja notanda'})%>
-  </div>
-  
-  <div class="field">
-  	<%= f.label "Spurningar" %><br />
-  
   <div class="actions">
     <%= f.submit %>
   </div>

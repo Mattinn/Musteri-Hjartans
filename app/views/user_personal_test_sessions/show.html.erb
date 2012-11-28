@@ -13,19 +13,23 @@
 <%= f.fields_for :answered_questions do |a| %>
   <% a.label :question_id %>
   <%= a.check_box :answer %>
+  <%= a.text_field :q_text %>
 <% end %>
 		 
 </p>
 
-<%= f.fields_for :results do |r| %>
-  <% r.label :score %>
-  <% r.number_field :score %>
-<% end %>
-
 </div>
+<h3> Niðurstaða: </h3>
+<p><% if @user_personal_test_session.results.exists? %>
+  <b> þú skoraðir <%= @user_personal_test_session.results.last.score %> stig.</b>
+      <% end %>
+</p>
 
-<p>
-  <b><%= @user_personal_test_session.results.last %></b>
+<p><% if @user_personal_test_session.results.exists? and @user_personal_test_session.results.last.score > 50  %>
+      Þetta er frekar alvarlegt, þú verður að gera eitthvað í þínum málum.
+  <b> <% else %></b>
+      Þú ert bara í fínum málum!
+      <% end %>
 </p>
 
   <div class="actions">

@@ -5,6 +5,8 @@ class CreateAnsweredQuestions < ActiveRecord::Migration
       t.integer :question_id
       t.integer :answer
       t.text :text_answer
+      t.float :q_value
+      t.string :q_text
 
       t.timestamps
     end

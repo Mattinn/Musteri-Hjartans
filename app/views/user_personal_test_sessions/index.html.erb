@@ -1,32 +1,4 @@
-<h3>Test Sessions</h3>
-
-<table>
-  <tr>
-    <th>User</th>
-    <th>Personal test</th>
-    <th>Question</th>
-    <th>Category</th>
-    <th>Treatment</th>
-    <th>Result</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @user_personal_test_sessions.each do |user_personal_test_session| %>
-  <tr>
-    <td><%= user_personal_test_session.user_id %></td>
-    <td><%= user_personal_test_session.personal_test_id %></td>
-    <td><%= user_personal_test_session.category_id %></td>
-    <td><%= user_personal_test_session.treatment_id %></td>
-    <td><%= user_personal_test_session.result_id %></td>
-    <td><%= link_to 'Show', user_personal_test_session %></td>
-    <td><%= link_to 'Edit', edit_user_personal_test_session_path(user_personal_test_session) %></td>
-    <td><%= link_to 'Destroy', user_personal_test_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
+<h3>Persónupróf</h3>
 <br />
 
-<%= link_to 'New User personal test session', new_user_personal_test_session_path %>
+<%= link_to 'Taka persónupróf', new_user_personal_test_session_path %>

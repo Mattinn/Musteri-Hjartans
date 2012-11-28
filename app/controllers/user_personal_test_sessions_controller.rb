@@ -44,7 +44,7 @@ class UserPersonalTestSessionsController < ApplicationController
     respond_to do |format|
       if @user_personal_test_session.save
         @user_personal_test_session.personal_test.questions.each do |q|
-          a = @user_personal_test_session.answered_questions.create(:question_id => q.id)
+          a = @user_personal_test_session.answered_questions.create(:question_id => q.id, :q_text => q.question_text, :q_value => q.value)
         end
         format.html { redirect_to @user_personal_test_session, notice: 'User personal test session was successfully created.' }
         format.json { render json: @user_personal_test_session, status: :created, location: @user_personal_test_session }
@@ -62,14 +62,12 @@ class UserPersonalTestSessionsController < ApplicationController
     respond_to do |format|
       if @user_personal_test_session.update_attributes(params[:user_personal_test_session])
         @theResult = Result.create(:user_personal_test_session_id => @user_personal_test_session.id, :score => 0)
-        @user_personal_test_session.personal_test.questions.each do |q|
           @user_personal_test_session.answered_questions.each do |a|
             if a.answer == 1
-              @theResult.score = @theResult.score + q.value
-            end 
+              @theResult.score = @theResult.score + a.q_value
+            end    
             @theResult.save!
           end
-        end
         format.html { redirect_to @user_personal_test_session, notice: 'User personal test session was successfully updated.' }
         format.json { head :no_content }
       else
