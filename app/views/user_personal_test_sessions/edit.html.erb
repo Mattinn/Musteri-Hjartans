@@ -1,20 +1,10 @@
 <%= form_for(@user_personal_test_session) do |f| %>
-  <% if @user_personal_test_session.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user_personal_test_session.errors.count, "error") %> prohibited this user_personal_test_session from being saved:</h2>
 
-      <ul>
-      <% @user_personal_test_session.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   
   <div class="actions">
-    <%= f.submit 'Value'%>
+    <%= f.submit 'Vista'%>
   </div>
 <% end %>
 
-<%= link_to 'Show', @user_personal_test_session %> |
-<%= link_to 'Back', user_personal_test_sessions_path %>
+<%= link_to 'Sýna', @user_personal_test_session %> |
+<%= link_to 'Til baka', user_personal_test_sessions_path %>

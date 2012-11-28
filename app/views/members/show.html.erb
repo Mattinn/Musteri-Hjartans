@@ -31,7 +31,6 @@
   <% end %>
 </p>
 
-<% if (current_user && (current_user.is_admin).to_i == 1) %>
-  <%= link_to ' Breyta', '/users/edit' %> |
-<% end %>
+
+<%= link_to ' Breyta', '/users/edit' %> |
 <%= link_to ' Til baka', members_path %>
