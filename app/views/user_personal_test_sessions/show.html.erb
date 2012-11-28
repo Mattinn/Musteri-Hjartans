@@ -32,7 +32,7 @@
 
 <p><% if @user_personal_test_session.results.exists? and @user_personal_test_session.results.last.score > 50  %>
       Þetta er frekar alvarlegt, þú verður að gera eitthvað í þínum málum.
-  <b> <% else %></b>
+  <b> <% elsif @user_personal_test_session.results.exists? and @user_personal_test_session.results.last.score > 1 %></b>
       Þú ert bara í fínum málum!
       <% end %>
 </p>
