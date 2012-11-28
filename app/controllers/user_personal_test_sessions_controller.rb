@@ -46,7 +46,7 @@ class UserPersonalTestSessionsController < ApplicationController
         @user_personal_test_session.personal_test.questions.each do |q|
           a = @user_personal_test_session.answered_questions.create(:question_id => q.id, :q_text => q.question_text, :q_value => q.value)
         end
-        format.html { redirect_to @user_personal_test_session, notice: 'User personal test session was successfully created.' }
+        format.html { redirect_to @user_personal_test_session }
         format.json { render json: @user_personal_test_session, status: :created, location: @user_personal_test_session }
       else
         format.html { render action: "new" }
@@ -68,7 +68,7 @@ class UserPersonalTestSessionsController < ApplicationController
             end    
             @theResult.save!
           end
-        format.html { redirect_to @user_personal_test_session, notice: 'User personal test session was successfully updated.' }
+        format.html { redirect_to @user_personal_test_session }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

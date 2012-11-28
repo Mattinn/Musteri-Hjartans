@@ -1,17 +1,15 @@
-<p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @book.title %>
+  <h3><%= @book.title %></h3>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Lýsing:</b><br />
   <%= @book.description %>
 </p>
 
 <p>
-  <b>Category:</b>
+  <b>Flokkur:</b><br />
   <%= @book.category %>
 </p>
 
@@ -21,10 +19,11 @@
 </p>
 
 <p>
-  <b>Author:</b>
+  <b>Höfundur:</b><br />
   <%= @book.author %>
 </p>
 
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<% if (current_user && (current_user.is_admin).to_i == 1) %>
+  <%= link_to 'Breyta', edit_book_path(@book) %> |
+<% end %>
+<%= link_to 'Til baka', books_path %>

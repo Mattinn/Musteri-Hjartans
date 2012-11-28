@@ -5,7 +5,7 @@
 	<li><%= truncate(news.body, :length => 450) %><%= link_to ' meira', news %></li>
     <li><br /></li>
     <li><%= news.author %></li><br />
- 	<% if (current_user && (current_user.is_admin).to_i == 0) %>
+ 	<% if (current_user && (current_user.is_admin).to_i == 1) %>
  	<table>
  		<li>
 		    <tr><%= link_to 'Breyta ', edit_news_path(news) %></tr>

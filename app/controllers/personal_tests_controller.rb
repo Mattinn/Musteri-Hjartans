@@ -49,7 +49,7 @@ class PersonalTestsController < ApplicationController
 
     respond_to do |format|
       if @personal_test.save
-        format.html { redirect_to @personal_test, notice: 'Personal test was successfully created.' }
+        format.html { redirect_to @personal_test}
         format.json { render json: @personal_test, status: :created, location: @personal_test }
       else
         format.html { render action: "new" }
@@ -80,7 +80,7 @@ class PersonalTestsController < ApplicationController
     
     respond_to do |format|
       if @personal_test.update_attributes(params[:personal_test])
-        format.html { redirect_to @personal_test, notice: 'Personal test was successfully updated.' }
+        format.html { redirect_to @personal_test}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

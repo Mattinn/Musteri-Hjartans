@@ -44,7 +44,7 @@ class AnsweredQuestionsController < ApplicationController
 
     respond_to do |format|
       if @answered_question.save
-        format.html { redirect_to @answered_question, notice: 'Answered question was successfully created.' }
+        format.html { redirect_to @answered_question}
         format.json { render json: @answered_question, status: :created, location: @answered_question }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class AnsweredQuestionsController < ApplicationController
 
     respond_to do |format|
       if @answered_question.update_attributes(params[:answered_question])
-        format.html { redirect_to @answered_question, notice: 'Answered question was successfully updated.' }
+        format.html { redirect_to @answered_question }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

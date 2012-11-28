@@ -2,8 +2,7 @@
 
 <table class="table table-striped"> 
   <thead> 
-    <tr> 
-	  <th>ID</th> 
+    <tr>  
       <th>Flokkur</th>
       <th>Nafn</th>
       <th>Lýsing</th>
@@ -11,8 +10,6 @@
   </thead> 
   <tbody>  
 	  <% @treatments.each do |treatment| %> 
-	    <tr> 
-	      <td><%= treatment.id %></td>
 		  <td><%= treatment.category.name %></td>
 		  <td><%= link_to treatment.name, treatment_path(treatment)%></td>
           <td><%= treatment.description %></td>

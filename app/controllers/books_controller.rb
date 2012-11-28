@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_filter :check_is_admin?, :only => [:new, :create, :edit, :update, :destroy]
   # GET /books
   # GET /books.json
   def index
@@ -44,7 +45,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
+        format.html { redirect_to @book}
         format.json { render json: @book, status: :created, location: @book }
       else
         format.html { render action: "new" }
@@ -60,7 +61,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.update_attributes(params[:book])
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        format.html { redirect_to @book }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

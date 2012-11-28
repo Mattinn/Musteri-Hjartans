@@ -1,4 +1,5 @@
 class TreatmentsController < ApplicationController
+  before_filter :check_is_admin?, :only => [:new, :create, :edit, :update, :destroy]
   # GET /treatments
   # GET /treatments.json
   def index
@@ -45,7 +46,7 @@ class TreatmentsController < ApplicationController
 
     respond_to do |format|
       if @treatment.save
-        format.html { redirect_to @treatment, notice: 'Treatment was successfully created.' }
+        format.html { redirect_to @treatment}
         format.json { render json: @treatment, status: :created, location: @treatment }
       else
         format.html { render action: "new" }
@@ -61,7 +62,7 @@ class TreatmentsController < ApplicationController
 
     respond_to do |format|
       if @treatment.update_attributes(params[:treatment])
-        format.html { redirect_to @treatment, notice: 'Treatment was successfully updated.' }
+        format.html { redirect_to @treatment}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

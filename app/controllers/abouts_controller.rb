@@ -1,4 +1,6 @@
+# encoding: utf-8
 class AboutsController < ApplicationController
+ before_filter :check_is_admin?, :only => [:new, :create, :edit, :update, :destroy]
   # GET /abouts
   # GET /abouts.json
   def index
@@ -44,7 +46,7 @@ class AboutsController < ApplicationController
 
     respond_to do |format|
       if @about.save
-        format.html { redirect_to @about, notice: 'About was successfully created.' }
+        format.html { redirect_to @about}
         format.json { render json: @about, status: :created, location: @about }
       else
         format.html { render action: "new" }
@@ -60,7 +62,7 @@ class AboutsController < ApplicationController
 
     respond_to do |format|
       if @about.update_attributes(params[:about])
-        format.html { redirect_to @about, notice: 'About was successfully updated.' }
+        format.html { redirect_to @about}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

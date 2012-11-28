@@ -5,7 +5,8 @@
     <br />
     <br />
     <%= news.author %><br />
- 	<% if (current_user && (current_user.is_admin).to_i == 0) %>
+    <br />
+ 	<% if (current_user && (current_user.is_admin).to_i == 1) %>
  	<table>
 	  <tr><%= link_to 'Breyta ', edit_news_path(news) %></tr>
 	  <tr><%= link_to 'Eyða', news, method: :delete, data: { confirm: 'Ertu viss?' } %></tr>

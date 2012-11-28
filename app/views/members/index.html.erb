@@ -9,27 +9,28 @@
   <h3>Engar umsóknir</h3>
 <% end %>
 
-<div class="row">        	
-  <div class="span6">
-	<table class="table table-striped"> 
-	  <thead> 
+<table class="table table-striped"> 
+  <thead> 
+    <tr> 
+	  <th>Nafn</th>
+	  <th>Póstnúmer</th>
+	  <th>Meðferðir</th>
+	  <% if (current_user && (current_user.is_admin).to_i == 1) %>
+	    <th>Aðgerðir</th>
+	  <% end %> 
+	</tr> 
+  </thead> 
+  <tbody>  
+	  <% @users.each do |user| %> 
 	    <tr> 
-		  <th>Nafn</th>
-		  <th>Póstnúmer</th>
-		  <th>Meðferðir</th>
-		  <th>Aðgerðir</th> 
-		</tr> 
-	  </thead> 
-	  <tbody>  
-		  <% @users.each do |user| %> 
-		    <tr> 
-		      <td><%= link_to user.name, member_path(user.id) %></td>
-		      <td><%= user.postal %></td>
-		      <td>
-				  <% user.treatments.each do |t| %> 
-				    <%= t.name %><br />
-				  <% end %>
-		      </td>
+	      <td><%= link_to user.name, member_path(user.id) %></td>
+	      <td><%= user.postal %></td>
+	      <td>
+			  <% user.treatments.each do |t| %> 
+			    <%= t.name %><br />
+			  <% end %>
+	      </td>
+	      <% if (current_user && (current_user.is_admin).to_i == 1) %>
 		  	  <td>
 		  	  	<%= link_to 'Eyða', member_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
 		  	  	<% if (user.is_approved).to_i == 0 %>
@@ -38,11 +39,11 @@
 	  	  		  <%= link_to 'Óvirkja', deactivate_user_path(user), :method => :put, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-warning' %> 
 	            <% end %> 
 		  	  </td> 
-			</tr> 
-		  <% end %> 
-	   </tbody> 
-	</table>
-  </div> 
-</div>
+		  <% end %>
+		</tr> 
+	  <% end %> 
+   </tbody> 
+</table>
+
 
 <br />

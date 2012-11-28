@@ -1,4 +1,5 @@
 class SayingsController < ApplicationController
+  before_filter :check_is_admin?, :only => [:index, :new, :create, :edit, :update, :destroy]
   # GET /sayings
   # GET /sayings.json
   def index
@@ -48,7 +49,7 @@ class SayingsController < ApplicationController
 
     respond_to do |format|
       if @saying.save
-        format.html { redirect_to @saying, notice: 'Saying was successfully created.' }
+        format.html { redirect_to @saying}
         format.json { render json: @saying, status: :created, location: @saying }
       else
         format.html { render action: "new" }
@@ -64,7 +65,7 @@ class SayingsController < ApplicationController
 
     respond_to do |format|
       if @saying.update_attributes(params[:saying])
-        format.html { redirect_to @saying, notice: 'Saying was successfully updated.' }
+        format.html { redirect_to @saying}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

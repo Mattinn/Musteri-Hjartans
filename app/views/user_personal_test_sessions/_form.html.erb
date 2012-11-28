@@ -12,7 +12,6 @@
   <% end %>
   
   <div class="field">
-  	<%= f.label "Próf" %><br />
 	<%= select(:user_personal_test_session, :personal_test_id, PersonalTest.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Velja próf'})%>
   </div>
   

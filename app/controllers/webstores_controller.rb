@@ -1,4 +1,5 @@
 class WebstoresController < ApplicationController
+  before_filter :check_is_admin?, :only => [:new, :create, :edit, :update, :destroy]
   # GET /webstores
   # GET /webstores.json
   def index
@@ -44,7 +45,7 @@ class WebstoresController < ApplicationController
 
     respond_to do |format|
       if @webstore.save
-        format.html { redirect_to @webstore, notice: 'Webstore was successfully created.' }
+        format.html { redirect_to @webstore}
         format.json { render json: @webstore, status: :created, location: @webstore }
       else
         format.html { render action: "new" }
@@ -60,7 +61,7 @@ class WebstoresController < ApplicationController
 
     respond_to do |format|
       if @webstore.update_attributes(params[:webstore])
-        format.html { redirect_to @webstore, notice: 'Webstore was successfully updated.' }
+        format.html { redirect_to @webstore}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

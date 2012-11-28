@@ -22,7 +22,12 @@
 <h3> Niðurstaða: </h3>
 <p><% if @user_personal_test_session.results.exists? %>
   <b> þú skoraðir <%= @user_personal_test_session.results.last.score %> stig.</b>
+  		<%= User.each do |user| %>
+  			<% if user.treatments.include?("Ofurheilun") && user.is_approved? %>
+  			  <%= link_to user.name, user_path(user) %>
+  			<% end %>
       <% end %>
+   <% end %>
 </p>
 
 <p><% if @user_personal_test_session.results.exists? and @user_personal_test_session.results.last.score > 50  %>
@@ -33,10 +38,10 @@
 </p>
 
   <div class="actions">
-    <%= f.submit 'Taka próf'%>
+    <%= f.submit 'Áfram'%>
   </div>
 <% end %>
 <p>
-c
+
 <%= link_to 'Edit', edit_user_personal_test_session_path(@user_personal_test_session) %> |
 <%= link_to 'Back', user_personal_test_sessions_path %>
