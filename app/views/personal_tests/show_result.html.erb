@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div class="fields">
 <p>
   <%= @personal_test.name %>
@@ -22,5 +21,7 @@
   <%= link_to 'Áfram', personal_test_path, :method => :put, :class => 'btn btn-mini btn-success' %> 
 
 </div>
-<%= link_to 'Edit', edit_personal_test_path(@personal_test) %> |
-<%= link_to 'Back', personal_tests_path %>
+<% if (current_user && (current_user.is_admin).to_i == 1) %>
+<%= link_to 'Breyta', edit_personal_test_path(@personal_test) %> |
+<% end %>
+<%= link_to 'Til baka', personal_tests_path %>

@@ -22,8 +22,8 @@
 <h3> Niðurstaða: </h3>
 <p><% if @user_personal_test_session.results.exists? %>
   <b> þú skoraðir <%= @user_personal_test_session.results.last.score %> stig.</b>
-  		<%= User.each do |user| %>
-  			<% if user.treatments.include?("Ofurheilun") && user.is_approved? %>
+  		<% User.all.each do |user| %>
+  			<% if (user.treatments.include?("Ofurheilun")) && ((user.is_approved).to_i == 1 ) %>
   			  <%= link_to user.name, user_path(user) %>
   			<% end %>
       <% end %>

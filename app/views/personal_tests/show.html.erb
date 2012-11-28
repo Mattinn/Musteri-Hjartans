@@ -1,28 +1,24 @@
-<p id="notice"><%= notice %></p>
-
 <div class="form" id="question">
   <div class="field">
-    <%= @personal_test.name %>
+  	
+    <h3><%= @personal_test.name %></h3>
   </div>
   <div class="field">
+  	<p>Lýsing :</p>
     <%= @personal_test.description %>
   </div>
   <div class="field">
   <% @personal_test.questions.each do |question| %> 
-    <%= check_box_tag "@personal_test[question_ids][]", question.id, @personal_test.questions.include?(question) %>
-    <%= question.question_text %>  
+    <%= check_box_tag "@personal_test[question_ids][]", false, @personal_test.questions.include?(question) %>
+    <%= question.question_text %><br />  
   <% end %>
   </div>
   
-  <div class="actions">
-    <a href="#" onclick="getElementById("question").submit()">Vista</a>
-  </div>
-  
-  <%= @test_session.to_yaml %>
-  <%= session.to_yaml %>
   
 </div>
-<%= link_to 'Breyta', edit_personal_test_path(@personal_test) %> |
+<% if (current_user && (current_user.is_admin).to_i == 1) %>
+  <%= link_to 'Breyta', edit_personal_test_path(@personal_test) %> |
+<% end %>
 <%= link_to 'Til baka', personal_tests_path %>
 
 

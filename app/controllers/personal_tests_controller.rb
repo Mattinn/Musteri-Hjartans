@@ -1,5 +1,5 @@
 class PersonalTestsController < ApplicationController
-  
+  before_filter :check_is_admin?, :only => [:new, :create, :edit, :update, :destroy]
   # GET /personal_tests
   # GET /personal_tests.json
   def index
