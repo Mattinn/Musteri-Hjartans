@@ -7,7 +7,24 @@
   <p>
     <%= @treatment.description %>
   </p>
+  
+  <br />
+    
+  <p>Meðferðaraðilar sem bjóða uppá þessa meðferð</p><br />
+  <p> Fyrir lykkjuna </p>
+  <% User.all do |user| %> 
+  <p> Inní user lykkju </p>
+	<%= user.treatments.each do |t| %>
+	  <p> Inní treatments lykkju lykkjunni </p>
+	  <% if (t.id).to_i == (@treatment.id).to_i %> 
+		<%= link_to user.name, user_path(user) %><br />
+	  <% else %>
+	    <% "Nope" %>
+	  <% end %>
+	<% end %>
+  <% end %>
 
-
+<% if (current_user && (current_user.is_admin).to_i == 0) %>
 <%= link_to 'Breyta', edit_treatment_path(@treatment) %> |
+<% end %>
 <%= link_to 'Til baka', treatments_path %>

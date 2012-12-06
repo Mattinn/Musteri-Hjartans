@@ -4,7 +4,7 @@ class AboutsController < ApplicationController
   # GET /abouts
   # GET /abouts.json
   def index
-    @abouts = About.all
+    @abouts = About.all(:order => "created_at DESC", :limit => 1)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -34,7 +34,6 @@ class AboutsController < ApplicationController
     end
   end
 
-  # GET /abouts/1/edit
   def edit
     @about = About.find(params[:id])
   end

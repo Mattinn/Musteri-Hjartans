@@ -57,7 +57,7 @@
 	          input.value = "";
 	        }
 	        if(input.id == 'signup_email') {
-	          input.placeholder = "Tölvupóstur";
+	          input.placeholder = "Netfang";
 	        } else {
 	          input.placeholder = "";
 	        }
@@ -163,7 +163,7 @@
 				  <% if current_user && current_user.is_admin.to_i == 1 %>
 		    	    <li class="divider"></li>
 				    <li class="nav-header">Stjórnandi</li>
-				    <li><a href="/abouts/1/edit">Breyta um okkur</a></li>
+				    <li><a href="/abouts/new">Breyta um okkur</a></li>
 				    <li><a href="/books/new">Ný bók</a></li>
 				    <li><a href="/news/new">Ný frétt</a></li>
 				    <li><a href="/treatments/new">Ný meðferð</a></li>
@@ -185,7 +185,7 @@
 	         </form>
 	         <% if !user_signed_in? %>
 		       <%= form_for("user", :url => new_user_session_path, :html => { :class => "navbar-form pull-right"}) do |f|%>
-			     <%= f.text_field :email, :placeholder => "Tölvupóstur", :class=>"span2"%>
+			     <%= f.text_field :email, :placeholder => "Netfang", :class=>"span2"%>
 			     <%= f.password_field :password, :placeholder => "Lykilorð", :class=>"span2"%>
 			     <%= f.submit "Skrá inn", :class => "btn" %>
 			     <%= link_to "Sækja um", new_user_registration_path, :class => "btn", :id => "naav-butt" %>
@@ -198,7 +198,7 @@
 
     <div class="container">
 
-      <div id="myCarousel" class="carousel slide">
+      <div id="myCarousel" class="carousel slide" id="signed-in">
           <!-- Carousel items -->
           <div class="carousel-inner">
             <div class="active item"><img src="/assets/6.jpg" /></div>
@@ -227,44 +227,45 @@
 		</div>
 		
       </div><!-- end main area -->
-      <aside class="span4" id="sidebar"><!-- Sidebar starts here  -->    
+      <aside class="span4"><!-- Sidebar starts here  -->    
         <div class="row">
-            <div class="widget span4">
+            <div class="widget span4" id="sidebar">
               <h3>Tilvitnun</h3>
                 <p><i><b><%= Saying.random.message %></b></i></p>
             </div><!-- end widget -->
-            <div class="widget span4">
+            <div class="widget span4" id="sidebar">
               <h3>Skráðu þig á póstlistann</h3>
                <form action="https://madmimi.com/signups/subscribe/66469" method="post" id="mad_mimi_signup_form"> 
 			    <fieldset> 
 			      <div class="mimi_field text email required"> 
-			        <input id="signup_email" name="signup[email]" type="text" placeholder="Skráðu tölvupóst hér" class="required"> 
+			        <input id="signup_email" name="signup[email]" type="text" placeholder="Skrá Netfang hér" class="required"> 
 			        <div class="mimi_field_feedback"></div><span class="mimi_funk"></span> 
 			      </div> 
 			      <div class="mimi_field action"> 
-			        <input id="webform_submit_button" value="Skrá" type="submit" class="submit" data-default-text="Skrá" data-submitting-text="Sendi…" data-invalid-text="↑ Ógilt tölvupóstfang, reyndu aftur"> 
+			        <input id="webform_submit_button" value="Skrá" type="submit" class="submit" data-default-text="Skrá" data-submitting-text="Sendi…" data-invalid-text="↑ Ógilt Netfang, reyndu aftur"> 
 			      </div> 
 			    </fieldset> 
                </form> 
             </div><!-- end widget -->
 
-            <div class="widget span4">
+            <div class="widget span4" id="sidebar">
               <h3>Finndu okkur á Facebook</h3>
-			  <div class="fb-like-box" data-href="http://www.facebook.com/MusteriHjartans" data-width="370" data-height="180" data-show-faces="true" data-border-color="white" data-stream="false" data-header="false"></div>
+			  <div class="fb-like-box" data-href="http://www.facebook.com/MusteriHjartans" data-width="350" data-height="180" data-show-faces="true" data-border-color="#EEEEEE" data-stream="false" data-header="false"></div>
 			 
             </div><!-- end widget -->
             <br />
-            <div class="widget span4">
+            <div class="widget span4" >
               <h3>Hafðu það gott!</h3>	              
               <p><img src="http://lorempixel.com/550/325/nature/5" title="widget image" alt="an image was here" /></p>
             </div><!-- end widget -->
+            
             
           </div><!-- end widget row -->
         </aside><!-- end sidebar -->
       </div><!-- end row -->
       <hr>
       <footer>
-        <p><b>&copy; Musteri Kærleikans 2012, Menntavegi 1, 101 Reykjavík,  Sími: xxx-xxxx, Netfang: musterikaerleikans@gmail.com</b></p>
+        <p><b>&copy; Musteri Hjartans 2012, Menntavegi 1, 101 Reykjavík,  Sími: xxx-xxxx, Netfang: musterikaerleikans@gmail.com</b></p>
       </footer>
     </div><!-- end container -->
   </body>

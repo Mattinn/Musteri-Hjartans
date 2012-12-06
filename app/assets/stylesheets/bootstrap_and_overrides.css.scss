@@ -4,21 +4,40 @@ body
   font-family: Ariel;
   padding-top: 60px; 
   padding-bottom: 40px;
-  //background-image:url('/background-lightblue.png');
+  background-image:url('/background-lightblue.png');
   background-repeat:repeat;
+  
+  a {
+    text-decoration:none;
+  }
+  
+  a:link {
+   color: #000000; /*The color of the link*/
+  }
+  a:visited {
+   color: #000000; /*The color of the visited link*/
+  }
+  a:hover {
+   color: white; /*The color of the mouseover or 'hover' link*/
+  }
+  
  }
 @import "bootstrap-responsive";
 
 #sidebar
 {
-  //background-color: #33cc00; 
+    background-color: #EEEEEE;
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    margin-left: 20px;
 }
-.navbar-inner
+.navbar-inner /*Make sure that the navbar streaches compleatly over all sizes of screens*/
 {
   width: 100%;
 }
 
-textarea 
+textarea /*Make all textareas have the right width for the displaying pages*/
 {
   width: 650px;
   height: 200px;
@@ -34,22 +53,22 @@ h1, h2, h3, h4, h5, h6
   font-family: Arial;
 }
 
-#signed-in
+#signed-in /*The "username" sand "sign out" links in the navbar MUST not gain the default black color after being visited or they will become invisible*/
 {
   padding-top: 10px;
   text-color: #999999;
   
-  A {
+  a {
     text-decoration:none
   }
   
-  A:link {
-   COLOR: #999999 /*The color of the link*/
+  a:link {
+   color: #999999; /*The color of the link*/
   }
-  A:visited {
-   COLOR: #999999 /*The color of the visited link*/
+  a:visited {
+   color: #999999; /*The color of the visited link*/
   }
-  A:hover {
-   COLOR: white /*The color of the mouseover or 'hover' link*/
+  a:hover {
+   color: white /*The color of the mouseover or 'hover' link*/
   }
 }

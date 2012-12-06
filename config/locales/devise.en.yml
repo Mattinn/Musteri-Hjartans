@@ -18,7 +18,7 @@ en:
       unauthenticated: 'Þú verður að skrá þig inn til þess að halda áfram'
       unconfirmed: 'Þú verður að staðfesta aðganginn þinn áðuren hægt er að halda áfram.'
       locked: 'Þessi aðgangur er læstur'
-      invalid: 'Tölvupóstur eða lykilorð var slegið inn vittlaust '
+      invalid: 'Netfang eða lykilorð var slegið inn vittlaust '
       invalid_token: 'Ólöglegur staðfestingar tóki.'
       timeout: 'Lotan þín er útrunnin, vinsamlegast skráðu þig inn aftur til að halda áfram.'
       user:
@@ -44,7 +44,7 @@ en:
       signed_up_but_inactive: 'Skráning tókst!'
       signed_up_but_locked: 'You have signed up successfully. However, we could not sign you in because your account is locked.'
       updated: 'Aðgangur hafa verið uppfærður.'
-      update_needs_confirmation: "Þú hefur uppfært reikninginn þinn með góðum árangri, en við þurfum að staðfesta nýja netfangið þitt. Vinsamlegast athugaðu tölvupóstinn þinn og smella á staðfesta tengilinn til ganga staðfesta nýja netfangið þitt."
+      update_needs_confirmation: "Þú hefur uppfært reikninginn þinn með góðum árangri, en við þurfum að staðfesta nýja netfangið þitt. Vinsamlegast athugaðu Netfangið þitt og smella á staðfesta tengilinn til ganga staðfesta nýja netfangið þitt."
       destroyed: 'Bless! Reikningnum þínum var eytt. Við vonumst til að sjá þig aftur fljótlega.'
     unlocks:
       send_instructions: 'Þú munt fá sendan tölvupóst með leiðbeiningum um hvernig á að opna reikninginn þinn eftir nokkrar mínútur.'
