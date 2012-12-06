@@ -4,6 +4,10 @@
     <%= f.label "Nafn" %>
     <%= f.text_field :name %>
   </div>
+  <div class="field">
+    <%= f.label "Lýsing" %>
+    <%= f.text_area :description, :placeholder => "Þessi lýsing mun einnig birtast sem niðurstaða í persónuprófi ef þessi flokkur skoraði hæðst" %>
+  </div>
   <div class="actions">
     <%= f.submit 'Vista' %>
   </div>

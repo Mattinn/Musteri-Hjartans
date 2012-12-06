@@ -1,7 +1,6 @@
-<p>
-  <b>Flokkur : </b>
-  <%= @category.name %>
-</p>
+<h3><p>Flokkurinn <%= @category.name %></p></h3>
+
+<p><%= simple_format(@category.description) %></p>
 
 
 <%= link_to 'Breyta', edit_category_path(@category) %> |

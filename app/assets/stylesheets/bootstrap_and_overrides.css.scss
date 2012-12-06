@@ -4,7 +4,7 @@ body
   font-family: Ariel;
   padding-top: 60px; 
   padding-bottom: 40px;
-  background-image:url('/background-lightblue.png');
+  //background-image:url('/background-lightblue.png');
   background-repeat:repeat;
   
   a {
@@ -67,6 +67,19 @@ h1, h2, h3, h4, h5, h6
   }
   a:visited {
    color: #999999; /*The color of the visited link*/
+  }
+  a:hover {
+   color: white /*The color of the mouseover or 'hover' link*/
+  }
+}
+
+#caru /*Carusel navigation links, should not get the visited effect og other links*/
+{
+  a:link {
+   color: #EEEEEE; /*The color of the link*/
+  }
+  a:visited {
+   color: #EEEEEE; /*The color of the visited link*/
   }
   a:hover {
    color: white /*The color of the mouseover or 'hover' link*/

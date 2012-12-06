@@ -3,7 +3,8 @@ class TreatmentsController < ApplicationController
   # GET /treatments
   # GET /treatments.json
   def index
-    @treatments = Treatment.all
+    @treatments = Treatment.all.sort_by { |obj| obj.name } 
+    #@treatments.sort_by { |obj| obj.name }  
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,7 +27,6 @@ class TreatmentsController < ApplicationController
   # GET /treatments/new.json
   def new
     @treatment = Treatment.new
-    #@treatment.build_category
 
     respond_to do |format|
       format.html # new.html.erb
