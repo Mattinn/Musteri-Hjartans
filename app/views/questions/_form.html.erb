@@ -12,13 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "Spurning" %><br />
+    <%= f.label "Spurning" %>
     <%= f.text_field :question_text %>
   </div>
   <div class="field">
-    <%= f.label "Vægi spurningar" %><br />
+    <%= f.label "Vægi spurningar" %>
     <%= f.number_field :value %>
   </div>
+  
+  <div class="field">
+    <%= f.label "Flokkur" %>
+    <%= select(:category, :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Velja flokk'})%>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

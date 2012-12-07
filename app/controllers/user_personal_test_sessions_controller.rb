@@ -44,7 +44,7 @@ class UserPersonalTestSessionsController < ApplicationController
     respond_to do |format|
       if @user_personal_test_session.save
         @user_personal_test_session.personal_test.questions.each do |q|
-          a = @user_personal_test_session.answered_questions.create(:question_id => q.id, :q_text => q.question_text, :q_value => q.value)
+          a = @user_personal_test_session.answered_questions.create(:question_id => q.id, :q_text => q.question_text, :q_value => q.value, :q_category => q.category)
         end
         format.html { redirect_to @user_personal_test_session }
         format.json { render json: @user_personal_test_session, status: :created, location: @user_personal_test_session }

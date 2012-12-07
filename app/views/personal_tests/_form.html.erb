@@ -16,7 +16,12 @@
   	  <%= ff.text_field :question_text %>
   	  <%= ff.link_to_remove "Eyða Spurningu" %>
   	  <%= ff.label "Vægi Spurningar" %>
-  	  <%= ff.number_field :value %><br />
+  	  <%= ff.number_field :value %>
+  	  <%= ff.label "Flokkur" %>
+	  <%= select(:treatment, :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Velja flokk'})%>
+	  <br />
+	  <br />
+	  <br />
     <% end %>
   </div>
   
