@@ -27,7 +27,7 @@ class PersonalTestsController < ApplicationController
   def new
     @personal_test = PersonalTest.new
     
-    2.times do
+    2.times do #Defult new tests have 2 question fields
       question = @personal_test.questions.build
     end
 
@@ -65,18 +65,7 @@ class PersonalTestsController < ApplicationController
     
     @test_session = UserPersonalTestSession.new
     @test_session.personal_test_id = @personal_test.id
-    #@session.user_id = User.find(6)
-    #@user_personal_test_session.personal_test.id = @personal_test.id 
-    
-    puts "DEEEEEEEEBUUUG!!!"
-    
-    logger.debug "The object is #{@test_session}"
-    
-    Rails.logger.info @test_session
-    
-    logger.debug @test_session.to_yaml
-    
-    puts "DEEEEEEEEBUUUG!!!"
+
     
     respond_to do |format|
       if @personal_test.update_attributes(params[:personal_test])

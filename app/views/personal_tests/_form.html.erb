@@ -18,7 +18,7 @@
   	  <%= ff.label "Vægi Spurningar" %>
   	  <%= ff.number_field :value %>
   	  <%= ff.label "Flokkur" %>
-	  <%= select(:treatment, :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Velja flokk'})%>
+	  <%= ff.select :category_id, options_for_select(Category.all.collect {|p| [ p.name, p.id ] }, :selected => ff.object.category_id), :prompt => 'Veldu flokk' %>
 	  <br />
 	  <br />
 	  <br />

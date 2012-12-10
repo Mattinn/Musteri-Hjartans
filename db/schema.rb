@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121207133348) do
+ActiveRecord::Schema.define(:version => 20121210143336) do
 
   create_table "abouts", :force => true do |t|
     t.string   "title"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20121207133348) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.string   "q_category"
+    t.integer  "category_id"
   end
 
   add_index "answered_questions", ["question_id"], :name => "index_answered_questions_on_question_id"
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20121207133348) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "category"
+    t.integer  "category_id"
   end
 
   add_index "questions", ["personal_test_id"], :name => "index_questions_on_personal_test_id"
@@ -100,6 +102,8 @@ ActiveRecord::Schema.define(:version => 20121207133348) do
     t.text     "message"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.string   "category"
+    t.integer  "category_id"
   end
 
   add_index "results", ["user_personal_test_session_id"], :name => "index_results_on_user_personal_test_session_id"

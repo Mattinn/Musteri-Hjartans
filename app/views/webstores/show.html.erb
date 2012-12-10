@@ -19,7 +19,7 @@
 
 <p>
   <b>Vefslóð:</b>
-  <%= @webstore.link %>
+  <%= link_to @webstore.link %>
 </p>
 
 <% if (current_user && (current_user.is_admin).to_i == 1) %>

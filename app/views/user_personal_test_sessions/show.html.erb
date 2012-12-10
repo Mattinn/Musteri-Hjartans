@@ -5,7 +5,7 @@
   <b><%= @user_personal_test_session.personal_test.name %></b>
 </p>
 <p>
-  <b><%= @user_personal_test_session.personal_test.description %></b>
+  <b><%= simple_format(@user_personal_test_session.personal_test.description) %></b>
 </p>
 <p>
 
@@ -20,7 +20,10 @@
 </div>
 <h3> Niðurstaða: </h3>
 <p><% if @user_personal_test_session.results.exists? %>
-  <b> þú skoraðir <%= @user_personal_test_session.results.last.score %> stig.</b>
+	<% @cat_id = @user_personal_test_session.results.last %>
+	
+	<b>Id flokksins er <%= @cat_id.id %></b><br />
+  <b> þú skoraðir <%= @user_personal_test_session.results.last.score %> stig í flokknum <%= Category.find_by_id(@cat_id) %>.</b>
    <% end %>
 </p>
 
