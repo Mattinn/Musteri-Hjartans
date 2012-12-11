@@ -18,8 +18,9 @@
 </p>
 
 </div>
-<h3> Niðurstaða: </h3>
+
 <p><% if @user_personal_test_session.result.category_id != nil %>
+	<h3> Niðurstaða: </h3>
 	<% @cat_id = (@user_personal_test_session.result.category_id).to_i %>
     <h2>þú skoraðir <%= @user_personal_test_session.result.score %> stig í flokknum <%= Category.find(@cat_id).name %>.</h2><br />
     <b><p><%= Category.find(@cat_id).description %></p></b><br />
