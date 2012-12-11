@@ -42,7 +42,6 @@ class UserPersonalTestSessionsController < ApplicationController
   def create
     @user_personal_test_session = UserPersonalTestSession.new(params[:user_personal_test_session])
     
-    #@theResult = Result.new
     @theResult = Result.new(:user_personal_test_session_id => @user_personal_test_session.id, :score => 0) #Create a result
     @theResult.save!
     @user_personal_test_session.result_id = @theResult.id
@@ -56,10 +55,6 @@ class UserPersonalTestSessionsController < ApplicationController
           
         end
         
-        
-        
-       # @user_personal_test_session.results
-        
         format.html { redirect_to @user_personal_test_session }
         format.json { render json: @user_personal_test_session, status: :created, location: @user_personal_test_session }
       else
@@ -72,100 +67,19 @@ class UserPersonalTestSessionsController < ApplicationController
   # PUT /user_personal_test_sessions/1
   # PUT /user_personal_test_sessions/1.json
   def update
-    puts "INSIDE UPDATE !!!!!!!!!!!!!!!!!"
     @user_personal_test_session = UserPersonalTestSession.find(params[:id]) #Find the session with the id given
-    #@theResult = @user_personal_test_session.result_id 
-    
-    puts "Personal test !!!!!!!!!!!!!!!!!"
-    puts @user_personal_test_session.inspect
     
     h = Hash.new {0} #hash for storing questions categories and values
     
     respond_to do |format|      
-      #@user_personal_test_session.result.score = 5
       
       if @user_personal_test_session.update_attributes(params[:user_personal_test_session]) #If saving the session was sucessful
       
-        #Category.all.each do |c|
-          
-          #puts "Inside category loop"
-          #puts c.name
-          #@user_personal_test_session.answered_questions.each do |r|  #Remove all unanswered question 
-            
-            #if r.answer == 0
-              #r.delete
-            #end
-            
-          #end
-          
-          puts "Adding the ids to the hash"
           @user_personal_test_session.answered_questions.each { |q|  h[q.category_id] += q.q_value if q.answer == 1 } #loop through the answered questions
           
-          puts "Find the max hash"
-          @category, @score = h.max_by { |k, v| v }
+          @category, @score = h.max_by { |k, v| v } #find the question with the highest score
           
-<<<<<<< HEAD
-          puts "Saving the result"
-          #@user_personal_test_session.result.save! 
-          @user_personal_test_session.result.update_attributes(:category_id => @category, :score => @score)
-           #puts q.q_text
-           #puts q.category_id.inspect
-           
-           
-            
-           #sum = 0
-           # cat = 0
-=======
-          @user_personal_test_session.answered_questions.each do |q| #loop through the answered questions
-            
->>>>>>> master
-            
-            
-            #puts "Is this my category ?"
-            #if (c.id).to_i == (q.category_id).to_i
-              #puts "this question belongs to me"
-              #sum += q.q_value
-            #end
-            
-            #puts "update result ?"
-            #if @user_personal_test_session.result.nil? #or sum > @user_personal_test_session.result.score  #keep track of the highest score and category 
-              
-              #@user_personal_test_session.result.score = sum
-              #@user_personal_test_session.result.category_id = c.category_id
-              #@user_personal_test_session.result.save!
-            #end
-            
-          #end #Back of the answered questions loop
-            
-        #end  #end of categories loop 
-      
-          
-          
-          
-           #@theResult.score = q.q_value
-           #@theResult.category_id = q.category_id
-          
-           #puts @theResult.inspect
-          
-           #@theResult.save!
-           
-                 
-           #q.category_id.each do |a| #loop through every questions in current category
-              #if q.answer == 1
-                 #sum += a.q_value
-                 #cat += a.category_id
-              #end
-           #end
-           
-           #if @theResult.score.nil? or sum > @theResult.score  #keep track of the highest score and category 
-              #@theResult.score = sum
-              #@theResult.category_id = cat
-           #end
-              
-          
-          
-
-          #theResult now holds the category with the highest score
+          @user_personal_test_session.result.update_attributes(:category_id => @category, :score => @score) #save the highest score and its category
           
         format.html { redirect_to @user_personal_test_session } #Return to the session page with the new resault
         format.json { head :no_content }

@@ -19,20 +19,27 @@
 
 </div>
 <h3> Niðurstaða: </h3>
-<p><% if @user_personal_test_session.result %>
+<p><% if @user_personal_test_session.result.category_id != nil %>
 	<% @cat_id = (@user_personal_test_session.result.category_id).to_i %>
-  <b> þú skoraðir <%= @user_personal_test_session.result.score %> stig í flokknum <%= Category.find(@cat_id).name %>.</b>
-  <b><%= Category.find(@cat_id).description %></b>
+    <h2>þú skoraðir <%= @user_personal_test_session.result.score %> stig í flokknum <%= Category.find(@cat_id).name %>.</h2><br />
+    <b><p><%= Category.find(@cat_id).description %></p></b><br />
   
+    <b>Meðferðir í þessum flokk</b><br />
+    <% Category.find(@cat_id).treatments.each do |c| %> 
+
+    <p><%= link_to c.name, treatment_path(c.id)  %><br /></p>
+
+    <% end %>
   
    <% end %>
 </p>
 
-
-  <div class="actions">
-    <%= f.submit 'Áfram'%>
-  </div>
+  <% if @user_personal_test_session.result.category_id == nil %>
+    <div class="actions">
+      <%= f.submit 'Áfram'%>
+    </div>
+  <% end %>
 <% end %>
 <p>
 
-<%= link_to 'Til baka', user_personal_test_sessions_path %>
+<%= link_to 'Til baka', "new" %>

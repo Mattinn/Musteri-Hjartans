@@ -14,7 +14,7 @@
 
 	<% user.treatments.each do |t| %>
 
-	  <% if t.id == @treatment.id %> 
+	  <% if t.id == @treatment.id && user.is_approved == 1 %> 
 		<%= link_to user.name, member_path(user.id)  %><br />
 
 	  <% end %>
