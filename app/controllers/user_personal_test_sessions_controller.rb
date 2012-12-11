@@ -104,6 +104,7 @@ class UserPersonalTestSessionsController < ApplicationController
           puts "Find the max hash"
           @category, @score = h.max_by { |k, v| v }
           
+<<<<<<< HEAD
           puts "Saving the result"
           #@user_personal_test_session.result.save! 
           @user_personal_test_session.result.update_attributes(:category_id => @category, :score => @score)
@@ -114,6 +115,10 @@ class UserPersonalTestSessionsController < ApplicationController
             
            #sum = 0
            # cat = 0
+=======
+          @user_personal_test_session.answered_questions.each do |q| #loop through the answered questions
+            
+>>>>>>> master
             
             
             #puts "Is this my category ?"
