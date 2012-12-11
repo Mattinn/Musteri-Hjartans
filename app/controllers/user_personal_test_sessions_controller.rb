@@ -100,12 +100,6 @@ class UserPersonalTestSessionsController < ApplicationController
           
           @user_personal_test_session.answered_questions.each do |q| #loop through the answered questions
             
-           puts "Inside question loop"
-           puts q.q_text
-           # puts q.category_id.inspect
-            
-           # sum = 0
-           # cat = 0
             
             
             puts "Is this my category ?"
