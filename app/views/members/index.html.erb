@@ -30,7 +30,7 @@
 			    <%= t.name %><br />
 			  <% end %>
 	      </td>
-	      <% if (current_user && (current_user.is_admin).to_i == 1) %>
+	      <% if (current_user && current_user.is_admin == 1) %>
 		  	  <td>
 		  	  	<%= link_to 'Eyða', member_path(user), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
 		  	  	<% if (user.is_approved).to_i == 0 %>

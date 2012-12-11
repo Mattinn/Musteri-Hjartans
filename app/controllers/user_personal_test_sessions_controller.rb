@@ -79,54 +79,60 @@ class UserPersonalTestSessionsController < ApplicationController
     puts "Personal test !!!!!!!!!!!!!!!!!"
     puts @user_personal_test_session.inspect
     
-    respond_to do |format|
-      
+    h = Hash.new {0} #hash for storing questions categories and values
+    
+    respond_to do |format|      
       #@user_personal_test_session.result.score = 5
       
       if @user_personal_test_session.update_attributes(params[:user_personal_test_session]) #If saving the session was sucessful
-        
-       puts "Inside the for loop"
-       
-          
-          #@theResult.category_id = 2
-         # @theResult.save!
-          
-          puts "saved the result"
       
-        Category.all.each do |c|
+        #Category.all.each do |c|
           
-          puts "Inside category loop"
-          puts c.name
+          #puts "Inside category loop"
+          #puts c.name
+          #@user_personal_test_session.answered_questions.each do |r|  #Remove all unanswered question 
+            
+            #if r.answer == 0
+              #r.delete
+            #end
+            
+          #end
           
-          @user_personal_test_session.answered_questions.each do |q| #loop through the answered questions
+          puts "Adding the ids to the hash"
+          @user_personal_test_session.answered_questions.each { |q|  h[q.category_id] += q.q_value if q.answer == 1 } #loop through the answered questions
+          
+          puts "Find the max hash"
+          @category, @score = h.max_by { |k, v| v }
+          
+          puts "Saving the result"
+          #@user_personal_test_session.result.save! 
+          @user_personal_test_session.result.update_attributes(:category_id => @category, :score => @score)
+           #puts q.q_text
+           #puts q.category_id.inspect
+           
+           
             
-           puts "Inside question loop"
-           puts q.q_text
-           # puts q.category_id.inspect
-            
-           # sum = 0
+           #sum = 0
            # cat = 0
             
             
-            puts "Is this my category ?"
-            if (c.id).to_i == (q.category_id).to_i
-              puts "this question belongs to me"
-              sum += q.q_value
-            end
+            #puts "Is this my category ?"
+            #if (c.id).to_i == (q.category_id).to_i
+              #puts "this question belongs to me"
+              #sum += q.q_value
+            #end
             
-            puts "update result ?"
-            if @user_personal_test_session.result.nil? #or sum > @user_personal_test_session.result.score  #keep track of the highest score and category 
-              puts "updating result"
-              puts sum
+            #puts "update result ?"
+            #if @user_personal_test_session.result.nil? #or sum > @user_personal_test_session.result.score  #keep track of the highest score and category 
               
-              @user_personal_test_session.result.score = sum
-              @user_personal_test_session.result.category_id = c.category_id
-              @user_personal_test_session.result.save!
-            end
+              #@user_personal_test_session.result.score = sum
+              #@user_personal_test_session.result.category_id = c.category_id
+              #@user_personal_test_session.result.save!
+            #end
             
-          end #Back of the answered questions loop
+          #end #Back of the answered questions loop
             
-        end  #end of categories loop 
+        #end  #end of categories loop 
       
           
           

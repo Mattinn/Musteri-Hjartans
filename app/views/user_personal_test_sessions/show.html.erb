@@ -20,10 +20,11 @@
 </div>
 <h3> Niðurstaða: </h3>
 <p><% if @user_personal_test_session.result %>
-	<% @cat_id = @user_personal_test_session.result %>
-	<b>Id flokksins er <%= @cat_id.user_personal_test_session_id%></b><br />
-	<b><%= @cat_id.inspect %></b><br />
-  <b> þú skoraðir <%= @user_personal_test_session.result.score %> stig í flokknum <%= @user_personal_test_session.result.category_id %>.</b>
+	<% @cat_id = (@user_personal_test_session.result.category_id).to_i %>
+  <b> þú skoraðir <%= @user_personal_test_session.result.score %> stig í flokknum <%= Category.find(@cat_id).name %>.</b>
+  <b><%= Category.find(@cat_id).description %></b>
+  
+  
    <% end %>
 </p>
 

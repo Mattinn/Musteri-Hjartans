@@ -14,7 +14,7 @@
 		  <td><%= link_to treatment.name, treatment_path(treatment)%></td>
           <td><%= truncate(treatment.description, :length => 250) %></td>
 	  	  <td>
-	  	  	<% if (current_user && (current_user.is_admin).to_i == 0) %>
+	  	  	<% if (current_user && current_user.is_admin == 1) %>
 	  	  	  <%= link_to 'Breyta', edit_treatment_path(treatment), :class => 'btn btn-mini' %> 
 	  	  	  <%= link_to 'Eyða', treatment_path(treatment), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
 	  	  	<% end %>
@@ -24,6 +24,6 @@
    </tbody> 
 </table> 
 <br />
-<% if (current_user && (current_user.is_admin).to_i == 0) %>
+<% if (current_user && current_user.is_admin == 1) %>
   <%= link_to 'Ný meðferð', new_treatment_path, :class => 'btn btn-primary' %>
 <% end %>
