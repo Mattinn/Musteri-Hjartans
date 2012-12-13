@@ -1,4 +1,4 @@
-<%= nested_form_for(@user_personal_test_session) do |f| %>
+<%= simple_form_for(@user_personal_test_session) do |f| %>
 
 <div class="fields">
 <p>
@@ -9,10 +9,11 @@
 </p>
 <p>
 
-<%= f.fields_for :answered_questions do |a| %>
-  <% a.label :question_id %>
-  <%= a.check_box :answer %>
-  <%= a.text_field :q_text %>
+<%= f.simple_fields_for :answered_questions do |ff| %>
+
+  <%= ff.check_box :answer %>
+  <%= ff.label ff.object.q_text%> 
+  
 <% end %>
 		 
 </p>
@@ -23,7 +24,7 @@
 	<h3> Niðurstaða: </h3>
 	<% @cat_id = (@user_personal_test_session.result.category_id).to_i %>
     <h2>þú skoraðir <%= @user_personal_test_session.result.score %> stig í flokknum <%= Category.find(@cat_id).name %>.</h2><br />
-    <b><p><%= Category.find(@cat_id).description %></p></b><br />
+    <b><p><%= simple_format(Category.find(@cat_id).description) %></p></b><br />
   
     <b>Meðferðir í þessum flokk</b><br />
     <% Category.find(@cat_id).treatments.each do |c| %> 

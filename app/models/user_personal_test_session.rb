@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UserPersonalTestSession < ActiveRecord::Base
   belongs_to :user
   belongs_to :personal_test

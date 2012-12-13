@@ -73,7 +73,7 @@ class UserPersonalTestSessionsController < ApplicationController
     
     respond_to do |format|      
       
-      if @user_personal_test_session.update_attributes(params[:user_personal_test_session]) #If saving the session was sucessful
+      if @user_personal_test_session.update_attributes(params[:user_personal_test_session]) #If saving the session was successful
       
           @user_personal_test_session.answered_questions.each { |q|  h[q.category_id] += q.q_value if q.answer == 1 } #loop through the answered questions
           

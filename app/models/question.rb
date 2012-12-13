@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Question < ActiveRecord::Base
   belongs_to :personal_test
   belongs_to :category, :foreign_key => :category_id

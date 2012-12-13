@@ -1,3 +1,4 @@
+# encoding: utf-8
 class PersonalTest < ActiveRecord::Base
   has_many :questions, :dependent => :destroy
   has_many :user_personal_test_sessions

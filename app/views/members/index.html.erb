@@ -15,7 +15,7 @@
 	  <th>Nafn</th>
 	  <th>Póstnúmer</th>
 	  <th>Meðferðir</th>
-	  <% if (current_user && (current_user.is_admin).to_i == 1) %>
+	  <% if (current_user && current_user.is_admin == 1) %>
 	    <th>Aðgerðir</th>
 	  <% end %> 
 	</tr> 

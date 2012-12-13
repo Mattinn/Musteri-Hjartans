@@ -1,3 +1,4 @@
+# encoding: utf-8
 class News < ActiveRecord::Base
   attr_accessible :author, :body, :title
   #authenticate :edit => :admin 

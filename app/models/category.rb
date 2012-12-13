@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Category < ActiveRecord::Base
   # Categories for treatments
   attr_accessible :name, :description
