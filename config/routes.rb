@@ -1,8 +1,5 @@
 Musteri::Application.routes.draw do
     
- 
-
-
   #The root is on top since its the most visited route (will be found quicker)  
   root :to => 'news#index'
   
@@ -23,24 +20,14 @@ Musteri::Application.routes.draw do
 
   resources :abouts
   
-  #match "registrations/:id/update" => "members#update"
-  #match "users/:id/update" => "members#update"
-  #match "users/update" => "members#update"
-  #match "registrations/update" => "members#update"
-  
   #Resources for users
   authenticated :user do
     root :to => 'members#welcome'
   end
   
-  
-  
   devise_for :users, :controllers => { :registrations => "registrations" }
-  
-   #devise_scope :user do
-     #post 'users/update' => 'members#update'
-   #end
-  
+
+
   resources :members, :except => [:create, :edit] do
     get 'welcome'
   end
@@ -66,25 +53,6 @@ Musteri::Application.routes.draw do
   #Custum routes
   match "users/:id/activate" => "members#activate", :as => "activate_user" #usage: activate_user_path(user)
   match "users/:id/deactivate" => "members#deactivate", :as => "deactivate_user" #usage: deactivate_user_path(user)
-  
-  
-  #match "members/:id/edit" => "users#edit", :as => "user"
-  #match "members/:id/update" => "registrations#update"#, :as => "user"
-
-  
-  #match "personal_tests/:id/calculate_result" => "personal_tests#calculate_result", :as => "calculate_result"
-
-  
-  #TRASH_BIN - Remove before handin !! 
-  #match "members/:id/welcome" => "members#welcome", :as => "welcome"
-  #match "members/:id/edit" => "registrations#edit", :as => "edit_user_registration"
-  #match "users/:id/edit" => "members#edit"#, :as => "edit_user_registration"
-  #match "users/:id/edit" => "registrations#edit" #, :as => "update_user"
-  #match  "members/:id/edit" => "registrations#update"#, :as => update_registration
-  #match  "members/:id/edit" => "registrations#edit"
-  #match "users/new" => "devise#sign_up", :as => "sign_up"
-  #match '/users/:id', :to => 'users#show', :as => :user
-
 
 
   # The priority is based upon order of creation:

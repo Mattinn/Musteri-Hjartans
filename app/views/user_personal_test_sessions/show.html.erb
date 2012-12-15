@@ -1,37 +1,29 @@
 <%= simple_form_for(@user_personal_test_session) do |f| %>
 
 <div class="fields">
-<p>
-  <b><%= @user_personal_test_session.personal_test.name %></b>
-</p>
-<p>
-  <b><%= simple_format(@user_personal_test_session.personal_test.description) %></b>
-</p>
-<p>
-
-<%= f.simple_fields_for :answered_questions do |ff| %>
-
-  <%= ff.check_box :answer %>
-  <%= ff.label ff.object.q_text %> 
+  <h3><%= @user_personal_test_session.personal_test.name %></h3>
   
-<% end %>
-		 
-</p>
+  <p><b><%= simple_format(@user_personal_test_session.personal_test.description) %></b></p>
 
+  <div class="fields" id="q_fields">
+    <%= f.simple_fields_for :answered_questions do |ff| %>
+      <p><%= ff.check_box :answer %>
+      <%= ff.label ff.object.q_text %></p> 
+    <% end %>
+  </div>
 </div>
 
 <p><% if @user_personal_test_session.result.category_id != nil %>
-	<h3> Niðurstaða: </h3>
 	<% @cat_id = (@user_personal_test_session.result.category_id).to_i %>
-    <h2>þú skoraðir <%= @user_personal_test_session.result.score %> stig í flokknum <%= Category.find(@cat_id).name %>.</h2><br />
+    <h3>Niðurstaða: þú ættir að kynna þér <%= Category.find(@cat_id).name %>.</h3>
     <b><p><%= simple_format(Category.find(@cat_id).description) %></p></b><br />
   
-    <b>Meðferðir í þessum flokk</b><br />
-    <% Category.find(@cat_id).treatments.each do |c| %> 
+    <p><b>Meðferðir sem við mælum með:</b></p>
+    <p><% Category.find(@cat_id).treatments.each do |c| %> 
 
-    <p><%= link_to c.name, treatment_path(c.id)  %><br /></p>
+    <%= link_to c.name, treatment_path(c.id)  %>
 
-    <% end %>
+    <% end %></p>
   
    <% end %>
 </p>
@@ -42,6 +34,5 @@
     </div>
   <% end %>
 <% end %>
-<p>
 
 <%= link_to 'Til baka', "new" %>

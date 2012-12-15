@@ -48,6 +48,19 @@ textarea /*Make all textareas have the right width for the displaying pages*/
   line-height: 17px;
 }
 
+#q_fields
+{
+  label 
+  {
+    display:inline;
+  }
+  
+ /* label:text
+  {
+    vertical-align:top;
+  } */
+}
+
 h1, h2, h3, h4, h5, h6
 {
   font-family: Arial;

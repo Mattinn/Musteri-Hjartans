@@ -8,18 +8,16 @@
   
   <br />
     
-  <p>Meðferðaraðilar sem bjóða uppá þessa meðferð</p><br />
-  
-  <% User.all.each do |user| %> 
-
-	<% user.treatments.each do |t| %>
-
-	  <% if t.id == @treatment.id && user.is_approved == 1 %> 
-		<%= link_to user.name, member_path(user.id)  %><br />
-
+  <p>Meðferðaraðilar sem bjóða uppá þessa meðferð:</p>
+  <div class="fields">
+    <% User.all.each do |user| %> 
+	  <% user.treatments.each do |t| %>
+	    <% if t.id == @treatment.id && user.is_approved == 1 %> 
+		  <p><%= link_to user.name, member_path(user.id)  %></p>
+	    <% end %>
 	  <% end %>
-	<% end %>
-  <% end %>
+    <% end %>
+  </div>
 
 <% if (current_user && (current_user.is_admin).to_i == 1) %>
 <%= link_to 'Breyta', edit_treatment_path(@treatment) %> |
