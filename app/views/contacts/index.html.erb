@@ -22,7 +22,7 @@
 	  <td></td>
 	  <td></td>
 	  <td>
-	    <% if (current_user && (current_user.is_admin).to_i == 0) %>
+	    <% if (current_user && current_user.is_admin == 1) %>
 	  	  <%= link_to 'Breyta', edit_contact_path(contact), :class => 'btn btn-mini' %> 
 	  	  <%= link_to 'Eyða', contact_path(contact), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
 	    <% end %>
@@ -33,6 +33,6 @@
 
 <br />
 
-<% if (current_user && (current_user.is_admin).to_i == 0) %>
+<% if (current_user && current_user.is_admin == 1) %>
   <%= link_to 'Bæta við', new_contact_path %>
 <% end %>
