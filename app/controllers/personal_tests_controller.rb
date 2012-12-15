@@ -49,7 +49,7 @@ class PersonalTestsController < ApplicationController
 
     respond_to do |format|
       if @personal_test.save
-        format.html { redirect_to @personal_test}
+        format.html { redirect_to "/personal_tests" }
         format.json { render json: @personal_test, status: :created, location: @personal_test }
       else
         format.html { render action: "new" }

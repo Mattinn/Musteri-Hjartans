@@ -1,10 +1,10 @@
 # encoding: utf-8
 class AboutsController < ApplicationController
- before_filter :check_is_admin?, :only => [:new, :create, :edit, :update, :destroy]
+ before_filter :check_is_admin?, :only => [:new, :create, :edit, :update, :destroy] #User needs to be admin to call these actions
   # GET /abouts
   # GET /abouts.json
   def index
-    @abouts = About.all(:order => "created_at DESC", :limit => 1)
+    @abouts = About.all(:order => "created_at DESC", :limit => 1) #There can be many "about us" but we only show the latest one
 
     respond_to do |format|
       format.html # index.html.erb

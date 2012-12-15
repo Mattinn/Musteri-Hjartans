@@ -16,7 +16,7 @@
   <% @contacts.each do |contact| %>
 	<tr>
 	  <td><%= contact.name %></td>
-	  <td><%= contact.email %></td>
+	  <td><%= mail_to contact.email %></td>
 	  <td><%= contact.phone %></td>
 	  <td></td>
 	  <td></td>

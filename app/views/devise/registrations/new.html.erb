@@ -4,41 +4,41 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label "Nafn:" %><br />
+    <%= f.label "Nafn:" %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label "Heimilsfang:" %><br />
+    <%= f.label "Heimilsfang:" %>
     <%= f.text_field :address %>
   </div>
 
   <div class="field">
-    <%= f.label "Símanúmer:" %><br />
+    <%= f.label "Símanúmer:" %>
     <%= f.text_field :phone %>
   </div>
 
   <div class="field">
-    <%= f.label "Póstnúmer:" %><br />
+    <%= f.label "Póstnúmer:" %>
     <%= f.text_field :postal %>
   </div>
 
   <div class="field">
-    <%= f.label "Netfang:" %><br />
+    <%= f.label "Netfang:" %>
     <%= f.text_field :email %>
   </div>
 
   <div class="field">
-	<%= f.label "Lykilorð:" %><br />
+	<%= f.label "Lykilorð:" %>
     <%= f.password_field :password %>
   </div>
 
   <div class="field">
-    <%= f.label "Lykilorð aftur:" %><br />
+    <%= f.label "Lykilorð aftur:" %>
     <%= f.password_field :password_confirmation %>
   </div>
   
-  <span class="help-block">Merktu við þær meðferðir sem þú tekur þú að þér:</span>
+  <span class="help-block">Hakaðu við þær meðferðir sem þú býður uppá:</span>
 
   	  <% Category.find(:all).each do |cat| %>
 	    <p><%= cat.name %></p>
@@ -52,8 +52,8 @@
 	  <%end%>
 
   <span class="help-block">
-    Ef þú tekur að þér meðferðir sem eru ekki á listanum eða vilt koma einhverju öðru á framfæri
-    getur þú tekið það fram hér. Stjórnandi síðunnar mun svo fara yfir upplýsingarnar ásamt umsókninni.
+    Ef það er eitthvað sem þú vilt koma á framfæri (t.d. meðferð sem vantar á síðuna) þá getur þú tekið það fram hér. 
+    Stjórnandi síðunnar mun svo fara yfir upplýsingarnar ásamt umsókninni.
   </span>
   
   <div class="field">
