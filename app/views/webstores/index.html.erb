@@ -5,7 +5,7 @@
     <tr> 
       <th>Vefverslun</th>
       <th>Vefslóð</th>
-	  <% if (current_user && (current_user.is_admin).to_i == 1) %><th>Aðgerðir</th><% end %> 
+	  <% if (current_user && current_user.is_admin == 1) %><th>Aðgerðir</th><% end %> 
 	</tr> 
   </thead> 
   <tbody>  
@@ -13,7 +13,7 @@
 	    <tr> 
 	      <td><%= link_to webstore.title, webstore_path(webstore) %></td>
 	      <td><%= link_to webstore.link, webstore.link %></td>
-	      <% if (current_user && (current_user.is_admin).to_i == 1) %>
+	      <% if (current_user && current_user.is_admin == 1) %>
 		  	  <td>
 		  	  	<%= link_to 'Breyta', edit_webstore_path(webstore), :class => 'btn btn-mini btn-action' %>
 		  	  	<%= link_to 'Eyða', webstore_path(webstore), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
