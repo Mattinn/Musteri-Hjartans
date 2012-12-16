@@ -13,7 +13,7 @@ class UserMailer < Devise::Mailer
     @address = user.address
     @postal = user.postal
     @message = user.user_message
-    mail to: "musterikaerleikans@gmail.com", subject: 'Nýr meðferðaraðili'
+    mail to: "musterihjartans@gmail.com", subject: 'Nýr meðferðaraðili'
     
     
   end
