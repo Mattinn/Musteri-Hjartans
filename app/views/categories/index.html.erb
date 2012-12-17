@@ -14,7 +14,7 @@
           <td><%= category.created_at %></td>
 	  	  <td>
 	  	  	<%= link_to 'Breyta', edit_category_path(category), :class => 'btn btn-mini' %> 
-	  	  	<%= link_to 'Eyða', category_path(category), :method => :delete, :confirm => 'Ertu viss?', :class => 'btn btn-mini btn-danger' %>
+	  	  	<%= link_to 'Eyða', category_path(category), :method => :delete, :confirm => 'Að eyða þessum flokk mun einnig eyða öllum þeim meðferðum sem í honum eru - ertu allveg viss um að þetta sé það sem þú vilt gera ? ', :class => 'btn btn-mini btn-danger' %>
 	  	  </td> 
 		</tr> 
 	  <% end %> 
