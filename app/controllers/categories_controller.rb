@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_filter :check_is_admin?, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :check_is_admin?
   #Returns a hash of all the categries available
   def list_all_catagories
     @cat_hash = {}

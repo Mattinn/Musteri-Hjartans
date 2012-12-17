@@ -128,7 +128,7 @@ class MembersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { redirect_to "/members?is_approved=0" }
       format.json { head :no_content }
     end
     
